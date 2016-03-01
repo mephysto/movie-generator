@@ -185,11 +185,12 @@ html{
   line-height: 1.5em;
   margin: 0 auto;
   position: relative;
+  transition: 200ms ease-out transform;
   &:hover{
     transform: translate(0,-1px);
   }
   &:active{
-
+    transform: translate(0,2px);
   }
 }
 

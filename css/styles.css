@@ -134,11 +134,16 @@ html {
   height: auto;
   line-height: 1.5em;
   margin: 0 auto;
-  position: relative; }
+  position: relative;
+  transition: 200ms ease-out transform; }
   .btn-generate:hover {
     -webkit-transform: translate(0, -1px);
         -ms-transform: translate(0, -1px);
             transform: translate(0, -1px); }
+  .btn-generate:active {
+    -webkit-transform: translate(0, 2px);
+        -ms-transform: translate(0, 2px);
+            transform: translate(0, 2px); }
 
 /* ==========================================================================
    Media Queries
