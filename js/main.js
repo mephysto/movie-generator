@@ -20,18 +20,18 @@
       state = "QUICKIE";
       b = generateQuickie();
     } else {
-      if (rollDice(0.5)){
-        b = generatePlotTwist(); // we haven't made these yet
+      if (rollDice(0.05)){
+        b = generatePlotTwist(); // we haven't made these yet. luck of the draw if you get this
       } else{
         b = generateNewMovieDefault();
       }
     }
     if (state !== "QUICKIE"){
-      if (rollDice(5)){
+      if (rollDice(10)){
         b += addThirdActProblem();
       }
     }
-    if (rollDice(5)){
+    if (rollDice(10)){
       b += addMusic();
     }
     if (rollDice(5)){
@@ -49,14 +49,16 @@
       "Alec Baldwin",
       "Andy Serkis in a Mocap suit",
       "Ben Affleck",
+      "Benedict Cumberbatch",
       "Bill Murray",
       "Channing Tatum and Jonah Hill",
       "Chewbacca",
-      "Christopher Lambert",
+      // "Christopher Lambert",
+      "Carrie Fisher",
       "Christopher Walken",
       "Danny Trejo",
       "David Hasselhoff",
-      "Dwayne Johnson",
+      "Dwayne 'The Rock' Johnson",
       "Eddie Murphy plays 10 characters, and he ",
       "Ellen Page",
       "everyone from the Expandables",
@@ -65,15 +67,22 @@
       "GROOT!",
       "Henry Rollins",
       "Ice Cube",
+      "Kevin Spacey",
+      "Neil deGrasse Tyson",
       "Jan-Michael Vincent",
       "Jessica Biel",
+      "Jennifer Lawrence",
       "Johnny Knoxville",
-      "Kate Beckinsale",
+      "John Malkovich",
+      "Jon Snow",
+      // "Kate Beckinsale",
+      "the Avengers",
       "Kevin James",
       "Kung Fury",
       "Macaulay Culkin",
       "Madonna",
       "Mark Hamill",
+      "Marie Curie",
       "Megan Fox",
       "Mel Gibson",
       "Michael J. Fox",
@@ -81,10 +90,45 @@
       "Sean Connery",
       "Shia LaBeouf",
       "The Count",
+      "Tom Hardy",
       "you, the audience",
       "Whoopi Goldberg"
     ];
 
+    var actions = [
+      // "has a nightmare",
+      "wakes up with no memory of what happened",
+      "does a Banksy",
+      "starts a podcast",
+      "hide a watch for a five long years",
+      "takes a day off",
+      "goes undercover",
+      "can’t go below 60mph",
+      "sings a heart wrenching power ballad",
+      "goes through a long training montage",
+      "busts chops",
+      "makes an unexpected friend",
+      "travels through time",
+      "becomes a superhero",
+      "gets bitten by an irradiated toad",
+      "learns karate",
+      "becomes a ballroom dancer",
+      "gets impregnated ",
+      "has brain surgery",
+      "plays a Game of Thrones",
+      "investigates a psych ward",
+      "returns from the dead",
+      // "comes to life",
+      "goes back to school",
+      "gets a job",
+      "becomes a pre-cog ",
+      "takes a dump",
+      "is the highest bidder on eBay",
+      "posts a letter",
+      "rocks out",
+      "moves in next door",
+      "signs up for cross fit"
+    ];
     var mcguffin = [
       "a stick",
       "magic coconuts",
@@ -95,10 +139,15 @@
       "a mouldy sandwich",
       "a duffel bag full of drugs",
       "a time travelling pool table",
-      "a gun",
+      "a golden gun",
       "Lego bricks",
       "an Apple Watch (that’s totally not a product placement)",
 
+      "a princess",
+      "plans for a giant space station",
+      "the cure for cancer",
+      "a crystal skull",
+      "a really old vintage wine",
       "a Bigger Blacker Dick™",
       "a carton of VB",
       "the Continuum Transfunctioner",
@@ -115,38 +164,13 @@
       "a suitcase full of money",
       "the Holy Grail",
       "the Infinity Stones",
+      "Netflix",
       "Leo's Oscar",
       "the President's Daughter",
       "a red stapler",
       "a rug that really ties the room together",
       "the Spice",
       "Unobtanium"
-    ];
-    var actions = [
-      "takes a day off",
-      "goes undercover",
-      "can’t go below 60mph",
-      "sings a heart wrenching power ballad",
-      "goes through a long training montage",
-      "busts chops",
-      "makes an unexpected friend",
-      "travels through time",
-      "becomes a superhero",
-      "gets bitten by an irradiated toad",
-      "learns karate",
-      "becomes a ballroom dancer",
-      "gets impregnated ",
-      "has brain surgery",
-      "investigates a psych ward",
-      "comes to life",
-      "goes back to school",
-      "gets a job",
-      "becomes a pre-cog ",
-      "takes a dump",
-      "is the highest bidder on eBay",
-      "posts a letter",
-      "rocks out",
-      "moves in next door",
     ];
     var badguy = [
 
@@ -179,6 +203,8 @@
       "Lex Luthor",
       "the Libyans",
       "Megatron",
+      "certain death",
+      "Shredder",
       "NAZIs",
       "a meteor",
       "a nuclear bomb",
@@ -196,7 +222,7 @@
       "a really angry ",
       "a happy version of "
     ];
-    var adjective = rollDice(10) ? "an animated " : ""; // play around with this one a bit more
+    var adjective = rollDice(10) ? "an animated version of " : ""; // play around with this one a bit more
     var action = rollDice(50) ? getRandomFromArray(actions) : "has";
 
     var guffinActions = [
@@ -204,8 +230,8 @@
       "steal",
       "protect",
       "defend",
-      "bring",
-      "win",
+      // "bring",
+      // "win",
       "transport"
     ];
 
@@ -302,26 +328,27 @@
       "we had to write out Jonah Hill's character",
       "there's this whole bit with Ewoks",
       "Chevy Chase ruins everything and the whole production gets shut down",
-      "Dan Harmon got Fired",
+      "Dan Harmon got fired",
       "we ran out of budget",
       "Superman wins the day, but destroys the city"
     ];
     var solution = [
-      "but then every character has their mind wiped and it’s like none of this ever happened.",
-      "then we realise the beginning of the movie was the ending and the ending is the beginning.",
+      "but then every character has their mind wiped and it’s like none of this ever happened",
+      "then we realise the beginning of the movie was the ending and the ending is the beginning",
 
-      "we set up the sequel with a vague ending.",
-      "it won’t matter if it flops because it’ll do well in China.",
-      "it ends with a heavy metal cover of the song from Titanic.",
-      "Dan Harmon does a rap battle, and all is good.",
+      "then again, we're not adhering to a Joseph Campbell storycircle anyway",
+      "we set up the sequel with a vague ending",
+      "it won’t matter if it flops because it’ll do well in China",
+      "it ends with a heavy metal cover of the song from Titanic",
+      "Dan Harmon does a sweet rap battle, and all is good",
       "we got the Mythbusters to help us explain that bit",
-      "then we zoom out and see it all took place in a snow globe",
+      "then we zoom out and see everything took place in a snow globe",
       "it was in his head all along",
       "at least we still have Donald Glover, so it's all good (or at least until next year)",
       "we'll have tons of lens flares",
       "at least we've retained merchandising rights"
     ];
-    var newText = " In the third act, " + getRandomFromArray(problem) + ". But " + getRandomFromArray(solution) + ".";
+    var newText = " In the 3rd act, " + getRandomFromArray(problem) + ". But " + getRandomFromArray(solution) + ".";
     return newText;
   }
 
@@ -334,12 +361,15 @@
       "Morgan Freeman's voice",
       "The Backstreet Boys",
       "Dethklok",
+      "Daft Punk",
+      "Stephen Hawking",
       "a french artist who does covers of David Bowie songs",
       "NWA",
       "John Williams",
       "Kanye West",
       "Randy Newman",
       "the Spice Girls",
+      "the Pet Shop Boys",
       "Wham!"
     ];
 
@@ -348,6 +378,7 @@
   }
   function addCameo(){
     var celebrity = [
+      "Nikola Tesla",
       "Han Solo",
       "Stan Lee",
       "a CGI version of Paul Walker"
@@ -358,10 +389,12 @@
 
   function addTooSoon(){
     var deadCelebrity = [
+      "Carl Sagan",
       "Christopher Lee",
       "David Bowie",
       "Leonard Nimoy",
       "Michael Jackson",
+      "Kurt Cobain",
       "Lemmy Kilmister",
       "Robin Williams"
     ];
