@@ -55,6 +55,7 @@
       "Eddie Murphy plays 10 characters, and he ",
       "Ellen Page",
       "everyone from the Expandables",
+      "the guys from The Flight of the Conchords",
       "Gary Busey",
       "GROOT!",
       "Henry Rollins",
@@ -80,8 +81,23 @@
     ];
 
     var mcguffin = [
+      "a stick",
+      "magic coconuts",
+      "a secret porn stash",
+      "an all powerful ring",
+      "a treasure chest",
+      "aviators",
+      "mouldy sandwich",
+      "drugs",
+      "time travelling pool table",
+      "a gun",
+      "Lego bricks",
+      "an Apple Watch that’s totally not a product placement",
+
       "a Bigger Blacker Dick™",
+      "a carton of VB",
       "the Continuum Transfunctioner",
+      "the City of London",
       "David Bowie's crotch",
       "the Flux Capacitor",
       "the future of mankind",
@@ -89,6 +105,7 @@
       "the Maltese Falcon",
       "a message to Obi-Wan",
       "a misplaced car",
+      "my marriage",
       "the Millenium Falcon",
       "a suitcase full of money",
       "the Holy Grail",
@@ -102,15 +119,41 @@
     ];
 
 
-
+    var actions = [
+      "goes undercover",
+      "can’t go below 60mph",
+      "sings a heart wrenching power ballad",
+      "goes through a long training montage",
+      "worlds collide",
+      "unexpectedly become close friends",
+      "time travel",
+      "becomes a superhero",
+      "gets bitten by an irradiated toad"
+    ];
     var badguy = [
+
+
+      "Kim Jong Un",
+      "North Korea",
+      "aliens",
+      "a father figure",
+      "John Travolta in drag",
+      "a young Betty White",
+      "Seal",
+      "a shady man sitting in a chair",
+      "reincarnated Elvis Presley",
+
       "going back in time to kill himself",
       "velociraptors with machine guns",
+      "an army of ducks",
       "Dinosaurs",
       "Donald Trump",
       "Gary Oldman",
       "Hitler",
       "Jareth",
+      "George Lucas",
+      "my ex-wife",
+      "my ex-girlfiend",
       "The Joker",
       "Kanye West",
       "Kylo Ren",
@@ -118,6 +161,7 @@
       "Lex Luthor",
       "the Libyans",
       "Megatron",
+      "NAZIs",
       "a meteor",
       "a nuclear bomb",
       "Steve Buscemi",
@@ -129,8 +173,14 @@
       "a white guy dressed like an Egyptian",
       "your mom"
     ];
-
+    var adjectives = [
+      "an animated ",
+      "a really angry ",
+      "a happy version of "
+    ];
     var adjective = rollDice(10) ? "an animated " : ""; // play around with this one a bit more
+    
+    // var badguymaybe = rollDice(10) ? "falling in the hands of " : ""; // play around with this one a bit more
 
     var newText = "It's a movie where " + adjective + getRandomFromArray(actor) + " has to save " + getRandomFromArray(mcguffin) + " from " + getRandomFromArray(badguy) + ".";
     // $textEl.text(newText);
@@ -139,32 +189,51 @@
 
   function generateQuickie(){
     var genre = [
+      "version where everyone are anthropomorphic animals",
       "arthouse",
       "comedy",
-      "CGI",
+      "animated",
       "Disney",
       "European",
       "extremely violent",
+      "family-friendly",
       "gender bender",
+      "German scheisse",
       "gritty",
+      "high school",
       "horror",
       "musical",
-      "noir",
+      "kung-fu",
+      "film-noir",
+      "snuff piece",
+      "period piece",
+      "porn",
+      "quirky indie",
+      "space",
       "sexy",
+      "vampire",
       "western",
       "zombie"
     ];
 
     var oldmovie = [
+      "50 Shades of Grey",
+      "Scarface",
+      "the upcoming US presidential elections",
+      "the Care Bears",
+      "Scooby Doo",
+      "Karate Kid",
       "Alice in Wonderland",
       "Captain Planet",
       "The Fast and the Furious",
       "Ghostbusters",
       "Jurassic Park",
       "Magic Schoolbus",
+      "Robocop",
       "the Oscars",
       "Schindlers List",
-      "Transformers"
+      "Transformers",
+      "World of Warcraft"
     ];
 
 
@@ -192,6 +261,11 @@
       "Superman wins the day, but destroys the city"
     ];
     var solution = [
+
+      "we set up the sequel with a vague ending.",
+      "it won’t matter if it flops because it’ll do well in China.",
+      "it ends with a heavy metal cover of the song from Titanic.",
+
       "then we zoom out and see it all took place in a snow globe",
       "it was in his head all along",
       "at least we still have Donald Glover, so it's all good (or at least until next year)",
@@ -204,6 +278,10 @@
 
   function addMusic(){
     var composer = [
+      "Huey Lewis and the News",
+      "Kenny Loggins",
+      "a mellow cover of Eye of the Tiger",
+      "whatever the kids are listening to these days.",
       "Morgan Freeman's voice",
       "The Backstreet Boys",
       "Dethklok",
