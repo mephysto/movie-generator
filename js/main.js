@@ -39,7 +39,7 @@
       "Ellen Page",
       "everyone from the Expandables",
       "Gary Busey",
-      "GROOT!"
+      "GROOT!",
       "Henry Rollins",
       "Ice Cube",
       "Jan-Michael Vincent",
@@ -64,14 +64,14 @@
     ];
 
     var mcguffin = [
-      "the Continuum Transfunctioner"
-      "David Bowie's crotch"
+      "the Continuum Transfunctioner",
+      "David Bowie's crotch",
       "a disc containing every undercover agent in the world",
       "the Maltese Falcon",
       "a misplaced car",
       "a suitcase full of money",
       "the Holy Grail",
-      "the Infinity Stones"
+      "the Infinity Stones",
       "a red stapler",
       "a rug that really ties the room together",
       "the President's Daughter",
@@ -101,7 +101,7 @@
     var genre = [
 
       "CGI",
-      "gender bender"
+      "gender bender",
       "gritty",
       "noir",
       "sexy",
@@ -119,6 +119,6 @@
 
   generateNewMovie();
 
-  $('.btn-generate').click(generateNewMovie);
+  $('.btn-generate').click(function(e){e.preventDefault();generateNewMovie();});
 
 })();
