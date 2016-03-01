@@ -63,26 +63,27 @@
       "Jessica Biel",
       "Johnny Knoxville",
       "Kate Beckinsale",
-      "Keven James",
+      "Kevin James",
       "Kung Fury",
       "Macaulay Culkin",
       "Madonna",
       "Mark Hamill",
       "Megan Fox",
-      "Megatron",
       "Mel Gibson",
       "Michael J. Fox",
-      "Morgan Freeman's voice",
       "Optimus Prime",
       "Sean Connery",
       "Shia LaBeouf",
       "The Count",
+      "you, the audience",
       "Whoopi Goldberg"
     ];
 
     var mcguffin = [
+      "a Bigger Blacker Dick™",
       "the Continuum Transfunctioner",
       "David Bowie's crotch",
+      "the Flux Capacitor",
       "the future of mankind",
       "a disc containing every undercover agent in the world",
       "the Maltese Falcon",
@@ -104,6 +105,7 @@
 
     var badguy = [
       "going back in time to kill himself",
+      "velociraptors with machine guns",
       "Dinosaurs",
       "Donald Trump",
       "Gary Oldman",
@@ -114,6 +116,8 @@
       "Kylo Ren",
       "The Kardashians",
       "Lex Luthor",
+      "the Libyans",
+      "Megatron",
       "a meteor",
       "a nuclear bomb",
       "Steve Buscemi",
@@ -194,19 +198,20 @@
       "we'll have tons of lens flares",
       "at least we've retained merchandising rights"
     ];
-    var newText = "In the third act, " + getRandomFromArray(problem) + ". But " + getRandomFromArray(solution) + ".";
+    var newText = " In the third act, " + getRandomFromArray(problem) + ". But " + getRandomFromArray(solution) + ".";
     return newText;
   }
 
   function addMusic(){
     var composer = [
+      "Morgan Freeman's voice",
       "The Backstreet Boys",
       "Dethklok",
       "a french artist who does covers of David Bowie songs",
       "NWA",
       "John Williams",
       "Kanye West",
-      "Randy Neuman",
+      "Randy Newman",
       "the Spice Girls",
       "Wham!"
     ];
