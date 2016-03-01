@@ -15,7 +15,9 @@
 
   function generateNewMovie(){
     var b;
-    if (rollDice(5)){
+    var state;
+    if (rollDice(15)){
+      state = "QUICKIE";
       b = generateQuickie();
     } else {
       if (rollDice(0.5)){
@@ -24,8 +26,10 @@
         b = generateNewMovieDefault();
       }
     }
-    if (rollDice(5)){
-      b += addThirdActProblem();
+    if (state !== "QUICKIE"){
+      if (rollDice(5)){
+        b += addThirdActProblem();
+      }
     }
     if (rollDice(5)){
       b += addMusic();
@@ -45,6 +49,7 @@
       "Alec Baldwin",
       "Andy Serkis in a Mocap suit",
       "Ben Affleck",
+      "Bill Murray",
       "Channing Tatum and Jonah Hill",
       "Chewbacca",
       "Christopher Lambert",
@@ -86,13 +91,13 @@
       "a secret porn stash",
       "an all powerful ring",
       "a treasure chest",
-      "aviators",
-      "mouldy sandwich",
-      "drugs",
-      "time travelling pool table",
+      "a pair of aviators",
+      "a mouldy sandwich",
+      "a duffel bag full of drugs",
+      "a time travelling pool table",
       "a gun",
       "Lego bricks",
-      "an Apple Watch that’s totally not a product placement",
+      "an Apple Watch (that’s totally not a product placement)",
 
       "a Bigger Blacker Dick™",
       "a carton of VB",
@@ -120,6 +125,7 @@
 
 
     var actions = [
+      "takes a day off",
       "goes undercover",
       "can’t go below 60mph",
       "sings a heart wrenching power ballad",
@@ -217,16 +223,26 @@
     ];
 
     var oldmovie = [
+      "Taylor Swift’s latest album",
+      "the most popular video on Youtube today",
+      "the 1964 Olympic Games",
+      "of any original animated Disney movie",
+      "whatever the next story on the news is",
+      "Steve Jobs life story",
+
+      "Michael Jackson's life story",
       "50 Shades of Grey",
       "Scarface",
       "the upcoming US presidential elections",
       "the Care Bears",
       "Scooby Doo",
       "Karate Kid",
+      "Twins",
       "Alice in Wonderland",
       "Captain Planet",
       "The Fast and the Furious",
       "Ghostbusters",
+      "The Goonies",
       "Jurassic Park",
       "Magic Schoolbus",
       "Robocop",
@@ -255,12 +271,17 @@
   function addThirdActProblem(){
 
     var problem = [
+      "we’ve already written ourselves into a corner and the movie is ruined.",
+      "we pray that everyone has left the cinema already.",
+
       "there's this whole bit with Ewoks",
       "Chevy Chase ruins everything and the whole production gets shut down",
       "Dan Harmon got Fired",
       "Superman wins the day, but destroys the city"
     ];
     var solution = [
+      "but then every character has their mind wiped and it’s like none of this ever happened.",
+      "then we realise the beginning of the movie was the ending and the ending is the beginning.",
 
       "we set up the sequel with a vague ending.",
       "it won’t matter if it flops because it’ll do well in China.",
@@ -280,7 +301,7 @@
     var composer = [
       "Huey Lewis and the News",
       "Kenny Loggins",
-      "a mellow cover of Eye of the Tiger",
+      // "a mellow cover of Eye of the Tiger",
       "whatever the kids are listening to these days.",
       "Morgan Freeman's voice",
       "The Backstreet Boys",
@@ -312,6 +333,7 @@
       "Christopher Lee",
       "David Bowie",
       "Leonard Nimoy",
+      "Michael Jackson",
       "Lemmy Kilmister",
       "Robin Williams"
     ];
