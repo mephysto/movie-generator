@@ -175,7 +175,7 @@
       "Randy Neuman",
       "Wham!",
       "the Spice Girls",
-      "a french artist who does covers of David Bowie songs"
+      "a french artist who does covers of David Bowie songs",
       "The Backstreet Boys"
     ];
 
