@@ -130,11 +130,25 @@
       "can’t go below 60mph",
       "sings a heart wrenching power ballad",
       "goes through a long training montage",
-      "worlds collide",
-      "unexpectedly become close friends",
-      "time travel",
+      "busts chops",
+      "makes an unexpected friend",
+      "time travels",
       "becomes a superhero",
-      "gets bitten by an irradiated toad"
+      "gets bitten by an irradiated toad",
+      "learns karate",
+      "becomes a ballroom dancer",
+      "gets impregnated ",
+      "has brain surgery",
+      "investigates a psych ward",
+      "comes to life",
+      "goes back to school",
+      "gets a job",
+      "becomes a pre-cog ",
+      "takes a dump",
+      "is the highest bidder on eBay",
+      "posts a letter",
+      "rocks out",
+      "moves in next door",
     ];
     var badguy = [
 
@@ -185,10 +199,11 @@
       "a happy version of "
     ];
     var adjective = rollDice(10) ? "an animated " : ""; // play around with this one a bit more
-    
+    var action = rollDice(50) ? getRandomFromArray(actions) : "has";
+
     // var badguymaybe = rollDice(10) ? "falling in the hands of " : ""; // play around with this one a bit more
 
-    var newText = "It's a movie where " + adjective + getRandomFromArray(actor) + " has to save " + getRandomFromArray(mcguffin) + " from " + getRandomFromArray(badguy) + ".";
+    var newText = "It's a movie where " + adjective + getRandomFromArray(actor) + " " + action + " to save " + getRandomFromArray(mcguffin) + " from " + getRandomFromArray(badguy) + ".";
     // $textEl.text(newText);
     return newText;
   }
@@ -274,9 +289,11 @@
       "we’ve already written ourselves into a corner and the movie is ruined.",
       "we pray that everyone has left the cinema already.",
 
+      "we had to write out Jonah Hill's character",
       "there's this whole bit with Ewoks",
       "Chevy Chase ruins everything and the whole production gets shut down",
       "Dan Harmon got Fired",
+      "we ran out of budget",
       "Superman wins the day, but destroys the city"
     ];
     var solution = [
@@ -287,6 +304,7 @@
       "it won’t matter if it flops because it’ll do well in China.",
       "it ends with a heavy metal cover of the song from Titanic.",
 
+      "we got the Mythbusters to help us explain that",
       "then we zoom out and see it all took place in a snow globe",
       "it was in his head all along",
       "at least we still have Donald Glover, so it's all good (or at least until next year)",
