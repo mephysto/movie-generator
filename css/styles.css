@@ -46,20 +46,21 @@ textarea {
    Author: Jonathan Verrecchia - verekia.com/initializr/responsive-template
    ========================================================================== */
 body {
-  font: 16px/26px Helvetica, Helvetica Neue, Arial; }
+  font-size: 1.4em;
+  font-family: 'Roboto', "Helvetica Neue", Helvetica, Arial, sans-serif; }
 
 .wrapper {
   width: 90%;
   margin: 0 5%; }
 
 /* ===================
-    ALL: Orange Theme
+  ALL: Orange Theme
    =================== */
 .title {
   color: black; }
 
 /* ==============
-    MOBILE: Menu
+  MOBILE: Menu
    ============== */
 nav ul {
   margin: 0;
@@ -83,7 +84,7 @@ nav a:hover {
   text-decoration: underline; }
 
 /* ==============
-    MOBILE: Main
+  MOBILE: Main
    ============== */
 .main {
   padding: 30px 0; }
@@ -100,7 +101,7 @@ nav a:hover {
   padding: 20px 0; }
 
 /* ===============
-    ALL: IE Fixes
+  ALL: IE Fixes
    =============== */
 .ie7 .title {
   padding-top: 20px; }
@@ -108,12 +109,43 @@ nav a:hover {
 /* ==========================================================================
    Author's custom styles
    ========================================================================== */
+html {
+  font-size: 10px;
+  font-family: 'Roboto', "Helvetica Neue", Helvetica, Arial, sans-serif; }
+
+.movie-text {
+  min-height: 100px; }
+  .movie-text h2 {
+    text-align: center;
+    text-transform: uppercase; }
+  .movie-text p {
+    text-align: center; }
+
+.btn-generate {
+  display: block;
+  background: black;
+  width: 500px;
+  height: 200px;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 4em;
+  height: auto;
+  line-height: 1.5em;
+  margin: 0 auto;
+  position: relative; }
+  .btn-generate:hover {
+    -webkit-transform: translate(0, -1px);
+        -ms-transform: translate(0, -1px);
+            transform: translate(0, -1px); }
+
 /* ==========================================================================
    Media Queries
    ========================================================================== */
 @media only screen and (min-width: 480px) {
   /* ====================
-    INTERMEDIATE: Menu
+  INTERMEDIATE: Menu
    ==================== */
   nav a {
     float: left;
@@ -126,7 +158,7 @@ nav a:hover {
   nav li:last-child a {
     margin-right: 0; }
   /* ========================
-    INTERMEDIATE: IE Fixes
+  INTERMEDIATE: IE Fixes
    ======================== */
   nav ul li {
     display: inline; }
@@ -135,32 +167,15 @@ nav a:hover {
 
 @media only screen and (min-width: 768px) {
   /* ====================
-    WIDE: CSS3 Effects
+  WIDE: CSS3 Effects
    ==================== */
   .header-container,
   .main aside {
-    box-shadow: 0 5px 10px #aaa; }
-  /* ============
-    WIDE: Menu
-   ============ */
-  .title {
-    float: left; }
-  nav {
-    float: right;
-    width: 38%; }
-  /* ============
-    WIDE: Main
-   ============ */
-  .main article {
-    float: left;
-    width: 57%; }
-  .main aside {
-    float: right;
-    width: 28%; } }
+    box-shadow: 0 5px 10px #aaa; } }
 
 @media only screen and (min-width: 1140px) {
   /* ===============
-    Maximal Width
+  Maximal Width
    =============== */
   .wrapper {
     width: 1026px;
