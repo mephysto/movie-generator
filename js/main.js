@@ -122,8 +122,6 @@
       "the Spice",
       "Unobtanium"
     ];
-
-
     var actions = [
       "takes a day off",
       "goes undercover",
@@ -132,7 +130,7 @@
       "goes through a long training montage",
       "busts chops",
       "makes an unexpected friend",
-      "time travels",
+      "travels through time",
       "becomes a superhero",
       "gets bitten by an irradiated toad",
       "learns karate",
@@ -201,9 +199,21 @@
     var adjective = rollDice(10) ? "an animated " : ""; // play around with this one a bit more
     var action = rollDice(50) ? getRandomFromArray(actions) : "has";
 
+    var guffinActions = [
+      "save",
+      "steal",
+      "protect",
+      "defend",
+      "bring",
+      "win",
+      "transport"
+    ];
+
+    var guffinAction = getRandomFromArray(guffinActions);
+
     // var badguymaybe = rollDice(10) ? "falling in the hands of " : ""; // play around with this one a bit more
 
-    var newText = "It's a movie where " + adjective + getRandomFromArray(actor) + " " + action + " to save " + getRandomFromArray(mcguffin) + " from " + getRandomFromArray(badguy) + ".";
+    var newText = "It's a movie where " + adjective + getRandomFromArray(actor) + " " + action + " to " + guffinAction + " " + getRandomFromArray(mcguffin) + " from " + getRandomFromArray(badguy) + ".";
     // $textEl.text(newText);
     return newText;
   }
@@ -303,8 +313,8 @@
       "we set up the sequel with a vague ending.",
       "it won’t matter if it flops because it’ll do well in China.",
       "it ends with a heavy metal cover of the song from Titanic.",
-
-      "we got the Mythbusters to help us explain that",
+      "Dan Harmon does a rap battle, and all is good.",
+      "we got the Mythbusters to help us explain that bit",
       "then we zoom out and see it all took place in a snow globe",
       "it was in his head all along",
       "at least we still have Donald Glover, so it's all good (or at least until next year)",
