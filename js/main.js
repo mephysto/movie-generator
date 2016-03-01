@@ -18,16 +18,14 @@
     if (rollDice(5)){
       b = generateQuickie();
     } else {
-      if (rollDice(20)){
-        b = generateThirdActProblem();
+      if (rollDice(0.5)){
+        b = generatePlotTwist(); // we haven't made these yet
       } else{
-        if (rollDice(0.5)){
-          b = generatePlotTwist(); // we haven't made these yet
-        } else{
-          b = generateNewMovieDefault();
-        }
         b = generateNewMovieDefault();
       }
+    }
+    if (rollDice(5)){
+      b += addThirdActProblem();
     }
     if (rollDice(5)){
       b += addMusic();
@@ -42,6 +40,7 @@
   }
   function generateNewMovieDefault(){
     var actor = [
+      "Abraham Lincoln",
       "Adam Sandler",
       "Alec Baldwin",
       "Andy Serkis in a Mocap suit",
@@ -89,6 +88,7 @@
       "the Maltese Falcon",
       "a message to Obi-Wan",
       "a misplaced car",
+      "the Millenium Falcon",
       "a suitcase full of money",
       "the Holy Grail",
       "the Infinity Stones",
@@ -100,41 +100,66 @@
       "Unobtanium"
     ];
 
+
+
     var badguy = [
       "going back in time to kill himself",
       "Dinosaurs",
       "Donald Trump",
+      "Gary Oldman",
       "Hitler",
       "Jareth",
+      "The Joker",
       "Kanye West",
+      "Kylo Ren",
       "The Kardashians",
       "Lex Luthor",
+      "a meteor",
+      "a nuclear bomb",
+      "Steve Buscemi",
       "The Matrix",
-      "The Vikings"
+      "Team Rocket",
+      "Teletubbies",
+      "toxic gas",
+      "The Vikings",
+      "a white guy dressed like an Egyptian",
+      "your mom"
     ];
 
-    var newText = "It's a movie where " + getRandomFromArray(actor) + " has to save " + getRandomFromArray(mcguffin) + " from " + getRandomFromArray(badguy) + ".";
+    var adjective = rollDice(10) ? "an animated " : ""; // play around with this one a bit more
+
+    var newText = "It's a movie where " + adjective + getRandomFromArray(actor) + " has to save " + getRandomFromArray(mcguffin) + " from " + getRandomFromArray(badguy) + ".";
     // $textEl.text(newText);
     return newText;
   }
 
   function generateQuickie(){
     var genre = [
+      "arthouse",
+      "comedy",
       "CGI",
-      "zombie",
+      "Disney",
+      "European",
+      "extremely violent",
       "gender bender",
       "gritty",
+      "horror",
+      "musical",
       "noir",
       "sexy",
-      "western"
+      "western",
+      "zombie"
     ];
 
     var oldmovie = [
       "Alice in Wonderland",
       "Captain Planet",
       "The Fast and the Furious",
+      "Ghostbusters",
+      "Jurassic Park",
       "Magic Schoolbus",
       "the Oscars",
+      "Schindlers List",
       "Transformers"
     ];
 
@@ -145,10 +170,16 @@
   }
 
   function generatePlotTwist(){
+    var actor = ["<actor>"];
+
+    var profession = ["<mundane profession"];
+
+    var adjective = ["<adjective>"];
+
     var newText = "<actor> plays/work in <mundane profession>, but in a <adjective> plot twist, he becomes <something ridiculous>";
     return newText;
   }
-  function generateThirdActProblem(){
+  function addThirdActProblem(){
 
     var problem = [
       "there's this whole bit with Ewoks",
@@ -169,14 +200,15 @@
 
   function addMusic(){
     var composer = [
-      "NWA",
-      "Kanye West",
-      "John Williams",
-      "Randy Neuman",
-      "Wham!",
-      "the Spice Girls",
+      "The Backstreet Boys",
+      "Dethklok",
       "a french artist who does covers of David Bowie songs",
-      "The Backstreet Boys"
+      "NWA",
+      "John Williams",
+      "Kanye West",
+      "Randy Neuman",
+      "the Spice Girls",
+      "Wham!"
     ];
 
     var newText = " With music by " + getRandomFromArray(composer) + ".";
@@ -184,6 +216,7 @@
   }
   function addCameo(){
     var celebrity = [
+      "Han Solo",
       "Stan Lee",
       "a CGI version of Paul Walker"
     ];
