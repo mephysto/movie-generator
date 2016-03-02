@@ -5,7 +5,7 @@
 
   var $textEl = $('#movie-text');
 
-  function rollDice(chance){
+  function rollDice(chance, targetFunction){
     return (chance > Math.random()*100);
   }
 
@@ -14,33 +14,33 @@
   }
 
   function generateNewMovie(){
-    var b;
+    var movieText;
     var state;
     if (rollDice(15)){
       state = "QUICKIE";
-      b = generateQuickie();
+      movieText = generateQuickie();
     } else {
       if (rollDice(0.05)){
-        b = generatePlotTwist(); // we haven't made these yet. luck of the draw if you get this
+        movieText = generatePlotTwist(); // we haven't made these yet. luck of the draw if you get this
       } else{
-        b = generateNewMovieDefault();
+        movieText = generateNewMovieDefault();
       }
-    }
-    if (state !== "QUICKIE"){
+      // if !quickie, we can add this suffix
       if (rollDice(10)){
-        b += addThirdActProblem();
+        movieText += addThirdActProblem();
       }
     }
+    // suffixes
     if (rollDice(10)){
-      b += addMusic();
+      movieText += addMusic();
     }
     if (rollDice(5)){
-      b += addCameo();
+      movieText += addCameo();
     }
     if (rollDice(5)){
-      b += addTooSoon();
+      movieText += addTooSoon();
     }
-    $textEl.text(b);
+    $textEl.text(movieText);
   }
   function generateNewMovieDefault(){
     var actor = [

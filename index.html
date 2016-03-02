@@ -1,9 +1,9 @@
 <!doctype html>
-<html class="no-js" lang="">
+<html class="no-js" lang="en-AU">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title></title>
+    <title>Your new movie is...</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -13,7 +13,23 @@
     <script src="js/vendor/modernizr-2.8.3.min.js"></script>
   </head>
   <body>
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '165861533797333',
+      xfbml      : true,
+      version    : 'v2.5'
+    });
+  };
 
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
     <div class="header-container">
       <header class="wrapper clearfix">
         <h1 class="title">Shit Movie Generator</h1>
@@ -30,9 +46,9 @@
 
         <article>
           <section>
-            <p>Thinking about opening a trendy hipster trash bar with your buddies?</p>
+            <p>Thinking about making a new movie?</p>
             <p>Is it gonna be heaps mad and different and cool?  </p>
-            <p>Use our generator to make sure you get that broadsheet article written about you bro.</p>
+            <p>Use our generator to break the story, bro.</p>
             <a href="new.html" class="btn btn-default">Generate</a>
           </section>
         </article>
@@ -42,6 +58,20 @@
 
     <div class="footer-container">
       <footer class="wrapper">
+      <div
+  class="fb-like"
+  data-share="true"
+  data-width="450"
+  data-show-faces="true">
+</div>
+        <div itemscope itemtype="http://schema.org/Person">
+          My name is <span itemprop="name">Maurice Melchers</span> 
+          <span itemprop="jobTitle">(Front End Web Developer)</span><br>
+          <div itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+              I live in <span itemprop="addressLocality">Perth</span>, 
+              <span itemprop="addressRegion">WA</span>
+          </div>
+        </div>
         <p>I retain all merchandise rights for any movie you make based on this generator</p>
       </footer>
     </div>
@@ -50,5 +80,15 @@
     <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
 
     <script src="js/main.js"></script>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-74573507-1', 'auto');
+      ga('send', 'pageview');
+
+    </script>
   </body>
 </html>
