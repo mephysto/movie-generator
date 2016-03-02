@@ -51,225 +51,6 @@ textarea {
   padding: 0.2em 0;
 }
 
-
-/* ===== Initializr Styles ==================================================
-   Author: Jonathan Verrecchia - verekia.com/initializr/responsive-template
-   ========================================================================== */
-
-body {
-  font-size: 1.4em;
-  font-family: 'Roboto', "Helvetica Neue", Helvetica, Arial, sans-serif;
-}
-
-.wrapper {
-  width: 90%;
-  margin: 0 5%;
-}
-
-/* ===================
-  ALL: Orange Theme
-   =================== */
-
-.header-container {
-  // border-bottom: 20px solid #e44d26;
-}
-
-.footer-container,
-.main aside {
-  // border-top: 20px solid #e44d26;
-}
-
-.header-container,
-.footer-container,
-.main aside {
-  // background: #f16529;
-}
-
-.title {
-  color: black;
-}
-
-/* ==============
-  MOBILE: Menu
-   ============== */
-
-nav ul {
-  margin: 0;
-  padding: 0;
-  list-style-type: none;
-}
-
-nav a {
-  display: block;
-  margin-bottom: 10px;
-  padding: 15px 0;
-
-  text-align: center;
-  text-decoration: none;
-  font-weight: bold;
-
-  color: black;
-  // background: #e44d26;
-}
-
-nav a:hover,
-nav a:visited {
-  color: black;
-}
-
-nav a:hover {
-  text-decoration: underline;
-}
-
-/* ==============
-  MOBILE: Main
-   ============== */
-
-.main {
-  padding: 30px 0;
-}
-
-.main article h1 {
-  font-size: 2em;
-}
-
-.main aside {
-  color: black;
-  padding: 0px 5% 10px;
-}
-
-.footer-container footer {
-  color: white;
-  padding: 20px 0;
-}
-
-/* ===============
-  ALL: IE Fixes
-   =============== */
-
-.ie7 .title {
-  padding-top: 20px;
-}
-
-/* ==========================================================================
-   Author's custom styles
-   ========================================================================== */
-
-html{
-  font-size: 10px;
-  font-family: 'Roboto', "Helvetica Neue", Helvetica, Arial, sans-serif;
-}
-
-.movie-text{
-  min-height: 100px;
-  h2{
-    text-align: center;
-    text-transform: uppercase;
-  }
-  p{
-    text-align: center;
-  }
-}
-
-.btn-generate{
-  display: block;
-  background: black;
-  width: 500px;
-  height: 200px;
-  color: white;
-  text-align: center;
-  text-decoration: none;
-  text-transform: uppercase;
-  font-size: 4em;
-  height: auto;
-  line-height: 1.5em;
-  margin: 0 auto;
-  position: relative;
-  transition: 200ms ease-out transform;
-  &:hover{
-    transform: translate(0,-1px);
-  }
-  &:active{
-    transform: translate(0,2px);
-  }
-}
-
-
-
-
-
-
-
-
-
-
-
-/* ==========================================================================
-   Media Queries
-   ========================================================================== */
-
-@media only screen and (min-width: 480px) {
-
-/* ====================
-  INTERMEDIATE: Menu
-   ==================== */
-
-  nav a {
-    float: left;
-    width: 27%;
-    margin: 0 1.7%;
-    padding: 25px 2%;
-    margin-bottom: 0;
-  }
-
-  nav li:first-child a {
-    margin-left: 0;
-  }
-
-  nav li:last-child a {
-    margin-right: 0;
-  }
-
-/* ========================
-  INTERMEDIATE: IE Fixes
-   ======================== */
-
-  nav ul li {
-    display: inline;
-  }
-
-  .oldie nav a {
-    margin: 0 0.7%;
-  }
-}
-
-@media only screen and (min-width: 768px) {
-
-/* ====================
-  WIDE: CSS3 Effects
-   ==================== */
-
-  .header-container,
-  .main aside {
-    -webkit-box-shadow: 0 5px 10px #aaa;
-       -moz-box-shadow: 0 5px 10px #aaa;
-        box-shadow: 0 5px 10px #aaa;
-  }
-
-}
-
-@media only screen and (min-width: 1140px) {
-
-/* ===============
-  Maximal Width
-   =============== */
-
-  .wrapper {
-    width: 1026px; /* 1140px - 10% for margins */
-    margin: 0 auto;
-  }
-}
-
 /* ==========================================================================
    Helper classes
    ========================================================================== */
@@ -318,66 +99,199 @@ html{
   *zoom: 1;
 }
 
+
+
+.wrapper {
+}
+
 /* ==========================================================================
-   Print styles
+   Author's custom styles
    ========================================================================== */
 
-@media print {
-  *,
-  *:before,
-  *:after {
-    background: transparent !important;
-    color: #000 !important;
-    box-shadow: none !important;
-    text-shadow: none !important;
+// level 1 to 5
+@mixin depthShadow($level) {
+  transition: all 200ms ease-in-out;
+  @if ($level == 1) {
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  } @else if ($level == 2){
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  } @else if ($level == 4){
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  } @else if ($level == 5){
+    box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+  // } @else if ($level == 3){
+  //  LEVEL 3 IS HOVER
+  } @else{
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  } 
+}
+
+
+$brand-main: #ec6350;
+
+html{
+  font-size: 10px;
+  font-family: 'Roboto', "Helvetica Neue", Helvetica, Arial, sans-serif;
+  background-color: $brand-main;
+}
+.wrapper{
+
+  width: 90%;
+  margin: 0 5%;
+  @media only screen and (min-width: 480px) {
+  }
+  @media only screen and (min-width: 768px) {
+  }
+  @media only screen and (min-width: 1140px) {
+    width: 1026px; /* 1140px - 10% for margins */
+    margin: 0 auto;
+  }
+}
+.header-container{
+  background-color: $brand-main;
+  h1{
+    text-transform: uppercase;
+  }
+  nav{
+    background-color: #000000;
+    ul{
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+    }
+    li{
+
+    }
+    a{
+      color: #ffffff;
+      padding: 10px 20px;
+      display: block;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
   }
 
-  a,
-  a:visited {
-    text-decoration: underline;
+  @media only screen and (min-width: 480px) {
   }
-
-  a[href]:after {
-    content: " (" attr(href) ")";
+  @media only screen and (min-width: 768px) {
+    box-shadow: 0 5px 10px #aaa;
   }
-
-  abbr[title]:after {
-    content: " (" attr(title) ")";
+  @media only screen and (min-width: 1140px) {
   }
+}
 
-  a[href^="#"]:after,
-  a[href^="javascript:"]:after {
-    content: "";
+.movie-text{
+  min-height: 100px;
+  h2{
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 4em;
   }
-
-  pre,
-  blockquote {
-    border: 1px solid #999;
-    page-break-inside: avoid;
+  p{
+    text-align: center;
   }
+  blockquote{
+    text-align: center;
+    position: relative;
+    font-size: 2em;
+    font-style: italic;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 15px 30px;
+    margin-top: 1em;
+    margin-bottom: 1em;
 
-  thead {
-    display: table-header-group;
+    display: flex;
+    min-height: 225px;
+    justify-content: center;
+    flex-direction: column;
+
+    &:before{
+      content:"“";
+      top: 0;
+      left: 0;
+      position: absolute;
+      opacity: 0.25;
+      font-weight: 600;
+      font-size: 5em;
+      margin: 0;
+      padding: 0;
+      line-height: 1em;
+      font-family: serif;
+      font-style: normal;
+    }
   }
+}
+.movie-text--wrapper{
+  min-height: 150px;
+}
 
-  tr,
-  img {
-    page-break-inside: avoid;
+.btn-default{
+  border: none;
+  display: block;
+  background: black;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  height: auto;
+  line-height: 1.5em;
+  margin: 0 auto;
+  position: relative;
+  transition: 200ms ease-out transform;
+  @include depthShadow(2);
+  border: 1px solid transparent;
+  &:hover{
+    transform: translate(0,-1px);
+    @include depthShadow(3);
   }
-
-  img {
-    max-width: 100% !important;
+  &:active{
+    transform: translate(0,2px);
+    @include depthShadow(1);
   }
-
-  p,
-  h2,
-  h3 {
-    orphans: 3;
-    widows: 3;
+  &:focus{
+    outline: none;
+    border: 1px solid rgba(255,255,255,0.5);
+    @include depthShadow(2);
   }
+}
 
-  h2,
-  h3 {
-    page-break-after: avoid;
+.btn-generate{
+  width: 500px;
+  // height: 200px;
+  font-size: 4em;
+  margin-bottom: 20px;
+}
+.btn-sharezvous{
+  // width: 500px;
+  // height: 200px;
+  font-size: 2em;
+}
+
+
+
+
+.main-container{
+  background-color: #ffffff;
+  min-height: 50vh;
+  padding-bottom: 150px;
+
+}
+
+.footer-container{
+  background-color: $brand-main;
+}
+footer{
+  text-align: right;
+  color: #fff;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  p{
+    margin: 0;
+    font-size: 1em;
+  }
+  a{
+    color: inherit;
   }
 }

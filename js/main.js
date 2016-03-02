@@ -2,10 +2,14 @@
 
 (function () {
   'use strict';
-
+  var thisWebsiteURL = "http://mephysto.github.io/movie-generator/new.html";
+  var movieText = "";
   var $textEl = $('#movie-text');
 
-  function rollDice(chance, targetFunction){
+  // Roll a dice!
+  // give it a percentage chance on success, 
+  // and a callback function that should trigger on success
+  function rollDice(chance){
     return (chance > Math.random()*100);
   }
 
@@ -14,8 +18,8 @@
   }
 
   function generateNewMovie(){
-    var movieText;
     var state;
+    movieText = "";
     if (rollDice(15)){
       state = "QUICKIE";
       movieText = generateQuickie();
@@ -404,7 +408,21 @@
 
 
   generateNewMovie();
+  function shareCurrentMovie(){
+    FB.ui({
+      method: 'feed',
+      link: thisWebsiteURL,
+      caption: movieText,
+    }, function(response){});
+  }
+
 
   $('.btn-generate').click(function(e){e.preventDefault();generateNewMovie();});
+  $('.btn-sharezvous').click(function (e) {
+    e.preventDefault();
+    shareCurrentMovie();
+  })
+
+
 
 })();

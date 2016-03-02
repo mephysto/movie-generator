@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /*! HTML5 Boilerplate v5.0 | MIT License | http://h5bp.com/ */
 html {
   color: #222;
@@ -42,151 +43,6 @@ textarea {
   color: #000;
   padding: 0.2em 0; }
 
-/* ===== Initializr Styles ==================================================
-   Author: Jonathan Verrecchia - verekia.com/initializr/responsive-template
-   ========================================================================== */
-body {
-  font-size: 1.4em;
-  font-family: 'Roboto', "Helvetica Neue", Helvetica, Arial, sans-serif; }
-
-.wrapper {
-  width: 90%;
-  margin: 0 5%; }
-
-/* ===================
-  ALL: Orange Theme
-   =================== */
-.title {
-  color: black; }
-
-/* ==============
-  MOBILE: Menu
-   ============== */
-nav ul {
-  margin: 0;
-  padding: 0;
-  list-style-type: none; }
-
-nav a {
-  display: block;
-  margin-bottom: 10px;
-  padding: 15px 0;
-  text-align: center;
-  text-decoration: none;
-  font-weight: bold;
-  color: black; }
-
-nav a:hover,
-nav a:visited {
-  color: black; }
-
-nav a:hover {
-  text-decoration: underline; }
-
-/* ==============
-  MOBILE: Main
-   ============== */
-.main {
-  padding: 30px 0; }
-
-.main article h1 {
-  font-size: 2em; }
-
-.main aside {
-  color: black;
-  padding: 0px 5% 10px; }
-
-.footer-container footer {
-  color: white;
-  padding: 20px 0; }
-
-/* ===============
-  ALL: IE Fixes
-   =============== */
-.ie7 .title {
-  padding-top: 20px; }
-
-/* ==========================================================================
-   Author's custom styles
-   ========================================================================== */
-html {
-  font-size: 10px;
-  font-family: 'Roboto', "Helvetica Neue", Helvetica, Arial, sans-serif; }
-
-.movie-text {
-  min-height: 100px; }
-  .movie-text h2 {
-    text-align: center;
-    text-transform: uppercase; }
-  .movie-text p {
-    text-align: center; }
-
-.btn-generate {
-  display: block;
-  background: black;
-  width: 500px;
-  height: 200px;
-  color: white;
-  text-align: center;
-  text-decoration: none;
-  text-transform: uppercase;
-  font-size: 4em;
-  height: auto;
-  line-height: 1.5em;
-  margin: 0 auto;
-  position: relative;
-  transition: 200ms ease-out transform; }
-  .btn-generate:hover {
-    -webkit-transform: translate(0, -1px);
-        -ms-transform: translate(0, -1px);
-            transform: translate(0, -1px); }
-  .btn-generate:active {
-    -webkit-transform: translate(0, 2px);
-        -ms-transform: translate(0, 2px);
-            transform: translate(0, 2px); }
-
-/* ==========================================================================
-   Media Queries
-   ========================================================================== */
-@media only screen and (min-width: 480px) {
-  /* ====================
-  INTERMEDIATE: Menu
-   ==================== */
-  nav a {
-    float: left;
-    width: 27%;
-    margin: 0 1.7%;
-    padding: 25px 2%;
-    margin-bottom: 0; }
-  nav li:first-child a {
-    margin-left: 0; }
-  nav li:last-child a {
-    margin-right: 0; }
-  /* ========================
-  INTERMEDIATE: IE Fixes
-   ======================== */
-  nav ul li {
-    display: inline; }
-  .oldie nav a {
-    margin: 0 0.7%; } }
-
-@media only screen and (min-width: 768px) {
-  /* ====================
-  WIDE: CSS3 Effects
-   ==================== */
-  .header-container,
-  .main aside {
-    box-shadow: 0 5px 10px #aaa; } }
-
-@media only screen and (min-width: 1140px) {
-  /* ===============
-  Maximal Width
-   =============== */
-  .wrapper {
-    width: 1026px;
-    /* 1140px - 10% for margins */
-    margin: 0 auto; } }
-
 /* ==========================================================================
    Helper classes
    ========================================================================== */
@@ -228,44 +84,149 @@ html {
   *zoom: 1; }
 
 /* ==========================================================================
-   Print styles
+   Author's custom styles
    ========================================================================== */
-@media print {
-  *,
-  *:before,
-  *:after {
-    background: transparent !important;
-    color: #000 !important;
-    box-shadow: none !important;
-    text-shadow: none !important; }
-  a,
-  a:visited {
-    text-decoration: underline; }
-  a[href]:after {
-    content: " (" attr(href) ")"; }
-  abbr[title]:after {
-    content: " (" attr(title) ")"; }
-  a[href^="#"]:after,
-  a[href^="javascript:"]:after {
-    content: ""; }
-  pre,
-  blockquote {
-    border: 1px solid #999;
-    page-break-inside: avoid; }
-  thead {
-    display: table-header-group; }
-  tr,
-  img {
-    page-break-inside: avoid; }
-  img {
-    max-width: 100% !important; }
-  p,
-  h2,
-  h3 {
-    orphans: 3;
-    widows: 3; }
-  h2,
-  h3 {
-    page-break-after: avoid; } }
+html {
+  font-size: 10px;
+  font-family: 'Roboto', "Helvetica Neue", Helvetica, Arial, sans-serif;
+  background-color: #ec6350; }
+
+.wrapper {
+  width: 90%;
+  margin: 0 5%; }
+  @media only screen and (min-width: 1140px) {
+    .wrapper {
+      width: 1026px;
+      /* 1140px - 10% for margins */
+      margin: 0 auto; } }
+
+.header-container {
+  background-color: #ec6350; }
+  .header-container h1 {
+    text-transform: uppercase; }
+  .header-container nav {
+    background-color: #000000; }
+    .header-container nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex; }
+    .header-container nav a {
+      color: #ffffff;
+      padding: 10px 20px;
+      display: block;
+      text-decoration: none;
+      text-transform: uppercase; }
+  @media only screen and (min-width: 768px) {
+    .header-container {
+      box-shadow: 0 5px 10px #aaa; } }
+
+.movie-text {
+  min-height: 100px; }
+  .movie-text h2 {
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 4em; }
+  .movie-text p {
+    text-align: center; }
+  .movie-text blockquote {
+    text-align: center;
+    position: relative;
+    font-size: 2em;
+    font-style: italic;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 15px 30px;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    min-height: 225px;
+    -webkit-justify-content: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+            flex-direction: column; }
+    .movie-text blockquote:before {
+      content: "“";
+      top: 0;
+      left: 0;
+      position: absolute;
+      opacity: 0.25;
+      font-weight: 600;
+      font-size: 5em;
+      margin: 0;
+      padding: 0;
+      line-height: 1em;
+      font-family: serif;
+      font-style: normal; }
+
+.movie-text--wrapper {
+  min-height: 150px; }
+
+.btn-default {
+  border: none;
+  display: block;
+  background: black;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  height: auto;
+  line-height: 1.5em;
+  margin: 0 auto;
+  position: relative;
+  transition: 200ms ease-out transform;
+  transition: all 200ms ease-in-out;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  border: 1px solid transparent; }
+  .btn-default:hover {
+    -webkit-transform: translate(0, -1px);
+        -ms-transform: translate(0, -1px);
+            transform: translate(0, -1px);
+    transition: all 200ms ease-in-out;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23); }
+  .btn-default:active {
+    -webkit-transform: translate(0, 2px);
+        -ms-transform: translate(0, 2px);
+            transform: translate(0, 2px);
+    transition: all 200ms ease-in-out;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); }
+  .btn-default:focus {
+    outline: none;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    transition: all 200ms ease-in-out;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23); }
+
+.btn-generate {
+  width: 500px;
+  font-size: 4em;
+  margin-bottom: 20px; }
+
+.btn-sharezvous {
+  font-size: 2em; }
+
+.main-container {
+  background-color: #ffffff;
+  min-height: 50vh;
+  padding-bottom: 150px; }
+
+.footer-container {
+  background-color: #ec6350; }
+
+footer {
+  text-align: right;
+  color: #fff;
+  padding-top: 20px;
+  padding-bottom: 20px; }
+  footer p {
+    margin: 0;
+    font-size: 1em; }
+  footer a {
+    color: inherit; }
 
 /*# sourceMappingURL=styles.css.map */
