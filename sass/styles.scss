@@ -181,20 +181,35 @@ html{
   @media only screen and (min-width: 1140px) {
   }
 }
-
-.movie-text{
-  min-height: 100px;
-  h2{
-    text-align: center;
-    text-transform: uppercase;
-    font-size: 4em;
+.movie-texts{
+  header{
+    h2{
+      text-align: center;
+      text-transform: uppercase;
+      font-size: 4em;
+    }
   }
+}
+.movie-text{
+  position: relative;
+  min-height: 450px;
   p{
     text-align: center;
   }
   blockquote{
+    position: absolute;
+    top: 0;
+    left: 50%;
+    @include depthShadow(2);
+    transform: translate3d(-50%,0,0) rotate(0deg);
+
+
+    background-color: #FFFFFF;
+    transition: 1s ease-out all;
+    opacity: 1;
+
     text-align: center;
-    position: relative;
+    // position: relative;
     font-size: 2em;
     // font-style: italic;
     max-width: 400px;
@@ -207,20 +222,9 @@ html{
     min-height: 225px;
     justify-content: center;
     flex-direction: column;
-
-    &:before{
-      content:"“";
-      top: 0;
-      left: 0;
-      position: absolute;
-      opacity: 0.25;
-      font-weight: 600;
-      font-size: 5em;
-      margin: 0;
-      padding: 0;
-      line-height: 1em;
-      font-family: serif;
-      font-style: normal;
+    &.new{
+      // transform: translate3d(-50%, 0px, 60px) rotate(-7deg);
+      opacity: 0;
     }
   }
 }
@@ -284,6 +288,7 @@ html{
   background-color: #ffffff;
   min-height: 50vh;
   padding-bottom: 150px;
+  perspective: 100px;
   &:before{
     content: "";
     position: absolute;

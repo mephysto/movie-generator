@@ -49,7 +49,22 @@
     if (rollDice(5)){
       movieText += addTooSoon();
     }
-    $('#movie-text').text(movieText);
+    // $('#movie-text').text(movieText);
+    // 
+    function randomStartStyle(){
+      var a = Math.random()*20 - 10;
+      return 'translate3d(-50%,0,70px) rotate(' + a.toFixed(3) + 'deg)';
+    }
+    function randomEndStyle(){
+      var a = Math.random()*5 - 2.5;
+      var locX = (-40 - (Math.random()*20)).toFixed(2);
+      console.log(locX);
+      var loc = (Math.random()* 50).toFixed(1);
+      return 'translate3d(' + locX + '%,' + loc + 'px,0) rotate(' + a.toFixed(3) + 'deg);';
+    }
+    console.log(randomEndStyle());
+    $('.new').removeClass('new').removeAttr('style').attr('style', 'transform: ' + randomEndStyle());
+    $('.movie-text').append("<blockquote class=\"new\" style=\"transform: " + randomStartStyle() + "\">" + movieText + "</blockquote>");
   }
   function generateNewMovieDefault(){
     var actor = [{

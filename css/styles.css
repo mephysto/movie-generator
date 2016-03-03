@@ -1,4 +1,3 @@
-@charset "UTF-8";
 /*! HTML5 Boilerplate v5.0 | MIT License | http://h5bp.com/ */
 html {
   color: #222;
@@ -123,17 +122,28 @@ html {
     .header-container {
       box-shadow: 0 5px 10px #aaa; } }
 
+.movie-texts header h2 {
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 4em; }
+
 .movie-text {
-  min-height: 100px; }
-  .movie-text h2 {
-    text-align: center;
-    text-transform: uppercase;
-    font-size: 4em; }
+  position: relative;
+  min-height: 450px; }
   .movie-text p {
     text-align: center; }
   .movie-text blockquote {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transition: all 200ms ease-in-out;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    -webkit-transform: translate3d(-50%, 0, 0) rotate(0deg);
+            transform: translate3d(-50%, 0, 0) rotate(0deg);
+    background-color: #FFFFFF;
+    transition: 1s ease-out all;
+    opacity: 1;
     text-align: center;
-    position: relative;
     font-size: 2em;
     max-width: 400px;
     margin: 0 auto;
@@ -150,19 +160,8 @@ html {
     -webkit-flex-direction: column;
         -ms-flex-direction: column;
             flex-direction: column; }
-    .movie-text blockquote:before {
-      content: "“";
-      top: 0;
-      left: 0;
-      position: absolute;
-      opacity: 0.25;
-      font-weight: 600;
-      font-size: 5em;
-      margin: 0;
-      padding: 0;
-      line-height: 1em;
-      font-family: serif;
-      font-style: normal; }
+    .movie-text blockquote.new {
+      opacity: 0; }
 
 .movie-text--wrapper {
   min-height: 150px; }
@@ -219,7 +218,9 @@ html {
   position: relative;
   background-color: #ffffff;
   min-height: 50vh;
-  padding-bottom: 150px; }
+  padding-bottom: 150px;
+  -webkit-perspective: 100px;
+          perspective: 100px; }
   .main-container:before {
     content: "";
     position: absolute;
