@@ -17,6 +17,12 @@
   }
 
   function generateNewMovie(){
+    var backgrounds = [
+      "bg-1",
+      "bg-2"
+    ];
+    $('.main-container').removeClass(backgrounds.join(" ")).addClass(getRandomFromArray(backgrounds));
+
     var state;
     movieText = "";
     if (rollDice(15)){
@@ -47,55 +53,194 @@
   }
   function generateNewMovieDefault(){
     var actor = [
-      "Abraham Lincoln",
-      "Adam Sandler",
-      "Alec Baldwin",
-      "Andy Serkis in a Mocap suit",
-      "Ben Affleck",
-      "Benedict Cumberbatch",
-      "Bill Murray",
-      "Channing Tatum and Jonah Hill",
-      "Chewbacca",
-      // "Christopher Lambert",
-      "Carrie Fisher",
-      "Christopher Walken",
-      "Danny Trejo",
-      "David Hasselhoff",
-      "Dwayne 'The Rock' Johnson",
-      "Eddie Murphy plays 10 characters, and he ",
-      "Ellen Page",
-      "everyone from the Expandables",
-      "the guys from The Flight of the Conchords",
-      "Gary Busey",
-      "GROOT!",
-      "Henry Rollins",
-      "Ice Cube",
-      "Kevin Spacey",
-      "Neil deGrasse Tyson",
-      "Jan-Michael Vincent",
-      "Jessica Biel",
-      "Jennifer Lawrence",
-      "Johnny Knoxville",
-      "John Malkovich",
-      "Jon Snow",
-      // "Kate Beckinsale",
-      "the Avengers",
-      "Kevin James",
-      "Kung Fury",
-      "Macaulay Culkin",
-      "Madonna",
-      "Mark Hamill",
-      "Marie Curie",
-      "Megan Fox",
-      "Mel Gibson",
-      "Michael J. Fox",
-      "Optimus Prime",
-      "Sean Connery",
-      "Shia LaBeouf",
-      "The Count",
-      "Tom Hardy",
-      "you, the audience",
-      "Whoopi Goldberg"
+      {
+        name: "a former army type",
+        noun: "m"
+      },{
+        name: "a clueless young woman who's new to the big city",
+        noun: "m"
+      },{
+        name: "a political mastermind",
+        noun: "m"
+      },{
+        name: "an idiot savant",
+        noun: "m"
+      },{
+        name: "a monkey that has learnt English",
+        noun: "m"
+      },{
+        name: "a poor black kid from the wrong side of the tracks",
+        noun: "m"
+      },{
+        name: "a company man",
+        noun: "m"
+      },{
+        name: "an enigmatic grandfather type.",
+        noun: "m"
+      },{
+        name: "a 4th wall breaking action hero",
+        noun: "m"
+      },{
+        name: "a cop who's 2 days from retirement",
+        noun: "m"
+      },{
+        name: "a devoutly religious teenager",
+        noun: "m"
+      },
+
+      {
+        name: "Abraham Lincoln",
+        noun: "M"
+      },{
+        name: "Adam Sandler",
+        noun: "M"
+      },{
+        name: "Alec Baldwin",
+        noun: "M"
+      },{
+        name: "Andy Serkis in a Mocap suit",
+        noun: "M"
+      },{
+        name: "Ben Affleck",
+        noun: "M"
+      },{
+        name: "Benedict Cumberbatch",
+        noun: "M"
+      },{
+        name: "Bill Murray",
+        noun: "M"
+      },{
+        name: "Channing Tatum and Jonah Hill",
+        noun: "P"
+      },{
+        name: "Chewbacca",
+        noun: "M"
+      },{
+        name: "Christopher Lambert",
+        noun: "M"
+      },{
+        name: "Carrie Fisher",
+        noun: "F"
+      },{
+        name: "Christopher Walken",
+        noun: "M"
+      },{
+        name: "Danny Trejo",
+        noun: "M"
+      },{
+        name: "David Hasselhoff",
+        noun: "M"
+      },{
+        name: "Dwayne 'The Rock' Johnson",
+        noun: "M"
+      },{
+        name: "Eddie Murphy plays 10 characters, and he ",
+        noun: "P"
+      },{
+        name: "Ellen Page",
+        noun: "F"
+      },{
+        name: "everyone from the Expandables",
+        noun: "P"
+      },{
+        name: "the guys from The Flight of the Conchords",
+        noun: "P"
+      },{
+        name: "Gary Busey",
+        noun: "M"
+      },{
+        name: "GROOT!",
+        noun: "M"
+      },{
+        name: "Henry Rollins",
+        noun: "M"
+      },{
+        name: "Ice Cube",
+        noun: "M"
+      },{
+        name: "Kevin Spacey",
+        noun: "M"
+      },{
+        name: "Neil deGrasse Tyson",
+        noun: "M"
+      },{
+        name: "Jan-Michael Vincent",
+        noun: "M"
+      },{
+        name: "Jessica Biel",
+        noun: "F"
+      },{
+        name: "Jennifer Lawrence",
+        noun: "F"
+      },{
+        name: "Johnny Knoxville",
+        noun: "M"
+      },{
+        name: "John Malkovich",
+        noun: "M"
+      },{
+        name: "Jon Snow",
+        noun: "M"
+      },{
+        name: "Kate Beckinsale",
+        noun: "F"
+      },{
+        name: "The Avengers",
+        noun: "P"
+      },{
+        name: "Kevin James",
+        noun: "M"
+      },{
+        name: "Kung Fury",
+        noun: "M"
+      },{
+        name: "Macaulay Culkin",
+        noun: "M"
+      },{
+        name: "Madonna",
+        noun: "F"
+      },{
+        name: "Mark Hamill",
+        noun: "M"
+      },{
+        name: "Marie Curie",
+        noun: "F"
+      },{
+        name: "Megan Fox",
+        noun: "F"
+      },{
+        name: "Mel Gibson",
+        noun: "M"
+      },{
+        name: "Michael Caine",
+        noun: "M"
+      },{
+        name: "Michael J. Fox",
+        noun: "M"
+      },{
+        name: "Optimus Prime",
+        noun: "M"
+      },{
+        name: "Sean Connery",
+        noun: "M"
+      },{
+        name: "Shia LaBeouf",
+        noun: "M"
+      },
+      // {
+      //   name: "The Count",
+      //   noun: "M"
+      // },{
+      {
+        name: "Tom Hardy",
+        noun: "M"
+      },{
+        name: "you, the audience",
+        noun: "Y"
+      },{
+        name: "Whoopi Goldberg",
+        noun: "F"
+      }
     ];
 
     var actions = [
@@ -103,7 +248,7 @@
       "wakes up with no memory of what happened",
       "does a Banksy",
       "starts a podcast",
-      "hide a watch for a five long years",
+      "hide a watch for five long years",
       "takes a day off",
       "goes undercover",
       "can’t go below 60mph",
@@ -242,12 +387,13 @@
 
     // var badguymaybe = rollDice(10) ? "falling in the hands of " : ""; // play around with this one a bit more
 
-    var newText = "It's a movie about " + adjective + getRandomFromArray(actor) + ", who " + action + " to " + guffinAction + " " + getRandomFromArray(mcguffin) + " from " + getRandomFromArray(badguy) + ".";
+    var newText = "It's a movie starring " + adjective + getRandomFromArray(actor).name + ", who " + action + " to " + guffinAction + " " + getRandomFromArray(mcguffin) + " from " + getRandomFromArray(badguy) + ".";
     return newText;
   }
 
   function generateQuickie(){
     var genre = [
+      "oldschool anime",
       "version where everyone are anthropomorphic animals",
       "arthouse",
       "comedy",
@@ -276,17 +422,18 @@
     ];
 
     var oldmovie = [
+      "Beavis & Butthead",
       "Taylor Swift’s latest album",
       "the most popular video on Youtube today",
       "the 1964 Olympic Games",
       "any original animated Disney movie",
       "whatever the next story on the news is",
       "Steve Jobs life story",
-
+      "Armageddon",
       "Michael Jackson's life story",
       "50 Shades of Grey",
       "Scarface",
-      "the upcoming US presidential elections",
+      "the US presidential elections",
       "the Care Bears",
       "Scooby Doo",
       "Karate Kid",
@@ -301,8 +448,8 @@
       "Robocop",
       "the Oscars",
       "Schindlers List",
-      "Transformers",
-      "World of Warcraft"
+      "Transformers"
+      // "World of Warcraft",
     ];
 
 
@@ -311,13 +458,24 @@
   }
 
   function generatePlotTwist(){
-    var actor = ["<actor>"];
+    var actor = [
+      "Michael Caine"
+    ];
 
-    var profession = ["<mundane profession"];
+    var profession = [
+      "Web Developer",
+      "Art Director"
+    ];
 
-    var adjective = ["<adjective>"];
+    var adjective = [
+      "stunning"
+    ];
 
-    var newText = "<actor> plays/work in <mundane profession>, but in a <adjective> plot twist, he becomes <something ridiculous>";
+    var shyamalize = [
+      "it turns out he was dead all along"
+    ];
+
+    var newText = getRandomFromArray(actor) + " is a " + getRandomFromArray(profession) + ", but in a " + getRandomFromArray(adjective) + " plot twist, " + getRandomFromArray(shyamalize) + ".";
     return newText;
   }
   function addThirdActProblem(){
@@ -357,6 +515,7 @@
     var composer = [
       "Huey Lewis and the News",
       "Kenny Loggins",
+      "smooth jazz covers of Metallica",
       // "a mellow cover of Eye of the Tiger",
       "whatever the kids are listening to these days.",
       "Morgan Freeman's voice",

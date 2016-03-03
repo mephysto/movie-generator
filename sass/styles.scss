@@ -286,7 +286,7 @@ html{
   &:before{
     content: "";
     position: absolute;
-    background-image: url(../img/josh-brolin.jpg);
+    // background-image: url(../img/josh-brolin.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -296,6 +296,16 @@ html{
     height: 100%;
     opacity: 0.25;
     filter: saturate(0);
+  }
+  &.bg-1{
+    &:before{
+      background-image: url(../img/josh-brolin.jpg);
+    }
+  }
+  &.bg-2{
+    &:before{
+      background-image: url(../img/moviepitch.jpg);
+    }
   }
 }
 
