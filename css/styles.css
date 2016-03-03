@@ -203,17 +203,38 @@ html {
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23); }
 
 .btn-generate {
-  width: 500px;
+  width: 100%;
   font-size: 4em;
   margin-bottom: 20px; }
+  @media only screen and (min-width: 480px) {
+    .btn-generate {
+      width: 400px; } }
+  @media only screen and (min-width: 768px) {
+    .btn-generate {
+      width: 500px; } }
 
 .btn-sharezvous {
   font-size: 2em; }
 
 .main-container {
+  position: relative;
   background-color: #ffffff;
   min-height: 50vh;
   padding-bottom: 150px; }
+  .main-container:before {
+    content: "";
+    position: absolute;
+    background-image: url(../img/josh-brolin.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.25;
+    -webkit-filter: saturate(0);
+            filter: saturate(0); }
 
 .footer-container {
   background-color: #ec6350; }

@@ -2,9 +2,8 @@
 
 (function () {
   'use strict';
-  var thisWebsiteURL = "http://mephysto.github.io/movie-generator/new.html";
+  var thisWebsiteURL = "http://mephysto.github.io/movie-generator/";
   var movieText = "";
-  var $textEl = $('#movie-text');
 
   // Roll a dice!
   // give it a percentage chance on success, 
@@ -44,7 +43,7 @@
     if (rollDice(5)){
       movieText += addTooSoon();
     }
-    $textEl.text(movieText);
+    $('#movie-text').text(movieText);
   }
   function generateNewMovieDefault(){
     var actor = [
@@ -198,8 +197,8 @@
       "Hitler",
       "Jareth",
       "George Lucas",
-      "my ex-wife",
-      "my ex-girlfiend",
+      // "my ex",
+      "my ex",
       "The Joker",
       "Kanye West",
       "Kylo Ren",
@@ -207,16 +206,16 @@
       "Lex Luthor",
       "the Libyans",
       "Megatron",
-      "certain death",
+      // "certain death",
       "Shredder",
       "NAZIs",
-      "a meteor",
-      "a nuclear bomb",
+      // "a meteor",
+      // "a nuclear bomb",
       "Steve Buscemi",
       "The Matrix",
       "Team Rocket",
       "Teletubbies",
-      "toxic gas",
+      // "toxic gas",
       "The Vikings",
       "a white guy dressed like an Egyptian",
       "your mom"
@@ -230,7 +229,7 @@
     var action = rollDice(50) ? getRandomFromArray(actions) : "has";
 
     var guffinActions = [
-      "save",
+      // "save",
       "steal",
       "protect",
       "defend",
@@ -239,12 +238,11 @@
       "transport"
     ];
 
-    var guffinAction = getRandomFromArray(guffinActions);
+    var guffinAction = rollDice(50) ? getRandomFromArray(guffinActions) : "save";
 
     // var badguymaybe = rollDice(10) ? "falling in the hands of " : ""; // play around with this one a bit more
 
-    var newText = "It's a movie where " + adjective + getRandomFromArray(actor) + " " + action + " to " + guffinAction + " " + getRandomFromArray(mcguffin) + " from " + getRandomFromArray(badguy) + ".";
-    // $textEl.text(newText);
+    var newText = "It's a movie about " + adjective + getRandomFromArray(actor) + ", who " + action + " to " + guffinAction + " " + getRandomFromArray(mcguffin) + " from " + getRandomFromArray(badguy) + ".";
     return newText;
   }
 
@@ -281,7 +279,7 @@
       "Taylor Swift’s latest album",
       "the most popular video on Youtube today",
       "the 1964 Olympic Games",
-      "of any original animated Disney movie",
+      "any original animated Disney movie",
       "whatever the next story on the news is",
       "Steve Jobs life story",
 
@@ -309,7 +307,6 @@
 
 
     var newText = "We do a " + getRandomFromArray(genre) + " remake of " + getRandomFromArray(oldmovie) + " and go home early.";
-    // $textEl.text(newText);
     return newText;
   }
 
