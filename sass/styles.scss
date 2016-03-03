@@ -131,7 +131,8 @@ $brand-main: #ec6350;
 
 html{
   font-size: 10px;
-  font-family: 'Roboto', "Helvetica Neue", Helvetica, Arial, sans-serif;
+  // font-family: 'Roboto', "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: 'Special Elite', cursive, monospace;
   background-color: $brand-main;
 }
 .wrapper{
@@ -195,7 +196,7 @@ html{
     text-align: center;
     position: relative;
     font-size: 2em;
-    font-style: italic;
+    // font-style: italic;
     max-width: 400px;
     margin: 0 auto;
     padding: 15px 30px;

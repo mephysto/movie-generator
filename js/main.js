@@ -52,198 +52,78 @@
     $('#movie-text').text(movieText);
   }
   function generateNewMovieDefault(){
-    var actor = [
-      {
-        name: "a former army type",
-        noun: "m"
-      },{
-        name: "a clueless young woman who's new to the big city",
-        noun: "m"
-      },{
-        name: "a political mastermind",
-        noun: "m"
-      },{
-        name: "an idiot savant",
-        noun: "m"
-      },{
-        name: "a monkey that has learnt English",
-        noun: "m"
-      },{
-        name: "a poor black kid from the wrong side of the tracks",
-        noun: "m"
-      },{
-        name: "a company man",
-        noun: "m"
-      },{
-        name: "an enigmatic grandfather type.",
-        noun: "m"
-      },{
-        name: "a 4th wall breaking action hero",
-        noun: "m"
-      },{
-        name: "a cop who's 2 days from retirement",
-        noun: "m"
-      },{
-        name: "a devoutly religious teenager",
-        noun: "m"
-      },
-
-      {
-        name: "Abraham Lincoln",
-        noun: "M"
-      },{
-        name: "Adam Sandler",
-        noun: "M"
-      },{
-        name: "Alec Baldwin",
-        noun: "M"
-      },{
-        name: "Andy Serkis in a Mocap suit",
-        noun: "M"
-      },{
-        name: "Ben Affleck",
-        noun: "M"
-      },{
-        name: "Benedict Cumberbatch",
-        noun: "M"
-      },{
-        name: "Bill Murray",
-        noun: "M"
-      },{
-        name: "Channing Tatum and Jonah Hill",
-        noun: "P"
-      },{
-        name: "Chewbacca",
-        noun: "M"
-      },{
-        name: "Christopher Lambert",
-        noun: "M"
-      },{
-        name: "Carrie Fisher",
-        noun: "F"
-      },{
-        name: "Christopher Walken",
-        noun: "M"
-      },{
-        name: "Danny Trejo",
-        noun: "M"
-      },{
-        name: "David Hasselhoff",
-        noun: "M"
-      },{
-        name: "Dwayne 'The Rock' Johnson",
-        noun: "M"
-      },{
-        name: "Eddie Murphy plays 10 characters, and he ",
-        noun: "P"
-      },{
-        name: "Ellen Page",
-        noun: "F"
-      },{
-        name: "everyone from the Expandables",
-        noun: "P"
-      },{
-        name: "the guys from The Flight of the Conchords",
-        noun: "P"
-      },{
-        name: "Gary Busey",
-        noun: "M"
-      },{
-        name: "GROOT!",
-        noun: "M"
-      },{
-        name: "Henry Rollins",
-        noun: "M"
-      },{
-        name: "Ice Cube",
-        noun: "M"
-      },{
-        name: "Kevin Spacey",
-        noun: "M"
-      },{
-        name: "Neil deGrasse Tyson",
-        noun: "M"
-      },{
-        name: "Jan-Michael Vincent",
-        noun: "M"
-      },{
-        name: "Jessica Biel",
-        noun: "F"
-      },{
-        name: "Jennifer Lawrence",
-        noun: "F"
-      },{
-        name: "Johnny Knoxville",
-        noun: "M"
-      },{
-        name: "John Malkovich",
-        noun: "M"
-      },{
-        name: "Jon Snow",
-        noun: "M"
-      },{
-        name: "Kate Beckinsale",
-        noun: "F"
-      },{
-        name: "The Avengers",
-        noun: "P"
-      },{
-        name: "Kevin James",
-        noun: "M"
-      },{
-        name: "Kung Fury",
-        noun: "M"
-      },{
-        name: "Macaulay Culkin",
-        noun: "M"
-      },{
-        name: "Madonna",
-        noun: "F"
-      },{
-        name: "Mark Hamill",
-        noun: "M"
-      },{
-        name: "Marie Curie",
-        noun: "F"
-      },{
-        name: "Megan Fox",
-        noun: "F"
-      },{
-        name: "Mel Gibson",
-        noun: "M"
-      },{
-        name: "Michael Caine",
-        noun: "M"
-      },{
-        name: "Michael J. Fox",
-        noun: "M"
-      },{
-        name: "Optimus Prime",
-        noun: "M"
-      },{
-        name: "Sean Connery",
-        noun: "M"
-      },{
-        name: "Shia LaBeouf",
-        noun: "M"
-      },
-      // {
-      //   name: "The Count",
-      //   noun: "M"
-      // },{
-      {
-        name: "Tom Hardy",
-        noun: "M"
-      },{
-        name: "you, the audience",
-        noun: "Y"
-      },{
-        name: "Whoopi Goldberg",
-        noun: "F"
-      }
+    var actor = [{
+      name: "a group of teenage friends", noun: "p"},{
+      name: "two FBI agents", noun: "p"},{
+      name: "a somewhat awkward teenager", noun: "p"},{
+      name: "a 30-something year old man", noun: "p"},{ 
+      name: "a woman down on her luck", noun: "f"},{
+      name: "a former army type", noun: "m"},{
+      name: "a clueless young woman who's new to the big city", noun: "m"},{
+      name: "a political mastermind", noun: "m"},{
+      name: "an idiot savant", noun: "m"},{
+      name: "a monkey that has learnt English", noun: "m"},{
+      name: "a poor black kid from the wrong side of the tracks", noun: "m"},{
+      name: "a company man", noun: "m"},{
+      name: "an enigmatic grandfather type.", noun: "m"},{
+      name: "a 4th wall breaking action hero", noun: "m"},{
+      name: "a cop who's 2 days from retirement", noun: "m"},{
+      name: "a devoutly religious teenager", noun: "m"},{
+      name: "Abraham Lincoln", noun: "M"},{
+      name: "Adam Sandler", noun: "M"},{
+      name: "Alec Baldwin", noun: "M"},{
+      name: "Andy Serkis in a Mo-cap suit", noun: "M"},{
+      name: "Ben Affleck", noun: "M"},{
+      name: "Benedict Cumberbatch", noun: "M"},{
+      name: "Bill Murray", noun: "M"},{
+      name: "Channing Tatum and Jonah Hill", noun: "P"},{
+      name: "Chewbacca", noun: "M"},{
+      name: "Christopher Lambert", noun: "M"},{
+      name: "Carrie Fisher", noun: "F"},{
+      name: "Christopher Walken", noun: "M"},{
+      name: "Danny Trejo", noun: "M"},{
+      name: "David Hasselhoff", noun: "M"},{
+      name: "Dwayne 'The Rock' Johnson", noun: "M"},{
+      name: "Eddie Murphy plays 10 characters, and he ", noun: "P"},{
+      name: "Ellen Page", noun: "F"},{
+      name: "everyone from the Expandables", noun: "P"},{
+      name: "the guys from The Flight of the Conchords", noun: "P"},{
+      name: "Gary Busey", noun: "M"},{
+      name: "GROOT!", noun: "M"},{
+      name: "Henry Rollins", noun: "M"},{
+      name: "Ice Cube", noun: "M"},{
+      name: "Kevin Spacey", noun: "M"},{
+      name: "Neil deGrasse Tyson", noun: "M"},{
+      name: "Jan-Michael Vincent", noun: "M"},{
+      name: "Jessica Biel", noun: "F"},{
+      name: "Jennifer Lawrence", noun: "F"},{
+      name: "Johnny Knoxville", noun: "M"},{
+      name: "John Malkovich", noun: "M"},{
+      name: "Jon Snow", noun: "M"},{
+      name: "Kate Beckinsale", noun: "F"},{
+      name: "The Avengers", noun: "P"},{
+      name: "Kevin James", noun: "M"},{
+      name: "Kung Fury", noun: "M"},{
+      name: "Macaulay Culkin", noun: "M"},{
+      name: "Madonna", noun: "F"},{
+      name: "Mark Hamill", noun: "M"},{
+      name: "Marie Curie", noun: "F"},{
+      name: "Megan Fox", noun: "F"},{
+      name: "Mel Gibson", noun: "M"},{
+      name: "Michael Caine", noun: "M"},{
+      name: "Michael J. Fox", noun: "M"},{
+      name: "Optimus Prime",noun: "M"},{
+      name: "Sean Connery", noun: "M"},{
+      name: "Shia LaBeouf", noun: "M"},{
+      name: "Tom Hardy", noun: "M"},{
+      name: "you, the audience", noun: "Y"},{
+      name: "Whoopi Goldberg", noun: "F"}
+      // {name: "The Count", noun: "M" }
     ];
 
     var actions = [
+      "is diagnosed with terminal lung cancer",
+      "uses Tinder",
       // "has a nightmare",
       "wakes up with no memory of what happened",
       "does a Banksy",
@@ -275,7 +155,8 @@
       "posts a letter",
       "rocks out",
       "moves in next door",
-      "signs up for cross fit"
+      "signs up for cross fit",
+      "hire a cabin in the woods"
     ];
     var mcguffin = [
       "a stick",
