@@ -291,6 +291,7 @@ html{
   min-height: 50vh;
   padding-bottom: 150px;
   perspective: 100px;
+  perspective-origin: 50% 25%;
   &:before{
     content: "";
     position: absolute;

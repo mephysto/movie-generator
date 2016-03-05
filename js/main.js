@@ -86,7 +86,7 @@
       name: "a monkey that has learnt English", noun: "m"},{
       name: "a poor black kid from the wrong side of the tracks", noun: "m"},{
       name: "a company man", noun: "m"},{
-      name: "an enigmatic grandfather type.", noun: "m"},{
+      name: "an enigmatic grandfather type", noun: "m"},{
       name: "a 4th wall breaking action hero", noun: "m"},{
       name: "a cop who's two days from retirement", noun: "m"},{
       name: "a devoutly religious teenager", noun: "m"},{
@@ -149,8 +149,14 @@
       "becomes pregnant",
       // "has to go back to school",
       "goes back to school",
+      "encounters an evil twin",
+      "always complains nothing ever happens",
+      "takes the trip to Mars",
       "gets a job",
       // "has a nightmare",
+      "is a petty thief, but gets involved in a major crime",
+      "knows too much",
+      "relives the same day, over and over again",
       "hides a watch for five long years",
       "busts chops",
       "travels through time",
@@ -171,16 +177,22 @@
       "use Tinder",
       "get her groove back",
       "infiltrate a maximum security prison",
+      "gather a group of seven magnificent warriors",
       "fight the undead",
       // "get the band back together",
       "switch places with his best friend",
+      "become a vampire",
       "go to jail",
+      "survive long enough",
       "enter The Matrix",
       // "do a Banksy",
       "start a podcast",
       "make a documentary",
       // "throw a ring in a volcano",
+      "win a high-stakes poker tournament",
       "travel to Mordor",
+      // "give dem people air",
+      "plan a heist",
       "not go below 60mph",
       "take a day off",
       "go undercover",
@@ -195,6 +207,7 @@
       "become a pre-cog ",
       "become the highest bidder on eBay",
       "posts a letter",
+      "bring a message to Obi-Wan",
       "rocks out"
     ];
     var mcguffin = [
@@ -224,7 +237,6 @@
       "the future of mankind",
       "a disc containing every undercover agent in the world",
       "the Maltese Falcon",
-      "a message to Obi-Wan",
       "a misplaced car",
       "his marriage",
       "the Millenium Falcon",
@@ -236,7 +248,7 @@
       "the President's Daughter",
       "a red stapler",
       "a rug that really ties the room together",
-      "the Spice",
+      "The Spice",
       "Unobtanium"
     ];
     var badguy = [
@@ -278,6 +290,7 @@
       "the Teletubbies",
       // "toxic gas",
       "The Vikings",
+      "a serial killer",
       "a white guy dressed like an Egyptian",
       "your mom"
     ];

@@ -222,7 +222,9 @@ html {
   min-height: 50vh;
   padding-bottom: 150px;
   -webkit-perspective: 100px;
-          perspective: 100px; }
+          perspective: 100px;
+  -webkit-perspective-origin: 50% 25%;
+          perspective-origin: 50% 25%; }
   .main-container:before {
     content: "";
     position: absolute;
