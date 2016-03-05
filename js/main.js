@@ -2,8 +2,9 @@
 
 (function () {
   'use strict';
-  var thisWebsiteURL = "http://mephysto.github.io/movie-generator/";
-  var movieText = "";
+  var thisWebsiteURL = "http://mephysto.github.io/movie-generator/",
+    currentMovieText = "",
+    nextMovieText = "";
 
   // Roll a dice!
   // give it a percentage chance on success, 
@@ -12,11 +13,13 @@
     return (chance > Math.random()*100);
   }
 
+  // get random entry from array
   function getRandomFromArray(inputArray){
     return inputArray[Math.floor(inputArray.length * Math.random())];
   }
 
   function generateNewMovie(){
+    // this will probably go:
     var backgrounds = [
       "bg-1",
       "bg-2"
@@ -24,30 +27,31 @@
     $('.main-container').removeClass(backgrounds.join(" ")).addClass(getRandomFromArray(backgrounds));
 
     var state;
-    movieText = "";
+    currentMovieText = nextMovieText;
+    nextMovieText = "";
     if (rollDice(15)){
       state = "QUICKIE";
-      movieText = generateQuickie();
+      nextMovieText = generateQuickie();
     } else {
       if (rollDice(0.05)){
-        movieText = generatePlotTwist(); // we haven't made these yet. luck of the draw if you get this
+        nextMovieText = generatePlotTwist(); // we haven't made these yet. luck of the draw if you get this
       } else{
-        movieText = generateNewMovieDefault();
+        nextMovieText = generateNewMovieDefault();
       }
       // if !quickie, we can add this suffix
       if (rollDice(10)){
-        movieText += addThirdActProblem();
+        nextMovieText += addThirdActProblem();
       }
     }
     // suffixes
     if (rollDice(10)){
-      movieText += addMusic();
+      nextMovieText += addMusic();
     }
     if (rollDice(5)){
-      movieText += addCameo();
+      nextMovieText += addCameo();
     }
     if (rollDice(5)){
-      movieText += addTooSoon();
+      nextMovieText += addTooSoon();
     }
     // $('#movie-text').text(movieText);
     // 
@@ -58,13 +62,11 @@
     function randomEndStyle(){
       var a = Math.random()*5 - 2.5;
       var locX = (-40 - (Math.random()*20)).toFixed(2);
-      console.log(locX);
       var loc = (Math.random()* 50).toFixed(1);
-      return 'translate3d(' + locX + '%,' + loc + 'px,0) rotate(' + a.toFixed(3) + 'deg);';
+      return 'translate3d(' + locX + '%,' + loc + 'px,' + $('.movie-text > blockquote').length + 'px) rotate(' + a.toFixed(3) + 'deg);';
     }
-    console.log(randomEndStyle());
     $('.new').removeClass('new').removeAttr('style').attr('style', 'transform: ' + randomEndStyle());
-    $('.movie-text').append("<blockquote class=\"new\" style=\"transform: " + randomStartStyle() + "\">" + movieText + "</blockquote>");
+    $('.movie-text').append("<blockquote class=\"new\" style=\"transform: " + randomStartStyle() + "\">" + nextMovieText + "</blockquote>");
   }
   function generateNewMovieDefault(){
     var actor = [{
@@ -73,6 +75,10 @@
       name: "a somewhat awkward teenager", noun: "p"},{
       name: "a 30-something year old man", noun: "p"},{ 
       name: "a woman down on her luck", noun: "f"},{
+
+      name: "a hard, grizzled, military man in the highest echelons of power", noun: "m"},{
+      name: "a British secret service agent", noun: "m"},{
+
       name: "a former army type", noun: "m"},{
       name: "a clueless young woman who's new to the big city", noun: "m"},{
       name: "a political mastermind", noun: "m"},{
@@ -82,7 +88,7 @@
       name: "a company man", noun: "m"},{
       name: "an enigmatic grandfather type.", noun: "m"},{
       name: "a 4th wall breaking action hero", noun: "m"},{
-      name: "a cop who's 2 days from retirement", noun: "m"},{
+      name: "a cop who's two days from retirement", noun: "m"},{
       name: "a devoutly religious teenager", noun: "m"},{
       name: "Abraham Lincoln", noun: "M"},{
       name: "Adam Sandler", noun: "M"},{
@@ -99,7 +105,7 @@
       name: "Danny Trejo", noun: "M"},{
       name: "David Hasselhoff", noun: "M"},{
       name: "Dwayne 'The Rock' Johnson", noun: "M"},{
-      name: "Eddie Murphy plays 10 characters, and he ", noun: "P"},{
+      name: "Eddie Murphy plays 10 characters", noun: "P"},{
       name: "Ellen Page", noun: "F"},{
       name: "everyone from the Expandables", noun: "P"},{
       name: "the guys from The Flight of the Conchords", noun: "P"},{
@@ -135,43 +141,61 @@
       name: "Whoopi Goldberg", noun: "F"}
       // {name: "The Count", noun: "M" }
     ];
-
-    var actions = [
+    // who...
+    var situation = [
       "is diagnosed with terminal lung cancer",
-      "uses Tinder",
-      // "has a nightmare",
       "wakes up with no memory of what happened",
-      "does a Banksy",
-      "starts a podcast",
-      "hide a watch for five long years",
-      "takes a day off",
-      "goes undercover",
-      "can’t go below 60mph",
-      "sings a heart wrenching power ballad",
-      "goes through a long training montage",
-      "busts chops",
-      "makes an unexpected friend",
-      "travels through time",
-      "becomes a superhero",
-      "gets bitten by an irradiated toad",
-      "learns karate",
-      "becomes a ballroom dancer",
-      "gets impregnated ",
-      "has brain surgery",
-      "plays a Game of Thrones",
-      "investigates a psych ward",
-      "returns from the dead",
-      // "comes to life",
+      "wins the Golden Ticket to that consumer product he loves",
+      "becomes pregnant",
+      // "has to go back to school",
       "goes back to school",
       "gets a job",
-      "becomes a pre-cog ",
-      "takes a dump",
-      "is the highest bidder on eBay",
-      "posts a letter",
-      "rocks out",
+      // "has a nightmare",
+      "hides a watch for five long years",
+      "busts chops",
+      "travels through time",
+      "gets bitten by an irradiated toad",
+      "wants to becomes a ballroom dancer",
+      "plays a dangerous Game of Thrones",
+      "investigates a psych ward",
+      "returns from the dead",
+      "takes a an world-record breaking dump",
       "moves in next door",
+      "babysit a three toddlers",
+      "make a porno",
       "signs up for cross fit",
-      "hire a cabin in the woods"
+      "spends a romantic weekend in a cabin in the woods"
+    ];
+    // and has to...
+    var actions = [
+      "use Tinder",
+      "get her groove back",
+      "infiltrate a maximum security prison",
+      "fight the undead",
+      // "get the band back together",
+      "switch places with his best friend",
+      "go to jail",
+      "enter The Matrix",
+      // "do a Banksy",
+      "start a podcast",
+      "make a documentary",
+      // "throw a ring in a volcano",
+      "travel to Mordor",
+      "not go below 60mph",
+      "take a day off",
+      "go undercover",
+      "sings a heart wrenching power ballad",
+      "go through a long training montage",
+
+      "make an unexpected friend",
+      "become a superhero",
+      "learn karate",
+      "have brain surgery",
+      // "comes to life",
+      "become a pre-cog ",
+      "become the highest bidder on eBay",
+      "posts a letter",
+      "rocks out"
     ];
     var mcguffin = [
       "a stick",
@@ -186,7 +210,6 @@
       "a golden gun",
       "Lego bricks",
       "an Apple Watch (that’s totally not a product placement)",
-
       "a princess",
       "plans for a giant space station",
       "the cure for cancer",
@@ -203,7 +226,7 @@
       "the Maltese Falcon",
       "a message to Obi-Wan",
       "a misplaced car",
-      "my marriage",
+      "his marriage",
       "the Millenium Falcon",
       "a suitcase full of money",
       "the Holy Grail",
@@ -217,8 +240,6 @@
       "Unobtanium"
     ];
     var badguy = [
-
-
       "Kim Jong Un",
       "North Korea",
       "aliens",
@@ -228,7 +249,7 @@
       "Seal",
       "a shady man sitting in a chair",
       "reincarnated Elvis Presley",
-
+      "an army of the undead",
       "going back in time to kill himself",
       "velociraptors with machine guns",
       "an army of ducks",
@@ -239,7 +260,7 @@
       "Jareth",
       "George Lucas",
       // "my ex",
-      "my ex",
+      // "his ex",
       "The Joker",
       "Kanye West",
       "Kylo Ren",
@@ -249,13 +270,12 @@
       "Megatron",
       // "certain death",
       "Shredder",
-      "NAZIs",
+      "the NAZIs",
       // "a meteor",
       // "a nuclear bomb",
       "Steve Buscemi",
-      "The Matrix",
       "Team Rocket",
-      "Teletubbies",
+      "the Teletubbies",
       // "toxic gas",
       "The Vikings",
       "a white guy dressed like an Egyptian",
@@ -272,25 +292,41 @@
     var guffinActions = [
       // "save",
       "steal",
-      "protect",
+      // "protect",
       "defend",
       // "bring",
-      // "win",
-      "transport"
+      // "win", 
+      // "transport",
+      // "deliver",
+      "retrieve"
     ];
 
     var guffinAction = rollDice(50) ? getRandomFromArray(guffinActions) : "save";
 
     // var badguymaybe = rollDice(10) ? "falling in the hands of " : ""; // play around with this one a bit more
 
-    var newText = "It's a movie starring " + adjective + getRandomFromArray(actor).name + ", who " + action + " to " + guffinAction + " " + getRandomFromArray(mcguffin) + " from " + getRandomFromArray(badguy) + ".";
+    var randoActor = getRandomFromArray(actor);
+
+    function getActorGenderText(gender){
+      if (gender.toUpperCase() === "P"){
+        return "they have";
+      } else if (gender.toUpperCase() === "F"){
+        return "she has";
+      } else if (gender.toUpperCase() === "Y"){
+        return "you, the audience, have";
+      } else {
+        return "he has";
+      }
+    }
+
+    var newText = "It's a movie starring " + adjective + randoActor.name + ", who " + getRandomFromArray(situation) + ". And " + getActorGenderText(randoActor.noun) + " to " + getRandomFromArray(actions) + " to " + guffinAction + " " + getRandomFromArray(mcguffin) + " from " + getRandomFromArray(badguy) + ".";
     return newText;
   }
 
   function generateQuickie(){
     var genre = [
       "oldschool anime",
-      "version where everyone are anthropomorphic animals",
+      // "version where everyone are anthropomorphic animals",
       "arthouse",
       "comedy",
       "animated",
@@ -429,7 +465,7 @@
       "Wham!"
     ];
 
-    var newText = " With music by " + getRandomFromArray(composer) + ".";
+    var newText = " With music done by " + getRandomFromArray(composer) + ".";
     return newText;
   }
   function addCameo(){
@@ -460,16 +496,22 @@
 
 
   generateNewMovie();
+  generateNewMovie();
   function shareCurrentMovie(){
+    console.log('share:',currentMovieText);
     FB.ui({
       method: 'feed',
       link: thisWebsiteURL,
-      caption: movieText,
+      caption: currentMovieText,
     }, function(response){});
   }
 
 
-  $('.btn-generate').click(function(e){e.preventDefault();generateNewMovie();});
+  $('.btn-generate').click(function(e){
+    e.preventDefault();
+    ga('send', 'event', "Moviepitch", "click", "generate new movie pitch");
+    generateNewMovie();
+  });
   $('.btn-sharezvous').click(function (e) {
     e.preventDefault();
     shareCurrentMovie();

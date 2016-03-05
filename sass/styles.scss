@@ -150,6 +150,8 @@ html{
 }
 .header-container{
   background-color: $brand-main;
+  position: relative;
+  z-index: 100;
   h1{
     text-transform: uppercase;
   }
@@ -200,12 +202,9 @@ html{
     position: absolute;
     top: 0;
     left: 50%;
-    @include depthShadow(2);
-    transform: translate3d(-50%,0,0) rotate(0deg);
 
 
     background-color: #FFFFFF;
-    transition: 1s ease-out all;
     opacity: 1;
 
     text-align: center;
@@ -222,6 +221,9 @@ html{
     min-height: 225px;
     justify-content: center;
     flex-direction: column;
+    @include depthShadow(1);
+    transform: translate3d(-50%,0,0) rotate(0deg);
+    transition: 1s ease-out all;
     &.new{
       // transform: translate3d(-50%, 0px, 60px) rotate(-7deg);
       opacity: 0;
