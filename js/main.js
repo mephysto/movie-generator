@@ -69,6 +69,18 @@
     $('.movie-text').append("<blockquote class=\"new\" style=\"transform: " + randomStartStyle() + "\">" + nextMovieText + "</blockquote>");
   }
   function generateNewMovieDefault(){
+
+    function getActorGenderText(gender){
+      if (gender.toUpperCase() === "P"){
+        return "they have";
+      } else if (gender.toUpperCase() === "F"){
+        return "she has";
+      } else if (gender.toUpperCase() === "Y"){
+        return "you, the audience, have";
+      } else {
+        return "he has";
+      }
+    }
     var actor = [{
       name: "a group of teenage friends", noun: "p"},{
       name: "two FBI agents", noun: "p"},{
@@ -141,6 +153,7 @@
       name: "Whoopi Goldberg", noun: "F"}
       // {name: "The Count", noun: "M" }
     ];
+    var randoActor = getRandomFromArray(actor);
     // who...
     var situation = [
       "is diagnosed with terminal lung cancer",
@@ -217,7 +230,7 @@
       "an all powerful ring",
       "a treasure chest",
       "a pair of aviators",
-      "a mouldy sandwich",
+      // "a mouldy sandwich",
       "a duffel bag full of drugs",
       "a time travelling pool table",
       "a golden gun",
@@ -318,19 +331,6 @@
 
     // var badguymaybe = rollDice(10) ? "falling in the hands of " : ""; // play around with this one a bit more
 
-    var randoActor = getRandomFromArray(actor);
-
-    function getActorGenderText(gender){
-      if (gender.toUpperCase() === "P"){
-        return "they have";
-      } else if (gender.toUpperCase() === "F"){
-        return "she has";
-      } else if (gender.toUpperCase() === "Y"){
-        return "you, the audience, have";
-      } else {
-        return "he has";
-      }
-    }
 
     var newText = "It's a movie starring " + adjective + randoActor.name + ", who " + getRandomFromArray(situation) + ". And " + getActorGenderText(randoActor.noun) + " to " + getRandomFromArray(actions) + " to " + guffinAction + " " + getRandomFromArray(mcguffin) + " from " + getRandomFromArray(badguy) + ".";
     return newText;
@@ -398,7 +398,7 @@
     ];
 
 
-    var newText = "We do a " + getRandomFromArray(genre) + " remake of " + getRandomFromArray(oldmovie) + " and go home early.";
+    var newText = "We just do a " + getRandomFromArray(genre) + " remake of " + getRandomFromArray(oldmovie) + " and go home early.";
     return newText;
   }
 
@@ -417,7 +417,9 @@
     ];
 
     var shyamalize = [
-      "it turns out he was dead all along"
+      "it turns out he was dead all along",
+      "he was actually Tyler Durden",
+      "he was on Earth all along"
     ];
 
     var newText = getRandomFromArray(actor) + " is a " + getRandomFromArray(profession) + ", but in a " + getRandomFromArray(adjective) + " plot twist, " + getRandomFromArray(shyamalize) + ".";
