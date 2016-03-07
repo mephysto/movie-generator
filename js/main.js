@@ -1,4 +1,4 @@
-// dafuq you looking at, stop looking at spoilers
+//
 
 (function () {
   'use strict';
@@ -10,8 +10,7 @@
     };
 
   // Roll a dice!
-  // give it a percentage chance on success,
-  // and a callback function that should trigger on success
+  // give it a percentage chance on success
   function rollDice(chance){
     return (chance > Math.random()*100);
   }
@@ -80,19 +79,19 @@
           they: "she",
           his: "her",
           has: "has"
-        }
+        };
       } else if (gender.toUpperCase() === "Y"){
         return {
           they: "you, the audience,",
           his: "your",
           has: "have"
-        }
+        };
       } else {
         return {
           they: "he",
           his: "his",
           has: "has"
-        }
+        };
       }
     }
     var actor = [{
@@ -190,6 +189,7 @@
       "busts chops",
       "travels through time",
       "gets bitten by an irradiated toad",
+      "gets caught in a series of unfortunate events",
       "wants to becomes a ballroom dancer",
       "plays a dangerous Game of Thrones",
       "investigates a psych ward",
@@ -217,6 +217,7 @@
       // "do a Banksy",
       "start a podcast",
       "make a documentary",
+      "start a food truck",
       // "throw a ring in a volcano",
       "win a high-stakes poker tournament",
       "travel to Mordor",
@@ -228,11 +229,12 @@
       "sings a heart wrenching power ballad",
       "go through a long training montage",
       "make an unexpected friend",
+      "use hollistic medicine",
       "become a superhero",
       "learn karate",
       "have brain surgery",
       // "comes to life",
-      "become a pre-cog ",
+      "become a pre-cog",
       "become the highest bidder on eBay",
       // "post a letter",
       "deliver a message to Obi-Wan",
@@ -245,6 +247,7 @@
       "a secret porn stash",
       "an all powerful ring",
       "a treasure chest",
+      "The Allspark",
       "a pair of aviators",
       // "a mouldy sandwich",
       "a duffel bag full of drugs",
@@ -300,6 +303,7 @@
       "Donald Trump",
       "Gary Oldman",
       "Hitler",
+      "Skynet",
       "Jareth",
       "George Lucas",
       // "my ex",
@@ -357,8 +361,8 @@
     var guffinAction = rollDice(50) ? getRandomFromArray(guffinActions) : {verb1: "save", verb2: "from" };
 
     // var badguymaybe = rollDice(10) ? "falling in the hands of " : ""; // play around with this one a bit more
-
-    var startText = rollDice(1) ? "It's a movie fully told in non sequitur, starring " : "It's a movie starring ";
+    var lifetime = rollDice(5) ? "Lifetime movie" : "movie";
+    var startText = rollDice(1) ? "It's a movie fully told in non sequitur, starring " : "It's a " + lifetime + " starring ";
     var newTitle = "New Title";
     var newText = startText + adjective + randoActor.name + ", who " + getRandomFromArray(situation) + ". And " + getActorGenderText(randoActor.noun).they + " " + getActorGenderText(randoActor.noun).has + " to " + getRandomFromArray(actions) + " to " + guffinAction.verb1 + " " + getRandomFromArray(mcguffin) + " " + guffinAction.verb2 + " " + getRandomFromArray(badguy) + ".";
     return {title: newTitle, plot: newText};
@@ -388,6 +392,7 @@
       "porn",
       "quirky indie",
       "space",
+      "Lifetime Movie",
       "sexy",
       "vampire",
       "western",
@@ -537,6 +542,7 @@
       "David Bowie",
       "Leonard Nimoy",
       "Michael Jackson",
+      "Amy Winehouse",
       "Kurt Cobain",
       "Lemmy Kilmister",
       "Robin Williams"

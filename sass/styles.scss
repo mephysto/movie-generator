@@ -105,6 +105,13 @@ html{
     font-size: 1.8em;
     margin-top: 0;
     margin-bottom: 0;
+    a{
+      text-decoration: none;
+      color: inherit;
+      &:hover{
+        text-decoration: underline;
+      }
+    }
   }
 }
 .main-container{
@@ -232,10 +239,25 @@ html{
   position: fixed;
   bottom: 0;
   width: 100%;
+  opacity: 0.5;
+  transition: opacity 100ms ease-out;
+  &:hover{
+    opacity: 1;
+    footer{
+      .pull-right{
+        margin-right: 0px;
+      }
+    }
+  }
+}
+.footer-credits{
+  overflow: hidden;
 }
 footer{
   text-align: right;
-  color: #fff;
+  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+  // color: #fff;
+  color: #ffffff;
   padding-top: 20px;
   padding-bottom: 20px;
   p{
@@ -244,5 +266,12 @@ footer{
   }
   a{
     color: inherit;
+  }
+  .pull-right{
+    transition: margin 150ms ease-out;
+    margin-right: -50px;
+    p{
+      display: inline-block;
+    }
   }
 }
