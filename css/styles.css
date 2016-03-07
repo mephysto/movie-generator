@@ -147,8 +147,14 @@ html {
   font-size: 4em; }
 
 .movie-text {
+  -webkit-perspective: 150px;
+          perspective: 150px;
   position: relative;
-  min-height: 450px; }
+  min-height: 450px;
+  padding-bottom: 50px;
+  transition: -webkit-transform ease-out 250ms;
+  transition: transform ease-out 250ms;
+  transition: transform ease-out 250ms, -webkit-transform ease-out 250ms; }
   .movie-text p {
     text-align: center; }
   .movie-text blockquote {
@@ -164,17 +170,23 @@ html {
     line-height: 1.5em;
     font-size: 2em;
     transition: all 200ms ease-in-out;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
     -webkit-transform: translate3d(-50%, 0, 0) rotate(0deg);
             transform: translate3d(-50%, 0, 0) rotate(0deg);
     transition: 1s ease-out all; }
+    .movie-text blockquote h2 {
+      margin-top: 0;
+      margin-bottom: 25px;
+      text-transform: uppercase;
+      text-decoration: underline;
+      letter-spacing: 0.125em; }
     .movie-text blockquote.new {
       opacity: 0;
       pointer-events: none; }
     .movie-text blockquote .perforation {
       height: 100%;
       width: 75px;
-      background: url(../img/perforated.png) repeat-y;
+      background: rgba(0, 0, 0, 0.025) url(../img/perforated.png) repeat-y;
       position: absolute;
       left: 0;
       top: 0; }
@@ -190,7 +202,7 @@ html {
               flex-direction: column;
       background-color: #e8e2e2;
       margin-left: 75px;
-      padding: 50px 25px 50px 25px; }
+      padding: 60px 25px; }
 
 .movie-text--wrapper {
   min-height: 150px; }
@@ -208,7 +220,7 @@ html {
   text-align: center;
   text-decoration: none;
   text-transform: uppercase;
-  width: 200px;
+  min-width: 200px;
   height: auto;
   line-height: 1.5em;
   margin-left: 1em;
@@ -216,27 +228,28 @@ html {
   position: relative;
   transition: 200ms ease-out transform;
   transition: all 200ms ease-in-out;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
   border: 1px solid transparent; }
   .btn-default:hover {
     -webkit-transform: translate(0, -1px);
         -ms-transform: translate(0, -1px);
             transform: translate(0, -1px);
     transition: all 200ms ease-in-out;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23); }
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22); }
   .btn-default:active {
     -webkit-transform: translate(0, 2px);
         -ms-transform: translate(0, 2px);
             transform: translate(0, 2px);
     transition: all 200ms ease-in-out;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); }
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23); }
   .btn-default:focus {
     outline: none;
     border: 1px solid rgba(255, 255, 255, 0.5);
     transition: all 200ms ease-in-out;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23); }
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23); }
   .btn-default i {
-    font-size: 1.75em; }
+    font-size: 1.75em;
+    margin-left: 0.75em; }
 
 .footer-container {
   position: fixed;

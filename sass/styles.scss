@@ -215,8 +215,11 @@ body{
   }
 }
 .movie-text{
+  perspective: 150px;
   position: relative;
   min-height: 450px;
+  padding-bottom: 50px;
+  transition: transform ease-out 250ms;
   p{
     text-align: center;
   }
@@ -234,9 +237,16 @@ body{
     letter-spacing: 0.1em;
     line-height: 1.5em;
     font-size: 2em;
-    @include depthShadow(1);
+    @include depthShadow(2);
     transform: translate3d(-50%,0,0) rotate(0deg);
     transition: 1s ease-out all;
+    h2{
+      margin-top: 0;
+      margin-bottom: 25px;
+      text-transform: uppercase;
+      text-decoration: underline;
+      letter-spacing: 0.125em;
+    }
     &.new{
       // transform: translate3d(-50%, 0px, 60px) rotate(-7deg);
       opacity: 0;
@@ -245,7 +255,7 @@ body{
     .perforation{
       height: 100%;
       width: 75px;
-      background: url(../img/perforated.png) repeat-y;
+      background: rgba(0,0,0,0.025)  url(../img/perforated.png) repeat-y;
       position: absolute;
       left: 0;
       top: 0;
@@ -257,7 +267,7 @@ body{
       flex-direction: column;
       background-color: #e8e2e2;
       margin-left: 75px;
-      padding: 50px 25px 50px 25px;
+      padding: 60px 25px;
     }
   }
 }
@@ -278,7 +288,7 @@ body{
   text-align: center;
   text-decoration: none;
   text-transform: uppercase;
-  width: 200px;
+  min-width: 200px;
   height: auto;
   line-height: 1.5em;
   // margin: 0 auto;
@@ -286,23 +296,24 @@ body{
   padding: 10px 20px;
   position: relative;
   transition: 200ms ease-out transform;
-  @include depthShadow(2);
+  @include depthShadow(3);
   border: 1px solid transparent;
   &:hover{
     transform: translate(0,-1px);
-    @include depthShadow(3);
+    @include depthShadow(4);
   }
   &:active{
     transform: translate(0,2px);
-    @include depthShadow(1);
+    @include depthShadow(2);
   }
   &:focus{
     outline: none;
     border: 1px solid rgba(255,255,255,0.5);
-    @include depthShadow(2);
+    @include depthShadow(3);
   }
   i{
-    font-size: 1.75em; 
+    font-size: 1.75em;
+    margin-left: 0.75em;
   }
 }
 

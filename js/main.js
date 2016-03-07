@@ -50,17 +50,20 @@
     //
     function randomStartStyle(){
       var a = Math.random()*20 - 10;
-      return 'translate3d(-50%,0,70px) rotate(' + a.toFixed(3) + 'deg)';
+      var b = $('.movie-text > blockquote').length + 100 < 250 ? $('.movie-text > blockquote').length + 100 : 250;
+      return 'translate3d(-50%,0,' + b + 'px) rotate(' + a.toFixed(3) + 'deg)';
     }
     function randomEndStyle(){
       var a = Math.random()*5 - 2.5,
         locX = -40 - (Math.random()*20),
         loc = Math.random()* 50,
-        stackheight = $('.movie-text > blockquote').length < 25 ? $('.movie-text > blockquote').length * 0.5 : 25;
+        // stackheight = $('.movie-text > blockquote').length < 25 ? $('.movie-text > blockquote').length * 0.5 : 25;
+        stackheight = $('.movie-text > blockquote').length;
       return 'translate3d(' + locX.toFixed(2) + '%,' + loc.toFixed(1) + 'px,' + stackheight + 'px) rotate(' + a.toFixed(3) + 'deg);';
     }
     $('.new').removeClass('new').removeAttr('style').attr('style', 'transform: ' + randomEndStyle());
-    $('.movie-text').append("<blockquote class=\"new\" style=\"transform: " + randomStartStyle() + "\"><div class=\"perforation\"></div><div class=\"quotetext\"><h2>" + nextMovieText.title + "</h2>" + nextMovieText.plot + "</div></blockquote>");
+    // $('.movie-text').append("<blockquote class=\"new\" style=\"transform: " + randomStartStyle() + "\"><div class=\"perforation\"></div><div class=\"quotetext\"><h2>" + nextMovieText.title + "</h2>" + nextMovieText.plot + "</div></blockquote>").attr('style', 'transform: translateZ(-' + $('.movie-text > blockquote').length + 'px)');
+    $('.movie-text').append("<blockquote class=\"new\" style=\"transform: " + randomStartStyle() + "\"><div class=\"perforation\"></div><div class=\"quotetext\">" + nextMovieText.plot + "</div></blockquote>").attr('style', 'transform: translateZ(-' + $('.movie-text > blockquote').length + 'px)');
   }
   function generateNewMovieDefault(){
 
@@ -363,8 +366,8 @@
 
   function generateQuickie(){
     var genre = [
-      "oldschool anime",
       // "version where everyone are anthropomorphic animals",
+      "oldschool anime",
       "arthouse",
       "comedy",
       "animated",
