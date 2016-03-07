@@ -82,6 +82,12 @@ textarea {
 .clearfix {
   *zoom: 1; }
 
+.pull-left {
+  float: left; }
+
+.pull-right {
+  float: right; }
+
 /* ==========================================================================
    Author's custom styles
    ========================================================================== */
@@ -134,7 +140,6 @@ html {
 
 .main-container {
   position: relative;
-  padding-bottom: 150px;
   min-height: 50vh;
   -webkit-perspective: 100px;
           perspective: 100px;
@@ -190,7 +195,7 @@ html {
   -webkit-perspective: 150px;
           perspective: 150px;
   position: relative;
-  min-height: 450px;
+  min-height: 300px;
   padding-bottom: 50px;
   transition: -webkit-transform ease-out 250ms;
   transition: transform ease-out 250ms;
@@ -199,10 +204,10 @@ html {
     text-align: center; }
   .movie-text blockquote {
     position: absolute;
-    top: 0;
+    top: 50%;
     left: 50%;
     width: 100%;
-    margin: 1em auto;
+    margin: 0 auto;
     max-width: 630px;
     min-height: 225px;
     opacity: 1;
