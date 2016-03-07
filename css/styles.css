@@ -88,7 +88,12 @@ textarea {
 html {
   font-size: 10px;
   font-family: 'Special Elite', cursive, monospace;
-  background-color: #ec6350; }
+  height: 100%;
+  background-image: url(../img/background.jpg);
+  background-size: cover;
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-attachment: fixed; }
 
 .wrapper {
   width: 90%;
@@ -99,30 +104,42 @@ html {
       /* 1140px - 10% for margins */
       margin: 0 auto; } }
 
-.header-container {
-  background-color: #ec6350;
+.header-container .wrapper {
+  max-width: 640px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 75px; }
+
+.header-container h1 {
+  color: #e3c680;
+  font-family: 'Limelight', Georgia, cursive;
+  font-size: 1.8em;
+  margin-top: 0;
+  margin-bottom: 50px; }
+
+.header-container nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex; }
+
+.header-container nav a {
+  color: #ffffff;
+  padding: 10px 20px;
+  display: block;
+  text-decoration: none;
+  text-transform: uppercase; }
+
+.main-container {
   position: relative;
-  z-index: 100; }
-  .header-container h1 {
-    text-transform: uppercase; }
-  .header-container nav {
-    background-color: #000000; }
-    .header-container nav ul {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      display: -webkit-flex;
-      display: -ms-flexbox;
-      display: flex; }
-    .header-container nav a {
-      color: #ffffff;
-      padding: 10px 20px;
-      display: block;
-      text-decoration: none;
-      text-transform: uppercase; }
-  @media only screen and (min-width: 768px) {
-    .header-container {
-      box-shadow: 0 5px 10px #aaa; } }
+  padding-bottom: 150px;
+  min-height: 50vh;
+  -webkit-perspective: 100px;
+          perspective: 100px;
+  -webkit-perspective-origin: 50% 25%;
+          perspective-origin: 50% 25%; }
 
 .movie-texts header h2 {
   text-align: center;
@@ -138,26 +155,14 @@ html {
     position: absolute;
     top: 0;
     left: 50%;
-    background-color: #FFFFFF;
-    opacity: 1;
-    text-align: center;
-    letter-spacing: 0.1em;
-    font-size: 2em;
-    max-width: 400px;
-    margin: 0 auto;
-    padding: 15px 30px;
-    margin-top: 1em;
-    margin-bottom: 1em;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
+    width: 100%;
+    margin: 1em auto;
+    max-width: 630px;
     min-height: 225px;
-    -webkit-justify-content: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    -webkit-flex-direction: column;
-        -ms-flex-direction: column;
-            flex-direction: column;
+    opacity: 1;
+    letter-spacing: 0.1em;
+    line-height: 1.5em;
+    font-size: 2em;
     transition: all 200ms ease-in-out;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
     -webkit-transform: translate3d(-50%, 0, 0) rotate(0deg);
@@ -166,21 +171,48 @@ html {
     .movie-text blockquote.new {
       opacity: 0;
       pointer-events: none; }
+    .movie-text blockquote .perforation {
+      height: 100%;
+      width: 75px;
+      background: url(../img/perforated.png) repeat-y;
+      position: absolute;
+      left: 0;
+      top: 0; }
+    .movie-text blockquote .quotetext {
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-justify-content: center;
+          -ms-flex-pack: center;
+              justify-content: center;
+      -webkit-flex-direction: column;
+          -ms-flex-direction: column;
+              flex-direction: column;
+      background-color: #e8e2e2;
+      margin-left: 75px;
+      padding: 50px 25px 50px 25px; }
 
 .movie-text--wrapper {
   min-height: 150px; }
 
+.buttons {
+  text-align: right; }
+
 .btn-default {
+  margin-left: 1em;
+  font-size: 1.5em;
   border: none;
-  display: block;
+  display: inline-block;
   background: black;
   color: white;
   text-align: center;
   text-decoration: none;
   text-transform: uppercase;
+  width: 200px;
   height: auto;
   line-height: 1.5em;
-  margin: 0 auto;
+  margin-left: 1em;
+  padding: 10px 20px;
   position: relative;
   transition: 200ms ease-out transform;
   transition: all 200ms ease-in-out;
@@ -203,50 +235,13 @@ html {
     border: 1px solid rgba(255, 255, 255, 0.5);
     transition: all 200ms ease-in-out;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23); }
-
-.btn-generate {
-  width: 100%;
-  font-size: 4em;
-  margin-bottom: 20px; }
-  @media only screen and (min-width: 480px) {
-    .btn-generate {
-      width: 400px; } }
-  @media only screen and (min-width: 768px) {
-    .btn-generate {
-      width: 500px; } }
-
-.btn-sharezvous {
-  font-size: 2em; }
-
-.main-container {
-  position: relative;
-  background-color: #ffffff;
-  min-height: 50vh;
-  padding-bottom: 150px;
-  -webkit-perspective: 100px;
-          perspective: 100px;
-  -webkit-perspective-origin: 50% 25%;
-          perspective-origin: 50% 25%; }
-  .main-container:before {
-    content: "";
-    position: absolute;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 0.25;
-    -webkit-filter: saturate(0);
-            filter: saturate(0); }
-  .main-container.bg-1:before {
-    background-image: url(../img/josh-brolin.jpg); }
-  .main-container.bg-2:before {
-    background-image: url(../img/moviepitch.jpg); }
+  .btn-default i {
+    font-size: 1.75em; }
 
 .footer-container {
-  background-color: #ec6350; }
+  position: fixed;
+  bottom: 0;
+  width: 100%; }
 
 footer {
   text-align: right;

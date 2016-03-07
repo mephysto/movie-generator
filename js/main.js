@@ -4,7 +4,10 @@
   'use strict';
   var thisWebsiteURL = "http://mephysto.github.io/movie-generator/",
     currentMovieText = "",
-    nextMovieText = "";
+    nextMovieText = {
+      title: "",
+      plot: ""
+    };
 
   // Roll a dice!
   // give it a percentage chance on success,
@@ -19,18 +22,9 @@
   }
 
   function generateNewMovie(){
-    // this will probably go:
-    var backgrounds = [
-      "bg-1",
-      "bg-2"
-    ];
-    $('.main-container').removeClass(backgrounds.join(" ")).addClass(getRandomFromArray(backgrounds));
-
-    var state;
-    currentMovieText = nextMovieText;
-    nextMovieText = "";
+    currentMovieText = nextMovieText.plot;
+    nextMovieText.plot = "";
     if (rollDice(15)){
-      state = "QUICKIE";
       nextMovieText = generateQuickie();
     } else {
       if (rollDice(0.05)){
@@ -38,20 +32,19 @@
       } else{
         nextMovieText = generateNewMovieDefault();
       }
-      // if !quickie, we can add this suffix
       if (rollDice(10)){
-        nextMovieText += addThirdActProblem();
+        nextMovieText.plot += addThirdActProblem();
       }
     }
     // suffixes
     if (rollDice(10)){
-      nextMovieText += addMusic();
+      nextMovieText.plot += addMusic();
     }
     if (rollDice(5)){
-      nextMovieText += addCameo();
+      nextMovieText.plot += addCameo();
     }
     if (rollDice(5)){
-      nextMovieText += addTooSoon();
+      nextMovieText.plot += addTooSoon();
     }
     // $('#movie-text').text(movieText);
     //
@@ -67,7 +60,7 @@
       return 'translate3d(' + locX.toFixed(2) + '%,' + loc.toFixed(1) + 'px,' + stackheight + 'px) rotate(' + a.toFixed(3) + 'deg);';
     }
     $('.new').removeClass('new').removeAttr('style').attr('style', 'transform: ' + randomEndStyle());
-    $('.movie-text').append("<blockquote class=\"new\" style=\"transform: " + randomStartStyle() + "\">" + nextMovieText + "</blockquote>");
+    $('.movie-text').append("<blockquote class=\"new\" style=\"transform: " + randomStartStyle() + "\"><div class=\"perforation\"></div><div class=\"quotetext\"><h2>" + nextMovieText.title + "</h2>" + nextMovieText.plot + "</div></blockquote>");
   }
   function generateNewMovieDefault(){
 
@@ -100,28 +93,29 @@
       }
     }
     var actor = [{
-      name: "a group of teenage friends", noun: "p"},{
-      name: "two FBI agents", noun: "p"},{
-      name: "a somewhat awkward teenager", noun: "p"},{
-      name: "a 30-something year old man", noun: "p"},{
-      name: "a woman down on her luck", noun: "f"},{
+      name: "a group of teenage friends", noun: "P"},{
+      name: "two FBI agents", noun: "P"},{
+      name: "a somewhat awkward teenager", noun: "P"},{
+      name: "a 30-something year old man", noun: "P"},{
+      name: "a woman down on her luck", noun: "F"},{
 
-      name: "a hard, grizzled, military man in the highest echelons of power", noun: "m"},{
-      name: "a British secret service agent", noun: "m"},{
+      name: "a hard, grizzled, military man in the highest echelons of power", noun: "M"},{
+      name: "a British secret service agent", noun: "M"},{
 
-      name: "a former army type", noun: "m"},{
-      name: "a clueless young woman who's new to the big city", noun: "m"},{
-      name: "a political mastermind", noun: "m"},{
-      name: "an idiot savant", noun: "m"},{
-      name: "a monkey that has learnt English", noun: "m"},{
-      name: "a poor black kid from the wrong side of the tracks", noun: "m"},{
-      name: "a company man", noun: "m"},{
-      name: "an enigmatic grandfather type", noun: "m"},{
-      name: "a 4th wall breaking action hero", noun: "m"},{
-      name: "a cop who's two days from retirement", noun: "m"},{
-      name: "a devoutly religious teenager", noun: "m"},{
+      name: "a former army type", noun: "M"},{
+      name: "a clueless young woman who's new to the big city", noun: "M"},{
+      name: "a political mastermind", noun: "M"},{
+      name: "an idiot savant", noun: "M"},{
+      name: "a monkey that has learnt English", noun: "M"},{
+      name: "a poor black kid from the wrong side of the tracks", noun: "M"},{
+      name: "a company man", noun: "M"},{
+      name: "an enigmatic grandfather type", noun: "M"},{
+      name: "a 4th wall breaking action hero", noun: "M"},{
+      name: "a cop who's two days from retirement", noun: "M"},{
+      name: "a devoutly religious teenager", noun: "M"},{
       name: "Abraham Lincoln", noun: "M"},{
       name: "Adam Sandler", noun: "M"},{
+      name: "Neil Patrick Harris", noun: "M"},{
       name: "Alec Baldwin", noun: "M"},{
       name: "Andy Serkis in a Mo-cap suit", noun: "M"},{
       name: "Ben Affleck", noun: "M"},{
@@ -133,7 +127,7 @@
       name: "Carrie Fisher", noun: "F"},{
       name: "Christopher Walken", noun: "M"},{
       name: "Danny Trejo", noun: "M"},{
-      name: "David Hasselhoff", noun: "M"},{
+      name: "David Hasselhof", noun: "M"},{
       name: "Dwayne 'The Rock' Johnson", noun: "M"},{
       name: "Eddie Murphy playing 10 different characters", noun: "P"},{
       name: "Ellen Page", noun: "F"},{
@@ -197,7 +191,7 @@
       "plays a dangerous Game of Thrones",
       "investigates a psych ward",
       "returns from the dead",
-      "takes a an world-record breaking dump",
+      "takes a world-record breaking dump",
       "moves in next door",
       "babysit a three toddlers",
       "make a porno",
@@ -297,6 +291,7 @@
       "an army of the undead",
       "going back in time to kill himself",
       "velociraptors with machine guns",
+      "Voldemort",
       "an army of ducks",
       "Dinosaurs",
       "Donald Trump",
@@ -360,10 +355,10 @@
 
     // var badguymaybe = rollDice(10) ? "falling in the hands of " : ""; // play around with this one a bit more
 
-    var startText = rollDice(10) ? "It's a movie fully told in non sequitur, starring " : "It's a movie starring ";
-
+    var startText = rollDice(1) ? "It's a movie fully told in non sequitur, starring " : "It's a movie starring ";
+    var newTitle = "New Title";
     var newText = startText + adjective + randoActor.name + ", who " + getRandomFromArray(situation) + ". And " + getActorGenderText(randoActor.noun).they + " " + getActorGenderText(randoActor.noun).has + " to " + getRandomFromArray(actions) + " to " + guffinAction.verb1 + " " + getRandomFromArray(mcguffin) + " " + guffinAction.verb2 + " " + getRandomFromArray(badguy) + ".";
-    return newText;
+    return {title: newTitle, plot: newText};
   }
 
   function generateQuickie(){
@@ -427,9 +422,9 @@
       // "World of Warcraft",
     ];
 
-
+    var newTitle = "New Title";
     var newText = "We just do a " + getRandomFromArray(genre) + " remake of " + getRandomFromArray(oldmovie) + " and go home early.";
-    return newText;
+    return {title: newTitle, plot: newText};
   }
 
   function generatePlotTwist(){
@@ -452,8 +447,9 @@
       "he was on Earth all along"
     ];
 
+    var newTitle = "New Title";
     var newText = getRandomFromArray(actor) + " is a " + getRandomFromArray(profession) + ", but in a " + getRandomFromArray(adjective) + " plot twist, " + getRandomFromArray(shyamalize) + ".";
-    return newText;
+    return {title: newTitle, plot: newText};
   }
   function addThirdActProblem(){
 
