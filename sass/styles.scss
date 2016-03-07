@@ -208,6 +208,7 @@ html{
     opacity: 1;
 
     text-align: center;
+    letter-spacing: 0.1em;
     // position: relative;
     font-size: 2em;
     // font-style: italic;
@@ -227,6 +228,7 @@ html{
     &.new{
       // transform: translate3d(-50%, 0px, 60px) rotate(-7deg);
       opacity: 0;
+      pointer-events: none;
     }
   }
 }

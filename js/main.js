@@ -7,7 +7,7 @@
     nextMovieText = "";
 
   // Roll a dice!
-  // give it a percentage chance on success, 
+  // give it a percentage chance on success,
   // and a callback function that should trigger on success
   function rollDice(chance){
     return (chance > Math.random()*100);
@@ -34,7 +34,7 @@
       nextMovieText = generateQuickie();
     } else {
       if (rollDice(0.05)){
-        nextMovieText = generatePlotTwist(); // we haven't made these yet. luck of the draw if you get this
+        nextMovieText = generatePlotTwist(); // we haven't worked these out yet. luck of the draw if you get this
       } else{
         nextMovieText = generateNewMovieDefault();
       }
@@ -54,38 +54,56 @@
       nextMovieText += addTooSoon();
     }
     // $('#movie-text').text(movieText);
-    // 
+    //
     function randomStartStyle(){
       var a = Math.random()*20 - 10;
       return 'translate3d(-50%,0,70px) rotate(' + a.toFixed(3) + 'deg)';
     }
     function randomEndStyle(){
-      var a = Math.random()*5 - 2.5;
-      var locX = (-40 - (Math.random()*20)).toFixed(2);
-      var loc = (Math.random()* 50).toFixed(1);
-      return 'translate3d(' + locX + '%,' + loc + 'px,' + $('.movie-text > blockquote').length + 'px) rotate(' + a.toFixed(3) + 'deg);';
+      var a = Math.random()*5 - 2.5,
+        locX = -40 - (Math.random()*20),
+        loc = Math.random()* 50,
+        stackheight = $('.movie-text > blockquote').length < 25 ? $('.movie-text > blockquote').length * 0.5 : 25;
+      return 'translate3d(' + locX.toFixed(2) + '%,' + loc.toFixed(1) + 'px,' + stackheight + 'px) rotate(' + a.toFixed(3) + 'deg);';
     }
     $('.new').removeClass('new').removeAttr('style').attr('style', 'transform: ' + randomEndStyle());
     $('.movie-text').append("<blockquote class=\"new\" style=\"transform: " + randomStartStyle() + "\">" + nextMovieText + "</blockquote>");
   }
   function generateNewMovieDefault(){
 
+    // Ugh.. Grammar is dumbbbbb
     function getActorGenderText(gender){
       if (gender.toUpperCase() === "P"){
-        return "they have";
+        return {
+          they: "they",
+          his: "their",
+          has: "have"
+        };
       } else if (gender.toUpperCase() === "F"){
-        return "she has";
+        return {
+          they: "she",
+          his: "her",
+          has: "has"
+        }
       } else if (gender.toUpperCase() === "Y"){
-        return "you, the audience, have";
+        return {
+          they: "you, the audience,",
+          his: "your",
+          has: "have"
+        }
       } else {
-        return "he has";
+        return {
+          they: "he",
+          his: "his",
+          has: "has"
+        }
       }
     }
     var actor = [{
       name: "a group of teenage friends", noun: "p"},{
       name: "two FBI agents", noun: "p"},{
       name: "a somewhat awkward teenager", noun: "p"},{
-      name: "a 30-something year old man", noun: "p"},{ 
+      name: "a 30-something year old man", noun: "p"},{
       name: "a woman down on her luck", noun: "f"},{
 
       name: "a hard, grizzled, military man in the highest echelons of power", noun: "m"},{
@@ -117,7 +135,7 @@
       name: "Danny Trejo", noun: "M"},{
       name: "David Hasselhoff", noun: "M"},{
       name: "Dwayne 'The Rock' Johnson", noun: "M"},{
-      name: "Eddie Murphy plays 10 characters", noun: "P"},{
+      name: "Eddie Murphy playing 10 different characters", noun: "P"},{
       name: "Ellen Page", noun: "F"},{
       name: "everyone from the Expandables", noun: "P"},{
       name: "the guys from The Flight of the Conchords", noun: "P"},{
@@ -158,16 +176,17 @@
     var situation = [
       "is diagnosed with terminal lung cancer",
       "wakes up with no memory of what happened",
-      "wins the Golden Ticket to that consumer product he loves",
+      // "wins the Golden Ticket to that consumer product " + getActorGenderText(randoActor.noun).they + " everybody loves",
+      "wins the Golden Ticket to that consumer product everybody loves",
       "becomes pregnant",
       // "has to go back to school",
       "goes back to school",
-      "encounters an evil twin",
+      "encounters " + getActorGenderText(randoActor.noun).his + " evil twin",
       "always complains nothing ever happens",
-      "takes the trip to Mars",
+      getActorGenderText(randoActor.noun).has + " to take the trip to Mars",
       "gets a job",
       // "has a nightmare",
-      "is a petty thief, but gets involved in a major crime",
+      "is a petty thief, but " + getActorGenderText(randoActor.noun).they + " gets involved in a major crime",
       "knows too much",
       "relives the same day, over and over again",
       "hides a watch for five long years",
@@ -188,12 +207,12 @@
     // and has to...
     var actions = [
       "use Tinder",
-      "get her groove back",
+      "get " + getActorGenderText(randoActor.noun).his + " groove back",
       "infiltrate a maximum security prison",
       "gather a group of seven magnificent warriors",
       "fight the undead",
       // "get the band back together",
-      "switch places with his best friend",
+      "switch places with " + getActorGenderText(randoActor.noun).his + " best friend",
       "become a vampire",
       "go to jail",
       "survive long enough",
@@ -206,12 +225,11 @@
       "travel to Mordor",
       // "give dem people air",
       "plan a heist",
-      "not go below 60mph",
+      "prevent a bus from going below 60mph",
       "take a day off",
-      "go undercover",
+      "go deep undercover",
       "sings a heart wrenching power ballad",
       "go through a long training montage",
-
       "make an unexpected friend",
       "become a superhero",
       "learn karate",
@@ -219,12 +237,13 @@
       // "comes to life",
       "become a pre-cog ",
       "become the highest bidder on eBay",
-      "posts a letter",
-      "bring a message to Obi-Wan",
-      "rocks out"
+      // "post a letter",
+      "deliver a message to Obi-Wan",
+      "rock out"
     ];
     var mcguffin = [
-      "a stick",
+      "The Pick of Truth",
+      "The Stick of Destiny",
       "magic coconuts",
       "a secret porn stash",
       "an all powerful ring",
@@ -235,7 +254,7 @@
       "a time travelling pool table",
       "a golden gun",
       "Lego bricks",
-      "an Apple Watch (that’s totally not a product placement)",
+      "an Apple Watch <span title=\"Apple, please send us free stuff :)\">(that’s totally not a product placement)</span>",
       "a princess",
       "plans for a giant space station",
       "the cure for cancer",
@@ -251,6 +270,7 @@
       "a disc containing every undercover agent in the world",
       "the Maltese Falcon",
       "a misplaced car",
+
       "his marriage",
       "the Millenium Falcon",
       "a suitcase full of money",
@@ -316,23 +336,33 @@
     var action = rollDice(50) ? getRandomFromArray(actions) : "has";
 
     var guffinActions = [
-      // "save",
-      "steal",
-      // "protect",
-      "defend",
-      // "bring",
-      // "win", 
-      // "transport",
-      // "deliver",
-      "retrieve"
-    ];
+      /*{
+        verb1: "save", verb2: "from"
+      },{
+        verb1: "protect", verb2: "from"
+      },{
+        verb1: "bring", verb2: "to"
+      },{
+        verb1: "win", verb2: "for"
+      }, {
+        verb1: "transport", verb2: "to"
+      },*/{
+        verb1: "deliver", verb2: "to"
+      },{
+        verb1: "steal", verb2: "from"
+      },{
+        verb1: "defend", verb2: "from"
+      },{
+        verb1: "retrieve", verb2: "from"
+      }];
 
-    var guffinAction = rollDice(50) ? getRandomFromArray(guffinActions) : "save";
+    var guffinAction = rollDice(50) ? getRandomFromArray(guffinActions) : {verb1: "save", verb2: "from" };
 
     // var badguymaybe = rollDice(10) ? "falling in the hands of " : ""; // play around with this one a bit more
 
+    var startText = rollDice(10) ? "It's a movie fully told in non sequitur, starring " : "It's a movie starring ";
 
-    var newText = "It's a movie starring " + adjective + randoActor.name + ", who " + getRandomFromArray(situation) + ". And " + getActorGenderText(randoActor.noun) + " to " + getRandomFromArray(actions) + " to " + guffinAction + " " + getRandomFromArray(mcguffin) + " from " + getRandomFromArray(badguy) + ".";
+    var newText = startText + adjective + randoActor.name + ", who " + getRandomFromArray(situation) + ". And " + getActorGenderText(randoActor.noun).they + " " + getActorGenderText(randoActor.noun).has + " to " + getRandomFromArray(actions) + " to " + guffinAction.verb1 + " " + getRandomFromArray(mcguffin) + " " + guffinAction.verb2 + " " + getRandomFromArray(badguy) + ".";
     return newText;
   }
 
@@ -428,7 +458,7 @@
   function addThirdActProblem(){
 
     var problem = [
-      "we’ve already written ourselves into a corner and the movie is ruined.",
+      "we’ve already written ourselves into a corner and the movie is ruined",
       "we pray that everyone has left the cinema already.",
 
       "we had to write out Jonah Hill's character",
@@ -470,28 +500,35 @@
       "Dethklok",
       "Daft Punk",
       "Stephen Hawking",
-      "a french artist who does covers of David Bowie songs",
+      "Elton John",
+      "The Lonely Island",
+      "Danny Elfman",
+      "a french artist who covers David Bowie songs",
       "NWA",
       "John Williams",
+      "Vanilla Ice",
       "Kanye West",
       "Randy Newman",
       "the Spice Girls",
       "the Pet Shop Boys",
       "Wham!"
     ];
-
-    var newText = " With music done by " + getRandomFromArray(composer) + ".";
-    return newText;
+    return " With music done by " + getRandomFromArray(composer) + ".";
   }
   function addCameo(){
     var celebrity = [
-      "Nikola Tesla",
+      // "Nikola Tesla",
+      "Hulk Hogan",
+      "Mike Tyson",
+      "Ron Jeremy",
+      "Bill Murray",
+      "Bob Saget",
       "Han Solo",
       "Stan Lee",
       "a CGI version of Paul Walker"
     ];
 
-    return " And " + getRandomFromArray(celebrity) + " has a random cameo.";
+    return " And " + getRandomFromArray(celebrity) + " has a cameo.";
   }
 
   function addTooSoon(){
@@ -506,7 +543,7 @@
       "Robin Williams"
     ];
 
-    return " And we tell everyone that it's " + getRandomFromArray(deadCelebrity) + "'s final movie.";
+    return rollDice(100 / deadCelebrity.length) ? " And we tell everyone that it's based on a true story" : " And we tell everyone that it's " + getRandomFromArray(deadCelebrity) + "'s final movie.";
   }
 
 
@@ -517,7 +554,7 @@
     FB.ui({
       method: 'feed',
       link: thisWebsiteURL,
-      caption: currentMovieText,
+      caption: currentMovieText
     }, function(response){});
   }
 

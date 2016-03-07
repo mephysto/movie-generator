@@ -141,6 +141,7 @@ html {
     background-color: #FFFFFF;
     opacity: 1;
     text-align: center;
+    letter-spacing: 0.1em;
     font-size: 2em;
     max-width: 400px;
     margin: 0 auto;
@@ -163,7 +164,8 @@ html {
             transform: translate3d(-50%, 0, 0) rotate(0deg);
     transition: 1s ease-out all; }
     .movie-text blockquote.new {
-      opacity: 0; }
+      opacity: 0;
+      pointer-events: none; }
 
 .movie-text--wrapper {
   min-height: 150px; }
