@@ -1,119 +1,14 @@
-/*! HTML5 Boilerplate v5.0 | MIT License | http://h5bp.com/ */
+/* Imports */
 
-html {
-  color: #222;
-  font-size: 1em;
-  line-height: 1.4;
-}
+@import 'boilerplate-reset';
 
-::-moz-selection {
-  background: #b3d4fc;
-  text-shadow: none;
-}
+/* Global Vars */
 
-::selection {
-  background: #b3d4fc;
-  text-shadow: none;
-}
+$brand-main: #e3c680;
 
-hr {
-  display: block;
-  height: 1px;
-  border: 0;
-  border-top: 1px solid #ccc;
-  margin: 1em 0;
-  padding: 0;
-}
+/* Mixins */
 
-audio,
-canvas,
-iframe,
-img,
-svg,
-video {
-  vertical-align: middle;
-}
-
-fieldset {
-  border: 0;
-  margin: 0;
-  padding: 0;
-}
-
-textarea {
-  resize: vertical;
-}
-
-.browserupgrade {
-  margin: 0.2em 0;
-  background: #ccc;
-  color: #000;
-  padding: 0.2em 0;
-}
-
-/* ==========================================================================
-   Helper classes
-   ========================================================================== */
-
-.hidden {
-  display: none !important;
-  visibility: hidden;
-}
-
-.visuallyhidden {
-  border: 0;
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  width: 1px;
-}
-
-.visuallyhidden.focusable:active,
-.visuallyhidden.focusable:focus {
-  clip: auto;
-  height: auto;
-  margin: 0;
-  overflow: visible;
-  position: static;
-  width: auto;
-}
-
-.invisible {
-  visibility: hidden;
-}
-
-.clearfix:before,
-.clearfix:after {
-  content: " ";
-  display: table;
-}
-
-.clearfix:after {
-  clear: both;
-}
-
-.clearfix {
-  *zoom: 1;
-}
-
-.pull-left{
-  float: left;
-}
-.pull-right{
-  float: right;
-}
-
-
-.wrapper {
-}
-
-/* ==========================================================================
-   Author's custom styles
-   ========================================================================== */
-
+// Material design shadow. 1 = normal, 3 is hover, 5 is omg, hoverboard
 // level 1 to 5
 @mixin depthShadow($level) {
   transition: all 200ms ease-in-out;
@@ -125,21 +20,16 @@ textarea {
     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
   } @else if ($level == 5){
     box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
-  // } @else if ($level == 3){
-  //  LEVEL 3 IS HOVER
-  } @else{
+  } @else{ // Aka Level 3:
     box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
   } 
 }
 
-
-$brand-main: #e3c680;
+/* Main styles */
 
 html{
   font-size: 10px;
-  // font-family: 'Roboto', "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-family: 'Special Elite', cursive, monospace;
-  // background-color: $brand-main;
   height: 100%;
   background-image: url(../img/background.jpg);
   background-size: cover;
@@ -147,10 +37,7 @@ html{
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
-body{
-}
 .wrapper{
-
   width: 90%;
   margin: 0 5%;
   @media only screen and (min-width: 480px) {
@@ -162,6 +49,49 @@ body{
     margin: 0 auto;
   }
 }
+
+
+.btn-default{
+  margin-left: 1em;
+  font-size: 1.5em;
+  border: none;
+  display: inline-block;
+  background: black;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  min-width: 200px;
+  height: auto;
+  line-height: 1.5em;
+  // margin: 0 auto;
+  margin-left: 1em;
+  padding: 10px 20px;
+  position: relative;
+  transition: 200ms ease-out transform;
+  @include depthShadow(3);
+  border: 1px solid transparent;
+  &:hover{
+    transform: translate(0,-1px);
+    @include depthShadow(4);
+  }
+  &:active{
+    transform: translate(0,2px);
+    @include depthShadow(2);
+  }
+  &:focus{
+    outline: none;
+    border: 1px solid rgba(255,255,255,0.5);
+    @include depthShadow(3);
+  }
+  i{
+    font-size: 1.75em;
+    margin-left: 0.75em;
+  }
+}
+
+/* Template Styles */
+
 .header-container{
   .wrapper{
     max-width: 640px;
@@ -174,39 +104,11 @@ body{
     font-family: 'Limelight', Georgia, cursive;
     font-size: 1.8em;
     margin-top: 0;
-    margin-bottom: 50px;
-  }
-  nav{
-    // background-color: #000000;
-    ul{
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      display: flex;
-    }
-    li{
-
-    }
-    a{
-      color: #ffffff;
-      padding: 10px 20px;
-      display: block;
-      text-decoration: none;
-      text-transform: uppercase;
-    }
-  }
-
-  @media only screen and (min-width: 480px) {
-  }
-  @media only screen and (min-width: 768px) {
-    // box-shadow: 0 5px 10px #aaa;
-  }
-  @media only screen and (min-width: 1140px) {
+    margin-bottom: 0;
   }
 }
 .main-container{
   position: relative;
-  // padding-bottom: 150px;
   min-height: 50vh;
   perspective: 100px;
   perspective-origin: 50% 25%;
@@ -265,6 +167,7 @@ body{
   perspective: 150px;
   position: relative;
   min-height: 300px;
+  padding-top: 50px;
   padding-bottom: 50px;
   transition: transform ease-out 250ms;
   p{
@@ -276,7 +179,6 @@ body{
     left: 50%;
     width: 100%;
     margin: 0 auto;
-    // padding: 15px 30px;
     max-width: 630px;
     min-height: 225px;
     opacity: 1;
@@ -295,7 +197,6 @@ body{
       letter-spacing: 0.125em;
     }
     &.new{
-      // transform: translate3d(-50%, 0px, 60px) rotate(-7deg);
       opacity: 0;
       pointer-events: none;
     }
@@ -325,46 +226,7 @@ body{
   text-align: right;
 }
 
-.btn-default{
-  margin-left: 1em;
-  font-size: 1.5em;
-  border: none;
-  display: inline-block;
-  background: black;
-  color: white;
-  text-align: center;
-  text-decoration: none;
-  text-transform: uppercase;
-  min-width: 200px;
-  height: auto;
-  line-height: 1.5em;
-  // margin: 0 auto;
-  margin-left: 1em;
-  padding: 10px 20px;
-  position: relative;
-  transition: 200ms ease-out transform;
-  @include depthShadow(3);
-  border: 1px solid transparent;
-  &:hover{
-    transform: translate(0,-1px);
-    @include depthShadow(4);
-  }
-  &:active{
-    transform: translate(0,2px);
-    @include depthShadow(2);
-  }
-  &:focus{
-    outline: none;
-    border: 1px solid rgba(255,255,255,0.5);
-    @include depthShadow(3);
-  }
-  i{
-    font-size: 1.75em;
-    margin-left: 0.75em;
-  }
-}
-
-
+/* Footer */
 
 .footer-container{
   position: fixed;
