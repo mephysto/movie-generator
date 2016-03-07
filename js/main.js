@@ -553,7 +553,8 @@
     FB.ui({
       method: 'feed',
       link: thisWebsiteURL,
-      caption: currentMovieText
+      caption: currentMovieText,
+      description: currentMovieText
     }, function(response){});
   }
 
