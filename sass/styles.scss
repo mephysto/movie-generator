@@ -205,6 +205,47 @@ body{
   perspective: 100px;
   perspective-origin: 50% 25%;
 }
+.landing{
+  position: relative;
+  letter-spacing: 0.1em;
+  line-height: 1.5em;
+  font-size: 2em;
+  h2{
+    margin-top: 0;
+    margin-bottom: 25px;
+    text-transform: uppercase;
+    text-decoration: underline;
+    letter-spacing: 0.125em;
+  }
+  p{
+    margin: 0;
+  }
+  section.intro{
+    position: relative;
+  }
+  .intro-text{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #e8e2e2;
+    margin-left: 75px;
+    padding: 60px 25px;
+  }
+  section.buttons{
+    text-align: center;
+    .btn{
+      margin: 25px 0 0;
+    }
+  }
+  .perforation{
+    height: 100%;
+    width: 75px;
+    background: rgba(0,0,0,0.025)  url(../img/perforated.png) repeat-y;
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+}
 .movie-texts{
   header{
     h2{
@@ -259,7 +300,6 @@ body{
       position: absolute;
       left: 0;
       top: 0;
-
     }
     .quotetext{
       display: flex;
@@ -268,6 +308,7 @@ body{
       background-color: #e8e2e2;
       margin-left: 75px;
       padding: 60px 25px;
+      min-height: 110px;
     }
   }
 }

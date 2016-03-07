@@ -141,6 +141,46 @@ html {
   -webkit-perspective-origin: 50% 25%;
           perspective-origin: 50% 25%; }
 
+.landing {
+  position: relative;
+  letter-spacing: 0.1em;
+  line-height: 1.5em;
+  font-size: 2em; }
+  .landing h2 {
+    margin-top: 0;
+    margin-bottom: 25px;
+    text-transform: uppercase;
+    text-decoration: underline;
+    letter-spacing: 0.125em; }
+  .landing p {
+    margin: 0; }
+  .landing section.intro {
+    position: relative; }
+  .landing .intro-text {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-justify-content: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    background-color: #e8e2e2;
+    margin-left: 75px;
+    padding: 60px 25px; }
+  .landing section.buttons {
+    text-align: center; }
+    .landing section.buttons .btn {
+      margin: 25px 0 0; }
+  .landing .perforation {
+    height: 100%;
+    width: 75px;
+    background: rgba(0, 0, 0, 0.025) url(../img/perforated.png) repeat-y;
+    position: absolute;
+    left: 0;
+    top: 0; }
+
 .movie-texts header h2 {
   text-align: center;
   text-transform: uppercase;
@@ -202,7 +242,8 @@ html {
               flex-direction: column;
       background-color: #e8e2e2;
       margin-left: 75px;
-      padding: 60px 25px; }
+      padding: 60px 25px;
+      min-height: 110px; }
 
 .movie-text--wrapper {
   min-height: 150px; }
