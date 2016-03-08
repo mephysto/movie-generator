@@ -49,7 +49,7 @@
     //  
     function randomStartStyle(){
       var a = Math.random()*20 - 10;
-      var b = $('.movie-text > blockquote').length + 100 < 250 ? $('.movie-text > blockquote').length + 100 : 250;
+      var b = $('.movie-text > blockquote').length + 100 < 175 ? $('.movie-text > blockquote').length + 100 : 175;
       return 'translate3d(-50%,-50%,' + b + 'px) rotate(' + a.toFixed(3) + 'deg)';
     }
     function randomEndStyle(){
@@ -127,7 +127,7 @@
       name: "Bill Murray", noun: "M"},{
       name: "Channing Tatum and Jonah Hill", noun: "P"},{
       name: "Chewbacca", noun: "M"},{
-      name: "Christopher Lambert", noun: "M"},{
+      // name: "Christopher Lambert", noun: "M"},{
       name: "Carrie Fisher", noun: "F"},{
       name: "Christopher Walken", noun: "M"},{
       name: "Danny Trejo", noun: "M"},{
@@ -143,7 +143,7 @@
       name: "Ice Cube", noun: "M"},{
       name: "Kevin Spacey", noun: "M"},{
       name: "Neil deGrasse Tyson", noun: "M"},{
-      name: "Jan-Michael Vincent", noun: "M"},{
+      // name: "Jan-Michael Vincent", noun: "M"},{
       name: "Jessica Biel", noun: "F"},{
       name: "Jennifer Lawrence", noun: "F"},{
       name: "Johnny Knoxville", noun: "M"},{
@@ -156,7 +156,7 @@
       name: "Macaulay Culkin", noun: "M"},{
       name: "Madonna", noun: "F"},{
       name: "Mark Hamill", noun: "M"},{
-      name: "Marie Curie", noun: "F"},{
+      // name: "Marie Curie", noun: "F"},{
       name: "Megan Fox", noun: "F"},{
       name: "Mel Gibson", noun: "M"},{
       name: "Michael Caine", noun: "M"},{
@@ -173,6 +173,8 @@
     // who...
     var situation = [
       "is diagnosed with terminal lung cancer",
+      "has a nasty break-up",
+      "whos parents get murdered",
       "gets beat up for " + getActorGenderText(randoActor.noun).his + " lunch money",
       "wakes up with no memory of what happened",
       // "wins the Golden Ticket to that consumer product " + getActorGenderText(randoActor.noun).they + " everybody loves",
