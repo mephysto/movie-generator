@@ -9,17 +9,18 @@
       plot: ""
     };
 
-  // Roll a dice!
-  // give it a percentage chance on success
+  // Take a chance and Roll a dice (100 sided, with floating points)!
+  // feed it a percentage chance you want it to return true
   function rollDice(chance){
     return (chance > Math.random()*100);
   }
 
-  // get random entry from array
+  // get random entry from fed array
   function getRandomFromArray(inputArray){
     return inputArray[Math.floor(inputArray.length * Math.random())];
   }
 
+  // The main generizer
   function generateNewMovie(){
     currentMovieText = nextMovieText.plot;
     nextMovieText.plot = "";
@@ -27,7 +28,7 @@
       nextMovieText = generateQuickie();
     } else {
       if (rollDice(0.05)){
-        nextMovieText = generatePlotTwist(); // we haven't worked these out yet. luck of the draw if you get this
+        nextMovieText = generatePlotTwist(); // we haven't quite worked these out yet. luck of the draw if you get this
       } else{
         nextMovieText = generateNewMovieDefault();
       }
@@ -35,7 +36,7 @@
         nextMovieText.plot += addThirdActProblem();
       }
     }
-    // suffixes
+    // some sexy extra flavour text
     if (rollDice(10)){
       nextMovieText.plot += addMusic();
     }
@@ -45,8 +46,7 @@
     if (rollDice(5)){
       nextMovieText.plot += addTooSoon();
     }
-    // $('#movie-text').text(movieText);
-    //
+    //  
     function randomStartStyle(){
       var a = Math.random()*20 - 10;
       var b = $('.movie-text > blockquote').length + 100 < 250 ? $('.movie-text > blockquote').length + 100 : 250;
@@ -64,8 +64,9 @@
     // $('.movie-text').append("<blockquote class=\"new\" style=\"transform: " + randomStartStyle() + "\"><div class=\"perforation\"></div><div class=\"quotetext\"><h2>" + nextMovieText.title + "</h2>" + nextMovieText.plot + "</div></blockquote>").attr('style', 'transform: translateZ(-' + $('.movie-text > blockquote').length + 'px)');
     $('.movie-text').append("<blockquote class=\"new\" style=\"transform: " + randomStartStyle() + "\"><div class=\"perforation\"></div><div class=\"quotetext\">" + nextMovieText.plot + "</div></blockquote>").attr('style', 'transform: translateZ(-' + $('.movie-text > blockquote').length + 'px)');
   }
-  function generateNewMovieDefault(){
 
+  // the main movie text. 
+  function generateNewMovieDefault(){
     // Ugh.. Grammar is dumbbbbb
     function getActorGenderText(gender){
       if (gender.toUpperCase() === "P"){
@@ -94,6 +95,7 @@
         };
       }
     }
+    // list of heroes
     var actor = [{
       name: "a group of teenage friends", noun: "P"},{
       name: "two FBI agents", noun: "P"},{
@@ -312,6 +314,11 @@
       "Kanye West",
       "Kylo Ren",
       "The Kardashians",
+      "Stereotyped Terrorists",
+      "a Mexican Drug Cartel",
+      // "a former MI:6 agent, gone rogue",
+      "A six-fingered man",
+      "Bikers",
       "Lex Luthor",
       "the Libyans",
       "Megatron",
@@ -323,9 +330,23 @@
       "Steve Buscemi",
       "Team Rocket",
       "the Teletubbies",
+      "a beautiful, yet deadly assassin",
+      "a wealthy business man",
       // "toxic gas",
       "The Vikings",
+      "a Clan of Bandits",
+      "a brilliant, diabolical Mastermind",
+      "a master thief",
+      "a cunning sneak",
+      "a corrupt politician",
+      "an evil genius",
+      "a manipulative psychopath",
+      "a mischievous trickster",
+      "a loan shark",
+      "an overzealous ",
+      "the Mafia",
       "a serial killer",
+      "the Yakuza",
       "a white guy dressed like an Egyptian",
       "your mom"
     ];
@@ -361,7 +382,7 @@
     var guffinAction = rollDice(50) ? getRandomFromArray(guffinActions) : {verb1: "save", verb2: "from" };
 
     // var badguymaybe = rollDice(10) ? "falling in the hands of " : ""; // play around with this one a bit more
-    var lifetime = rollDice(5) ? "Lifetime movie" : "movie";
+    var lifetime = rollDice(1) ? "Lifetime movie" : "movie";
     var startText = rollDice(1) ? "It's a movie fully told in non sequitur, starring " : "It's a " + lifetime + " starring ";
     var newTitle = "New Title";
     var newText = startText + adjective + randoActor.name + ", who " + getRandomFromArray(situation) + ". And " + getActorGenderText(randoActor.noun).they + " " + getActorGenderText(randoActor.noun).has + " to " + getRandomFromArray(actions) + " to " + guffinAction.verb1 + " " + getRandomFromArray(mcguffin) + " " + guffinAction.verb2 + " " + getRandomFromArray(badguy) + ".";
@@ -472,8 +493,9 @@
       "we ran out of budget",
       "Superman wins the day, but destroys the city"
     ];
+    // . But...
     var solution = [
-      "but then every character has their mind wiped and it’s like none of this ever happened",
+      "then every character has their mind wiped and it’s like none of this ever happened",
       "then we realise the beginning of the movie was the ending and the ending is the beginning",
 
       "then again, we're not adhering to a Joseph Campbell storycircle anyway",
@@ -562,12 +584,13 @@
       caption: currentMovieText,
       description: currentMovieText
     }, function(response){});
+    // ga('send', 'event', "Moviepitch", "click", "share to Facebook", currentMovieText);
   }
 
 
   $('.btn-generate').click(function(e){
     e.preventDefault();
-    ga('send', 'event', "Moviepitch", "click", "generate new movie pitch");
+    ga('send', 'event', "Moviepitch", "click", "generate new movie pitch", currentMovieText);
     generateNewMovie();
   });
   $('.btn-sharezvous').click(function (e) {
