@@ -56,8 +56,8 @@
       var a = Math.random()*5 - 2.5,
         locX = -40 - (Math.random()*20),
         loc = -40 - (Math.random()*20),
-        // stackheight = $('.movie-text > blockquote').length < 25 ? $('.movie-text > blockquote').length * 0.5 : 25;
-        stackheight = $('.movie-text > blockquote').length;
+        stackheight = $('.movie-text > blockquote').length < 75 ? $('.movie-text > blockquote').length : 75;
+        // stackheight = $('.movie-text > blockquote').length;
       return 'translate3d(' + locX.toFixed(2) + '%,' + loc.toFixed(1) + '%,' + stackheight + 'px) rotate(' + a.toFixed(3) + 'deg);';
     }
     $('.new').removeClass('new').removeAttr('style').attr('style', 'transform: ' + randomEndStyle());
@@ -485,7 +485,7 @@
 
     var problem = [
       "we’ve already written ourselves into a corner and the movie is ruined",
-      "we pray that everyone has left the cinema already.",
+      "we pray that everyone has left the cinema already",
 
       "we had to write out Jonah Hill's character",
       "there's this whole bit with Ewoks",
@@ -521,7 +521,7 @@
       "Kenny Loggins",
       "smooth jazz covers of Metallica",
       // "a mellow cover of Eye of the Tiger",
-      "whatever the kids are listening to these days.",
+      "whatever the kids are listening to these days",
       "Morgan Freeman's voice",
       "The Backstreet Boys",
       "Dethklok",
