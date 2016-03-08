@@ -173,6 +173,7 @@
     // who...
     var situation = [
       "is diagnosed with terminal lung cancer",
+      "gets beat up for " + getActorGenderText(randoActor.noun).his + " lunch money",
       "wakes up with no memory of what happened",
       // "wins the Golden Ticket to that consumer product " + getActorGenderText(randoActor.noun).they + " everybody loves",
       "wins the Golden Ticket to that consumer product everybody loves",
