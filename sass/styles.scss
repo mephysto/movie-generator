@@ -97,14 +97,13 @@ html{
     max-width: 640px;
     margin-left: auto;
     margin-right: auto;
-    padding-top: 75px;
   }
   h1{
     color: $brand-main;
     font-family: 'Limelight', Georgia, cursive;
     font-size: 1.8em;
-    margin-top: 0;
-    margin-bottom: 0;
+    text-align: center;
+    margin: 15px auto 10px;
     a{
       text-decoration: none;
       color: inherit;
@@ -113,12 +112,33 @@ html{
       }
     }
   }
+  @media only screen and (min-width: 480px) {
+    .wrapper{
+
+    }
+    h1{
+
+    }
+  }
+  @media only screen and (min-width: 768px) {
+    .wrapper{
+      padding-top: 75px;
+    }
+    h1{
+      text-align: left;
+      margin: 0;
+    }
+  }
+  @media only screen and (min-width: 1140px) {
+  }
 }
 .main-container{
   position: relative;
   min-height: 50vh;
-  perspective: 100px;
-  perspective-origin: 50% 25%;
+  @media only screen and (min-width: 768px) {
+    perspective: 100px;
+    perspective-origin: 50% 25%;
+  }
 }
 .landing{
   position: relative;
@@ -171,7 +191,6 @@ html{
   }
 }
 .movie-text{
-  perspective: 150px;
   position: relative;
   min-height: 300px;
   padding-top: 50px;
@@ -190,9 +209,9 @@ html{
     min-height: 225px;
     opacity: 1;
 
-    letter-spacing: 0.1em;
-    line-height: 1.5em;
-    font-size: 2em;
+    font-size: 1.5em;
+    letter-spacing: 0em;
+    line-height: 1.25em;
     @include depthShadow(2);
     transform: translate3d(-50%,0,0) rotate(0deg);
     transition: 1s ease-out all;
@@ -209,7 +228,7 @@ html{
     }
     .perforation{
       height: 100%;
-      width: 75px;
+      width: 50px;
       background: rgba(0,0,0,0.025)  url(../img/perforated.png) repeat-y;
       position: absolute;
       left: 0;
@@ -220,10 +239,29 @@ html{
       justify-content: center;
       flex-direction: column;
       background-color: #e8e2e2;
-      margin-left: 75px;
-      padding: 60px 25px;
-      min-height: 110px;
+      margin-left: 50px;
+      padding: 30px 20px;
+      min-height: 170px;
     }
+  }
+  @media only screen and (min-width: 480px) {
+  }
+  @media only screen and (min-width: 768px) {
+    perspective: 150px;
+    blockquote {
+      font-size: 2em;
+      letter-spacing: 0.1em;
+      line-height: 1.5em;
+      .perforation{
+        width: 75px;
+      }
+      .quotetext{
+        margin-left: 75px;
+        padding: 60px 25px;
+      }
+    }
+  }
+  @media only screen and (min-width: 1140px) {
   }
 }
 .movie-text--wrapper{
@@ -231,33 +269,59 @@ html{
 }
 .buttons{
   text-align: right;
+  @media only screen and (max-width: 767px) {
+    text-align: center;
+    button{
+      display: block;
+      width: 100%;
+      margin: 0;
+      &:not(:last-child){
+        margin-bottom: 20px;
+      }
+    }
+  }
+  @media only screen and (min-width: 768px) {
+  }
+  @media only screen and (min-width: 1140px) {
+  }
 }
 
 /* Footer */
 
 .footer-container{
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  opacity: 0.5;
-  transition: opacity 100ms ease-out;
-  .fb-like{
-    width: 0px;
-    margin-left: 1em;
-    transition: width 250ms ease-out;
-  }
-  &:hover{
-    opacity: 1;
+  @media only screen and (max-width: 767px) {
     .fb-like{
-      width: 50px;
+      display: block;
+      margin: 20px auto 10px;
+      text-align: center;
     }
+  }
+  @media only screen and (min-width: 768px) {
+    opacity: 0.5;
+    transition: opacity 100ms ease-out;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    &:hover{
+      opacity: 1;
+      .fb-like{
+        width: 50px;
+      }
+    }
+    .fb-like{
+      width: 0px;
+      margin-left: 1em;
+      transition: width 250ms ease-out;
+    }
+  }
+  @media only screen and (min-width: 1140px) {
   }
 }
 .footer-credits{
   overflow: hidden;
 }
 footer{
-  text-align: right;
+  text-align: center;
   font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
   // color: #fff;
   color: #ffffff;
@@ -270,11 +334,23 @@ footer{
   a{
     color: inherit;
   }
-  .pull-right{
-    transition: margin 150ms ease-out;
-    // margin-right: -50px;
-    p{
-      display: inline-block;
+
+  @media only screen and (min-width: 480px) {
+  }
+  @media only screen and (min-width: 768px) {
+    text-align: right;
+    .fc-legal{
+      float: left;
     }
+    .fc-credits{
+      float: right;
+      transition: margin 150ms ease-out;
+      // margin-right: -50px;
+      p{
+        display: inline-block;
+      }
+    }
+  }
+  @media only screen and (min-width: 1140px) {
   }
 }
