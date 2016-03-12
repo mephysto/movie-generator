@@ -144,10 +144,11 @@ html{
   position: relative;
   letter-spacing: 0.1em;
   line-height: 1.5em;
-  font-size: 2em;
+  font-size: 1.75em;
   h2{
     margin-top: 0;
     margin-bottom: 25px;
+    font-size: 1.25em;
     text-transform: uppercase;
     text-decoration: underline;
     letter-spacing: 0.125em;
@@ -163,8 +164,8 @@ html{
     justify-content: center;
     flex-direction: column;
     background-color: #e8e2e2;
-    margin-left: 75px;
-    padding: 60px 25px;
+    margin-left: 50px;
+    padding: 30px 15px;
   }
   section.buttons{
     text-align: center;
@@ -174,11 +175,27 @@ html{
   }
   .perforation{
     height: 100%;
-    width: 75px;
+    width: 50px;
     background: rgba(0,0,0,0.025)  url(../img/perforated.png) repeat-y;
     position: absolute;
     left: 0;
     top: 0;
+  }
+  @media only screen and (min-width: 768px) {
+    font-size: 2em;
+    h2{
+      // font-size: 1.5em;
+    }
+    p{
+      // font-size: 1.5em;
+    }
+    .perforation{
+      width: 75px;
+    }
+    .intro-text{
+      margin-left: 75px;
+      padding: 60px 25px;
+    }
   }
 }
 .movie-texts{
