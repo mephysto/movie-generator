@@ -1,4 +1,6 @@
 var gulp = require('gulp');
+var gulpUtil = require('gulp-util');
+var babel = require("gulp-babel");
 var sass = require('gulp-sass');
 var uglify = require('gulp-uglify');
 var autoprefixer = require('gulp-autoprefixer');
@@ -16,7 +18,10 @@ gulp.task('sass', function () {
 
 gulp.task('compress', function() {
   return gulp.src('js/main.js')
-    .pipe(uglify())
+    .pipe(babel({
+      presets: ['es2015']
+    }))
+    .pipe(uglify().on('error', gulpUtil.log))
     .pipe(rename({ suffix: '.min' }))
     .pipe(gulp.dest('js'));
 });

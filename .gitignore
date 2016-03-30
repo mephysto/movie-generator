@@ -3,3 +3,7 @@ node_modules
 design
 
 img/dickbutt.jpg
+
+*.sublime-project
+
+*.sublime-workspace

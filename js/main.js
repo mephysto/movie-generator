@@ -1,9 +1,15 @@
-//
+/* 
+ * Spoilers!
+ *
+ * So you want to see how we maded this huh?
+ * Any questions, love letters, or donations. Shoot me an email: contact@mauricemelchers.nl
+ * 
+*/
 
 (function () {
   'use strict';
-  var thisWebsiteURL = "http://mephysto.github.io/movie-generator/",
-    currentMovieText = "",
+  const thisWebsiteURL = "http://mephysto.github.io/movie-generator/";
+  let currentMovieText = "",
     nextMovieText = {
       title: "",
       plot: ""
@@ -15,13 +21,13 @@
     return (chance > Math.random()*100);
   }
 
-  // get random entry from fed array
+  // get random entry from fed array 
   function getRandomFromArray(inputArray){
     return inputArray[Math.floor(inputArray.length * Math.random())];
   }
 
   // The main generizer
-  function generateNewMovie(){
+  function generateNewMovie()   {
     currentMovieText = nextMovieText.plot;
     nextMovieText.plot = "";
     if (rollDice(15)){
@@ -36,7 +42,7 @@
         nextMovieText.plot += addThirdActProblem();
       }
     }
-    // some sexy extra flavour text
+    // some sexy extra flavour texts
     if (rollDice(10)){
       nextMovieText.plot += addMusic();
     }
@@ -48,25 +54,25 @@
     }
     //  
     function randomStartStyle(){
-      var a = Math.random()*20 - 10;
-      var b = $('.movie-text > blockquote').length + 100 < 175 ? $('.movie-text > blockquote').length + 100 : 175;
+      let a = Math.random()*20 - 10;
+      let b = $('.movie-text > blockquote').length + 100 < 175 ? $('.movie-text > blockquote').length + 100 : 175;
       return 'translate3d(-50%,-50%,' + b + 'px) rotate(' + a.toFixed(3) + 'deg)';
     }
     function randomEndStyle(){
-      var a = Math.random()*5 - 2.5,
+      let a = Math.random()*5 - 2.5,
         locX = -40 - (Math.random()*20),
         loc = -40 - (Math.random()*20),
         stackheight = $('.movie-text > blockquote').length < 75 ? $('.movie-text > blockquote').length : 75;
-        // stackheight = $('.movie-text > blockquote').length;
       return 'translate3d(' + locX.toFixed(2) + '%,' + loc.toFixed(1) + '%,' + stackheight + 'px) rotate(' + a.toFixed(3) + 'deg);';
     }
     $('.new').removeClass('new').removeAttr('style').attr('style', 'transform: ' + randomEndStyle());
-    // $('.movie-text').append("<blockquote class=\"new\" style=\"transform: " + randomStartStyle() + "\"><div class=\"perforation\"></div><div class=\"quotetext\"><h2>" + nextMovieText.title + "</h2>" + nextMovieText.plot + "</div></blockquote>").attr('style', 'transform: translateZ(-' + $('.movie-text > blockquote').length + 'px)');
+    // $('.movie-text').append(`<blockquote class="new" style="transform: ${randomStartStyle()} \><div class="perforation"></div><div class="quotetext">${nextMovieText.plot} </div></blockquote>`).attr('style', `transform: translateZ(-${$('.movie-text > blockquote').length}px)`);
     $('.movie-text').append("<blockquote class=\"new\" style=\"transform: " + randomStartStyle() + "\"><div class=\"perforation\"></div><div class=\"quotetext\">" + nextMovieText.plot + "</div></blockquote>").attr('style', 'transform: translateZ(-' + $('.movie-text > blockquote').length + 'px)');
+    console.log(nextMovieText.plot );
   }
 
   // the main movie text. 
-  function generateNewMovieDefault(){
+  function generateNewMovieDefault() {
     // Ugh.. Grammar is dumbbbbb
     function getActorGenderText(gender){
       if (gender.toUpperCase() === "P"){
@@ -96,7 +102,7 @@
       }
     }
     // list of heroes
-    var actor = [{
+    const actor = [{
       name: "a group of teenage friends", noun: "P"},{
       name: "two FBI agents", noun: "P"},{
       name: "a somewhat awkward teenager", noun: "P"},{
@@ -169,30 +175,34 @@
       name: "Whoopi Goldberg", noun: "F"}
       // {name: "The Count", noun: "M" }
     ];
-    var randoActor = getRandomFromArray(actor);
+
+
+
+    let randoActor = getRandomFromArray(actor);
     // who...
-    var situation = [
-      "is diagnosed with terminal lung cancer",
+    const situation = [
+      `is diagnosed with terminal lung cancer`,
       "has a nasty break-up",
       "whos parents get murdered",
-      "gets beat up for " + getActorGenderText(randoActor.noun).his + " lunch money",
-      "wakes up with no memory of what happened",
+      `gets beat up for ${getActorGenderText(randoActor.noun).his} lunch money`,
+      // "gets beat up for " + getActorGenderText(randoActor.noun).his + " lunch money",
+      "wakes up with no memory of what has happened in the last 24 hours",
       // "wins the Golden Ticket to that consumer product " + getActorGenderText(randoActor.noun).they + " everybody loves",
       "wins the Golden Ticket to that consumer product everybody loves",
       "becomes pregnant",
-      // "has to go back to school",
-      "goes back to school",
-      "encounters " + getActorGenderText(randoActor.noun).his + " evil twin",
+      "has to go back to school",
+      // "goes back to school",
+      `encounters ${getActorGenderText(randoActor.noun).his} evil twin`,
       "always complains nothing ever happens",
-      getActorGenderText(randoActor.noun).has + " to take the trip to Mars",
+      `${getActorGenderText(randoActor.noun).has} to take the trip to Mars`,
       "gets a job",
       // "has a nightmare",
-      "is a petty thief, but " + getActorGenderText(randoActor.noun).they + " gets involved in a major crime",
+      `is a petty thief, but ${getActorGenderText(randoActor.noun).they} gets involved in a major crime`,
       "knows too much",
       "relives the same day, over and over again",
       "hides a watch for five long years",
       "busts chops",
-      "travels through time",
+      `travel${(randoActor.noun === "P" ? "" : "s")} through time`,
       "gets bitten by an irradiated toad",
       "gets caught in a series of unfortunate events",
       "wants to becomes a ballroom dancer",
@@ -201,20 +211,20 @@
       "returns from the dead",
       "takes a world-record breaking dump",
       "moves in next door",
-      "babysit a three toddlers",
+      `${getActorGenderText(randoActor.noun).has} to babysit three toddlers`,
       "make a porno",
       "signs up for cross fit",
       "spends a romantic weekend in a cabin in the woods"
     ];
     // and has to...
-    var actions = [
+    const actions = [
       "use Tinder",
-      "get " + getActorGenderText(randoActor.noun).his + " groove back",
+      `get ${getActorGenderText(randoActor.noun).his} groove back`,
       "infiltrate a maximum security prison",
       "gather a group of seven magnificent warriors",
       "fight the undead",
       // "get the band back together",
-      "switch places with " + getActorGenderText(randoActor.noun).his + " best friend",
+      `switch places with ${getActorGenderText(randoActor.noun).his} best friend`,
       "become a vampire",
       "go to jail",
       "survive long enough",
@@ -245,7 +255,7 @@
       "deliver a message to Obi-Wan",
       "rock out"
     ];
-    var mcguffin = [
+    const mcguffin = [
       "The Pick of Truth",
       "The Stick of Destiny",
       "magic coconuts",
@@ -289,7 +299,7 @@
       "The Spice",
       "Unobtanium"
     ];
-    var badguy = [
+    const badguy = [
       "Kim Jong Un",
       "North Korea",
       "aliens",
@@ -353,15 +363,15 @@
       "a white guy dressed like an Egyptian",
       "your mom"
     ];
-    var adjectives = [
+    const adjectives = [
       "an animated ",
       "a really angry ",
       "a happy version of "
     ];
-    var adjective = rollDice(10) ? "an animated version of " : ""; // play around with this one a bit more
-    var action = rollDice(50) ? getRandomFromArray(actions) : "has";
+    let adjective = rollDice(10) ? "an animated version of " : ""; // play around with this one a bit more
+    let action = rollDice(50) ? getRandomFromArray(actions) : "has";
 
-    var guffinActions = [
+    const guffinActions = [
       /*{
         verb1: "save", verb2: "from"
       },{
@@ -382,48 +392,49 @@
         verb1: "retrieve", verb2: "from"
       }];
 
-    var guffinAction = rollDice(50) ? getRandomFromArray(guffinActions) : {verb1: "save", verb2: "from" };
+    let guffinAction = rollDice(50) ? getRandomFromArray(guffinActions) : {verb1: "save", verb2: "from" };
 
-    // var badguymaybe = rollDice(10) ? "falling in the hands of " : ""; // play around with this one a bit more
-    var lifetime = rollDice(1) ? "Lifetime movie" : "movie";
-    var startText = rollDice(1) ? "It's a movie fully told in non sequitur, starring " : "It's a " + lifetime + " starring ";
-    var newTitle = "New Title";
-    var newText = startText + adjective + randoActor.name + ", who " + getRandomFromArray(situation) + ". And " + getActorGenderText(randoActor.noun).they + " " + getActorGenderText(randoActor.noun).has + " to " + getRandomFromArray(actions) + " to " + guffinAction.verb1 + " " + getRandomFromArray(mcguffin) + " " + guffinAction.verb2 + " " + getRandomFromArray(badguy) + ".";
+    // let badguymaybe = rollDice(10) ? "falling in the hands of " : ""; // play around with this one a bit more
+    let lifetime = rollDice(1) ? "Lifetime movie" : "movie";
+    let startText = rollDice(1) ? "It's a movie fully told in non sequitur, starring" : `It's a ${lifetime} starring`;
+    let newTitle = "New Title";
+    let newText = `${startText} ${adjective} ${randoActor.name}, who ${getRandomFromArray(situation)}. And ${getActorGenderText(randoActor.noun).they} ${getActorGenderText(randoActor.noun).has} to ${getRandomFromArray(actions)} to ${guffinAction.verb1} ${getRandomFromArray(mcguffin)} ${guffinAction.verb2} ${getRandomFromArray(badguy)}.`;
     return {title: newTitle, plot: newText};
   }
 
   function generateQuickie(){
-    var genre = [
+    const genre = [
       // "version where everyone are anthropomorphic animals",
-      "oldschool anime",
-      "arthouse",
-      "comedy",
-      "animated",
-      "Disney",
-      "European",
-      "extremely violent",
-      "family-friendly",
+      "Muppets remake",
+      "oldschool anime remake",
+      "arthouse remake",
+      "comedy version",
+      "animated remake",
+      "Disney animation",
+      "European remake",
+      "extremely violent remake",
+      "family-friendly reboot",
       "gender bender",
-      "German scheisse",
-      "gritty",
-      "high school",
-      "horror",
-      "musical",
-      "kung-fu",
-      "film-noir",
+      "German scheisse movie",
+      "gritty reboot",
+      "high school remake",
+      "horror remake",
+      "musical remake",
+      "kung-fu remake",
+      "film-noir remake",
       "snuff piece",
-      "period piece",
+      "period piece remake",
       "porn",
-      "quirky indie",
-      "space",
-      "Lifetime Movie",
-      "sexy",
-      "vampire",
-      "western",
-      "zombie"
+      "quirky indie remake",
+      "space remake",
+      "Lifetime Movie remake",
+      "sexy version",
+      "vampire remake",
+      "western remake",
+      "zombie remake"
     ];
 
-    var oldmovie = [
+    const oldmovie = [
       "Beavis & Butthead",
       "Taylor Swift’s latest album",
       "the most popular video on Youtube today",
@@ -454,38 +465,38 @@
       // "World of Warcraft",
     ];
 
-    var newTitle = "New Title";
-    var newText = "We just do a " + getRandomFromArray(genre) + " remake of " + getRandomFromArray(oldmovie) + " and go home early.";
+    let newTitle = "New Title";
+    let newText = `Lets just do a ${getRandomFromArray(genre)} of ${getRandomFromArray(oldmovie)} and call it a wrap.`;
     return {title: newTitle, plot: newText};
   }
 
   function generatePlotTwist(){
-    var actor = [
+    const actor = [
       "Michael Caine"
     ];
 
-    var profession = [
+    const profession = [
       "Web Developer",
       "Art Director"
     ];
 
-    var adjective = [
+    const adjective = [
       "stunning"
     ];
 
-    var shyamalize = [
+    const shyamalize = [
       "it turns out he was dead all along",
       "he was actually Tyler Durden",
       "he was on Earth all along"
     ];
 
-    var newTitle = "New Title";
-    var newText = getRandomFromArray(actor) + " is a " + getRandomFromArray(profession) + ", but in a " + getRandomFromArray(adjective) + " plot twist, " + getRandomFromArray(shyamalize) + ".";
+    let newTitle = "New Title";
+    let newText = `${getRandomFromArray(actor)} is a ${getRandomFromArray(profession)}, but in a ${getRandomFromArray(adjective)} plot twist, ${getRandomFromArray(shyamalize)}.`;
     return {title: newTitle, plot: newText};
   }
   function addThirdActProblem(){
 
-    var problem = [
+    const problem = [
       "we’ve already written ourselves into a corner and the movie is ruined",
       "we pray that everyone has left the cinema already",
 
@@ -497,15 +508,15 @@
       "Superman wins the day, but destroys the city"
     ];
     // . But...
-    var solution = [
+    const solution = [
       "then every character has their mind wiped and it’s like none of this ever happened",
       "then we realise the beginning of the movie was the ending and the ending is the beginning",
 
-      "then again, we're not adhering to a Joseph Campbell storycircle anyway",
+      "then again, we're not following a Joseph Campbell storycircle anyway",
       "we set up the sequel with a vague ending",
       "it won’t matter if it flops because it’ll do well in China",
       "it ends with a heavy metal cover of the song from Titanic",
-      "Dan Harmon does a sweet rap battle, and all is good",
+      "Dan Harmon comes in and does a sweet rap battle, and all is good",
       "we got the Mythbusters to help us explain that bit",
       "then we zoom out and see everything took place in a snow globe",
       "it was in his head all along",
@@ -513,25 +524,27 @@
       "we'll have tons of lens flares",
       "at least we've retained merchandising rights"
     ];
-    var newText = " In the 3rd act, " + getRandomFromArray(problem) + ". But " + getRandomFromArray(solution) + ".";
+    let newText = ` Though in the 3rd act, ${getRandomFromArray(problem)}. But ${getRandomFromArray(solution)}.`;
     return newText;
   }
 
   function addMusic(){
-    var composer = [
+    const composer = [
       "Huey Lewis and the News",
       "Kenny Loggins",
       "smooth jazz covers of Metallica",
       // "a mellow cover of Eye of the Tiger",
-      "whatever the kids are listening to these days",
+      "Trap, or whatever the kids are listening to these days",
       "Morgan Freeman's voice",
       "The Backstreet Boys",
       "Dethklok",
+      "Chiptune",
       "Daft Punk",
       "Stephen Hawking",
       "Elton John",
       "The Lonely Island",
       "Danny Elfman",
+      "Nickelback",
       "a french artist who covers David Bowie songs",
       "NWA",
       "John Williams",
@@ -542,10 +555,10 @@
       "the Pet Shop Boys",
       "Wham!"
     ];
-    return " With music done by " + getRandomFromArray(composer) + ".";
+    return ` With music done by ${getRandomFromArray(composer)}.`;
   }
   function addCameo(){
-    var celebrity = [
+    const celebrity = [
       // "Nikola Tesla",
       "Hulk Hogan",
       "Mike Tyson",
@@ -556,16 +569,16 @@
       "Stan Lee",
       "a CGI version of Paul Walker"
     ];
-
-    return " And " + getRandomFromArray(celebrity) + " has a cameo.";
+    return ` And ${getRandomFromArray(celebrity)} has a cameo.`;
   }
 
   function addTooSoon(){
-    var deadCelebrity = [
+    const deadCelebrity = [
       "Carl Sagan",
       "Christopher Lee",
       "David Bowie",
       "Leonard Nimoy",
+      "Philip Seymour Hoffman",
       "Michael Jackson",
       "Amy Winehouse",
       "Kurt Cobain",
@@ -573,14 +586,14 @@
       "Robin Williams"
     ];
 
-    return rollDice(100 / deadCelebrity.length) ? " And we tell everyone that it's based on a true story" : " And we tell everyone that it's " + getRandomFromArray(deadCelebrity) + "'s final movie.";
+    return rollDice(100 / deadCelebrity.length) ? ` And we tell everyone that it's based on a true story` : ` And we tell everyone that it's actually ${getRandomFromArray(deadCelebrity)}'s final movie.`;
   }
 
 
   generateNewMovie();
   generateNewMovie();
   function shareCurrentMovie(){
-    console.log('share:',currentMovieText);
+    // console.log('share:',currentMovieText);
     FB.ui({
       method: 'feed',
       link: thisWebsiteURL,
@@ -600,7 +613,5 @@
     e.preventDefault();
     shareCurrentMovie();
   })
+}());
 
-
-
-})();
