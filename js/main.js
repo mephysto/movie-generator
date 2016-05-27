@@ -17,29 +17,30 @@
 
   // Take a chance and Roll a dice (100 sided, with floating points)!
   // feed it a percentage chance you want it to return true
-  rollDice = (chance=50) => chance > Math.random()*100; // ES6 sure is sexy
+  let rollDice = (chance=50) => chance > Math.random()*100; // ES6 sure is sexy
 
   // get random entry from fed array 
-  getRandomFromArray = (inputArray) => inputArray[Math.floor(inputArray.length * Math.random())];
+  let getRandomFromArray = (inputArray) => inputArray[Math.floor(inputArray.length * Math.random())];
 
   
 
   // The main generizer
-  generateNewMovie = () => {
-    randomStartStyle = () => {
+  let generateNewMovie = () => {
+    let randomStartStyle = () => {
       let quoteCount = document.querySelectorAll('.movie-text > blockquote').length,
         a = Math.random()*20 - 10,
         b = quoteCount + 100 < 175 ? quoteCount + 100 : 175;
       return `translate3d(-50%,-50%,${b}px) rotate(${a.toFixed(3)}deg)`;
     }
-    randomEndStyle = () => {
+    let randomEndStyle = () => {
       let quoteCount = document.querySelectorAll('.movie-text > blockquote').length,
         a = Math.random() * 5 - 2.5,
         locX = -40 - (Math.random() * 20),
         loc = -40 - (Math.random() * 20),
-        stackheight = quoteCount < 75 ? quoteCount : 75;
+        // stackheight = quoteCount < 75 ? quoteCount : 75;
+        stackheight = 0;
       // return 'translate3d(' + locX.toFixed(2) + '%,' + loc.toFixed(1) + '%,' + stackheight + 'px) rotate(' + a.toFixed(3) + 'deg);';
-      return `translate3d(${locX.toFixed(2)}%, ${loc.toFixed(1)}%, ${stackheight}px) rotate(${a.toFixed(3)}deg);`;
+      return `translate3d(${locX.toFixed(2)}%, ${loc.toFixed(1)}%, ${stackheight}px) rotate(${a.toFixed(3)}deg)`;
     }
 
     currentMovieText = nextMovieText.plot;
@@ -67,15 +68,18 @@
       nextMovieText.plot += addTooSoon();
     }
     // 
-    document.querySelector('new').style.transform = randomEndStyle();
-    document.querySelector('new').removeAttr('class');
+    if (document.querySelector('.new')) {
+      window.ns = randomEndStyle();
+      document.querySelector('.new').style.transform = randomEndStyle();
+      document.querySelector('.new').removeAttribute('class');
+    }
     // $('.movie-text').append(`<blockquote class="new" style="transform: ${randomStartStyle()} \><div class="perforation"></div><div class="quotetext">${nextMovieText.plot} </div></blockquote>`).attr('style', `transform: translateZ(-${$('.movie-text > blockquote').length}px)`);
     $('.movie-text').append("<blockquote class=\"new\" style=\"transform: " + randomStartStyle() + "\"><div class=\"perforation\"></div><div class=\"quotetext\">" + nextMovieText.plot + "</div></blockquote>").attr('style', 'transform: translateZ(-' + $('.movie-text > blockquote').length + 'px)');
     console.info(nextMovieText.plot);
   }
 
   // the main movie text. 
-  generateNewMovieDefault = () => {
+  let generateNewMovieDefault = () => {
     // Ugh.. Grammar is dumbbbbb
     const getActorGenderText = (gender) => {
       if (gender.toUpperCase() === "P"){
@@ -403,7 +407,7 @@
     return {title: newTitle, plot: newText};
   }
 
-  generateQuickie = () => {
+  let generateQuickie = () => {
     const genre = [
       // "version where everyone are anthropomorphic animals",
       "Muppets remake",
@@ -471,7 +475,7 @@
     return {title: newTitle, plot: newText};
   }
 
-  generatePlotTwist = () => {
+  let generatePlotTwist = () => {
     const actor = [
       "Michael Caine"
     ];
@@ -574,7 +578,7 @@
     return ` And ${getRandomFromArray(celebrity)} has a cameo.`;
   }
 
-  addTooSoon = () => {
+  let addTooSoon = () => {
     const deadCelebrity = [
       "Carl Sagan",
       "Christopher Lee",
@@ -594,7 +598,7 @@
 
   generateNewMovie();
   generateNewMovie();
-  shareCurrentMovie = () => {
+  let shareCurrentMovie = () => {
     // console.log('share:',currentMovieText);
     FB.ui({
       method: 'feed',
