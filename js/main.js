@@ -139,7 +139,7 @@
       name: "Benedict Cumberbatch", noun: "M"},{
       name: "Bill Murray", noun: "M"},{
       name: "Channing Tatum and Jonah Hill", noun: "P"},{
-      name: "Chewbacca", noun: "M"},{
+      // name: "Chewbacca", noun: "M"},{
       // name: "Christopher Lambert", noun: "M"},{
       name: "Carrie Fisher", noun: "F"},{
       name: "Christopher Walken", noun: "M"},{
@@ -234,6 +234,7 @@
       "go to jail",
       "survive long enough",
       "enter The Matrix",
+      "catch all 722 Pokémon"
       // "do a Banksy",
       "start a podcast",
       "make a documentary",
