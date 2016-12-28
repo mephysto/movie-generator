@@ -590,7 +590,8 @@
       "Amy Winehouse",
       "Kurt Cobain",
       "Lemmy Kilmister",
-      "Robin Williams"
+      "Robin Williams",
+      "Carrie Fisher"
     ];
 
     return rollDice(100 / deadCelebrity.length) ? ` And we tell everyone that it's based on a true story` : ` And we tell everyone that it's actually ${getRandomFromArray(deadCelebrity)}'s final movie.`;
