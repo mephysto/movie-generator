@@ -234,7 +234,7 @@
       "go to jail",
       "survive long enough",
       "enter The Matrix",
-      "catch all 722 Pokémon"
+      "catch all 722 Pokémon",
       // "do a Banksy",
       "start a podcast",
       "make a documentary",

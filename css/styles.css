@@ -264,15 +264,13 @@ html {
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
   border: 1px solid transparent; }
   .btn-default:hover {
-    -webkit-transform: translate(0, -1px);
-        -ms-transform: translate(0, -1px);
-            transform: translate(0, -1px);
+    -ms-transform: translate(0, -1px);
+        transform: translate(0, -1px);
     transition: all 200ms ease-in-out;
     box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22); }
   .btn-default:active {
-    -webkit-transform: translate(0, 2px);
-        -ms-transform: translate(0, 2px);
-            transform: translate(0, 2px);
+    -ms-transform: translate(0, 2px);
+        transform: translate(0, 2px);
     transition: all 200ms ease-in-out;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23); }
   .btn-default:focus {
@@ -314,10 +312,8 @@ html {
   min-height: 50vh; }
   @media only screen and (min-width: 768px) {
     .main-container {
-      -webkit-perspective: 100px;
-              perspective: 100px;
-      -webkit-perspective-origin: 50% 25%;
-              perspective-origin: 50% 25%; } }
+      perspective: 100px;
+      perspective-origin: 50% 25%; } }
 
 .landing {
   position: relative;
@@ -336,15 +332,12 @@ html {
   .landing section.intro {
     position: relative; }
   .landing .intro-text {
-    display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
-    -webkit-justify-content: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    -webkit-flex-direction: column;
-        -ms-flex-direction: column;
-            flex-direction: column;
+    -ms-flex-pack: center;
+        justify-content: center;
+    -ms-flex-direction: column;
+        flex-direction: column;
     background-color: #e8e2e2;
     margin-left: 50px;
     padding: 30px 15px; }
@@ -378,9 +371,7 @@ html {
   min-height: 300px;
   padding-top: 50px;
   padding-bottom: 50px;
-  transition: -webkit-transform ease-out 250ms;
-  transition: transform ease-out 250ms;
-  transition: transform ease-out 250ms, -webkit-transform ease-out 250ms; }
+  transition: transform ease-out 250ms; }
   .movie-text p {
     text-align: center; }
   .movie-text blockquote {
@@ -397,8 +388,7 @@ html {
     line-height: 1.25em;
     transition: all 200ms ease-in-out;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-    -webkit-transform: translate3d(-50%, 0, 0) rotate(0deg);
-            transform: translate3d(-50%, 0, 0) rotate(0deg);
+    transform: translate3d(-50%, 0, 0) rotate(0deg);
     transition: 1s ease-out all; }
     .movie-text blockquote h2 {
       margin-top: 0;
@@ -417,23 +407,19 @@ html {
       left: 0;
       top: 0; }
     .movie-text blockquote .quotetext {
-      display: -webkit-flex;
       display: -ms-flexbox;
       display: flex;
-      -webkit-justify-content: center;
-          -ms-flex-pack: center;
-              justify-content: center;
-      -webkit-flex-direction: column;
-          -ms-flex-direction: column;
-              flex-direction: column;
+      -ms-flex-pack: center;
+          justify-content: center;
+      -ms-flex-direction: column;
+          flex-direction: column;
       background-color: #e8e2e2;
       margin-left: 50px;
       padding: 30px 20px;
       min-height: 170px; }
   @media only screen and (min-width: 768px) {
     .movie-text {
-      -webkit-perspective: 150px;
-              perspective: 150px; }
+      perspective: 150px; }
       .movie-text blockquote {
         font-size: 2em;
         letter-spacing: 0.1em;
