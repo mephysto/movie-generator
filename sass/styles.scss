@@ -37,6 +37,12 @@ html{
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
+body{
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
 .wrapper{
   width: 90%;
   margin: 0 5%;
@@ -93,6 +99,9 @@ html{
 /* Template Styles */
 
 .header-container{
+  flex: 0 1 auto;
+  position: relative;
+  z-index: 1000;
   .wrapper{
     max-width: 640px;
     margin-left: auto;
@@ -133,8 +142,10 @@ html{
   }
 }
 .main-container{
-  position: relative;
-  min-height: 50vh;
+  flex: 1 1 auto;  
+  display: flex;
+  justify-content: center;
+  align-items: center;
   @media only screen and (min-width: 768px) {
     perspective: 100px;
     perspective-origin: 50% 25%;
@@ -306,6 +317,7 @@ html{
 /* Footer */
 
 .footer-container{
+  flex: 0 1 auto;
   @media only screen and (max-width: 767px) {
     .fb-like{
       display: block;
@@ -316,9 +328,6 @@ html{
   @media only screen and (min-width: 768px) {
     opacity: 0.5;
     transition: opacity 100ms ease-out;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
     &:hover{
       opacity: 1;
       .fb-like{
