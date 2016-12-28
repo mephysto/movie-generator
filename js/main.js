@@ -73,9 +73,10 @@
       document.querySelector('.new').style.transform = randomEndStyle();
       document.querySelector('.new').removeAttribute('class');
     }
-    // $('.movie-text').append(`<blockquote class="new" style="transform: ${randomStartStyle()} \><div class="perforation"></div><div class="quotetext">${nextMovieText.plot} </div></blockquote>`).attr('style', `transform: translateZ(-${$('.movie-text > blockquote').length}px)`);
-    $('.movie-text').append("<blockquote class=\"new\" style=\"transform: " + randomStartStyle() + "\"><div class=\"perforation\"></div><div class=\"quotetext\">" + nextMovieText.plot + "</div></blockquote>").attr('style', 'transform: translateZ(-' + $('.movie-text > blockquote').length + 'px)');
-    console.info(nextMovieText.plot);
+    document.querySelector('.movie-text').innerHTML += `<blockquote class="new" style="transform: ${randomStartStyle()}"><div class="perforation"></div><div class="quotetext">${nextMovieText.plot}"</div></blockquote>`;
+    var count = document.querySelectorAll('.movie-text > blockquote').length;
+    document.querySelector('.movie-text').style.transform = `transform: translateZ(-${count} px)`;
+    // console.info(nextMovieText.plot);
   }
 
   // the main movie text. 
@@ -611,14 +612,13 @@
     // ga('send', 'event', "Moviepitch", "click", "share to Facebook", currentMovieText);
   }
 
-
-  $('.btn-generate').click(function(e){
+  document.querySelector('.btn-generate').onclick = (e) => {
     e.preventDefault();
     ga('send', 'event', "Moviepitch", "click", "generate new movie pitch", currentMovieText);
     generateNewMovie();
-  });
-  $('.btn-sharezvous').click(function (e) {
+  }
+  document.querySelector('.btn-sharezvous').onclick = (e) => {
     e.preventDefault();
-    shareCurrentMovie();
-  })
+    shareCurrentMovie();    
+  }
 }());

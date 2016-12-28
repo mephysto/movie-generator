@@ -96,11 +96,19 @@ html {
   font-size: 10px;
   font-family: 'Special Elite', cursive, monospace;
   height: 100%;
-  background-image: url(../img/background.jpg);
-  background-size: cover;
-  background-position: 50%;
-  background-repeat: no-repeat;
-  background-attachment: fixed; }
+  background-image: url(../img/desk@mob.jpg), url(../img/desk@mob-pattern.jpg);
+  background-repeat: no-repeat, repeat;
+  background-position: 50%; }
+  @media only screen and (min-width: 640px) {
+    html {
+      background-image: url(../img/desk@0,5x.jpg);
+      background-size: cover; } }
+  @media only screen and (min-width: 1140px) {
+    html {
+      background-repeat: no-repeat;
+      background-size: initial;
+      background-image: url(../img/desk.jpg);
+      background-position: 50% 0%; } }
 
 body {
   height: 100vh;
@@ -178,14 +186,26 @@ body {
     .header-container h1 a {
       text-decoration: none;
       color: inherit; }
+      .header-container h1 a span {
+        display: block; }
       .header-container h1 a:hover {
         text-decoration: underline; }
   @media only screen and (min-width: 768px) {
     .header-container .wrapper {
-      padding-top: 75px; }
+      padding-top: 75px;
+      max-width: 830px; }
     .header-container h1 {
-      text-align: left;
+      font-size: 3.75em;
+      text-align: center;
       margin: 0; } }
+  @media only screen and (min-width: 1140px) {
+    .header-container .wrapper {
+      max-width: 830px; }
+    .header-container h1 {
+      font-size: 4em;
+      text-align: center; }
+      .header-container h1 a span {
+        display: inline-block; } }
 
 .main-container {
   -ms-flex: 1 1 auto;
