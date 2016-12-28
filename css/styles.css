@@ -1,7 +1,4 @@
-<<<<<<< 5cee8273a501ab7a0b371c10b6feb71a20fe51b8
 /* Imports */
-=======
->>>>>>> initial commit
 /*! HTML5 Boilerplate v5.0 | MIT License | http://h5bp.com/ */
 html {
   color: #222;
@@ -46,134 +43,6 @@ textarea {
   color: #000;
   padding: 0.2em 0; }
 
-<<<<<<< 5cee8273a501ab7a0b371c10b6feb71a20fe51b8
-=======
-/* ===== Initializr Styles ==================================================
-   Author: Jonathan Verrecchia - verekia.com/initializr/responsive-template
-   ========================================================================== */
-body {
-  font: 16px/26px Helvetica, Helvetica Neue, Arial; }
-
-.wrapper {
-  width: 90%;
-  margin: 0 5%; }
-
-/* ===================
-    ALL: Orange Theme
-   =================== */
-.title {
-  color: black; }
-
-/* ==============
-    MOBILE: Menu
-   ============== */
-nav ul {
-  margin: 0;
-  padding: 0;
-  list-style-type: none; }
-
-nav a {
-  display: block;
-  margin-bottom: 10px;
-  padding: 15px 0;
-  text-align: center;
-  text-decoration: none;
-  font-weight: bold;
-  color: black; }
-
-nav a:hover,
-nav a:visited {
-  color: black; }
-
-nav a:hover {
-  text-decoration: underline; }
-
-/* ==============
-    MOBILE: Main
-   ============== */
-.main {
-  padding: 30px 0; }
-
-.main article h1 {
-  font-size: 2em; }
-
-.main aside {
-  color: black;
-  padding: 0px 5% 10px; }
-
-.footer-container footer {
-  color: white;
-  padding: 20px 0; }
-
-/* ===============
-    ALL: IE Fixes
-   =============== */
-.ie7 .title {
-  padding-top: 20px; }
-
-/* ==========================================================================
-   Author's custom styles
-   ========================================================================== */
-/* ==========================================================================
-   Media Queries
-   ========================================================================== */
-@media only screen and (min-width: 480px) {
-  /* ====================
-    INTERMEDIATE: Menu
-   ==================== */
-  nav a {
-    float: left;
-    width: 27%;
-    margin: 0 1.7%;
-    padding: 25px 2%;
-    margin-bottom: 0; }
-  nav li:first-child a {
-    margin-left: 0; }
-  nav li:last-child a {
-    margin-right: 0; }
-  /* ========================
-    INTERMEDIATE: IE Fixes
-   ======================== */
-  nav ul li {
-    display: inline; }
-  .oldie nav a {
-    margin: 0 0.7%; } }
-
-@media only screen and (min-width: 768px) {
-  /* ====================
-    WIDE: CSS3 Effects
-   ==================== */
-  .header-container,
-  .main aside {
-    box-shadow: 0 5px 10px #aaa; }
-  /* ============
-    WIDE: Menu
-   ============ */
-  .title {
-    float: left; }
-  nav {
-    float: right;
-    width: 38%; }
-  /* ============
-    WIDE: Main
-   ============ */
-  .main article {
-    float: left;
-    width: 57%; }
-  .main aside {
-    float: right;
-    width: 28%; } }
-
-@media only screen and (min-width: 1140px) {
-  /* ===============
-    Maximal Width
-   =============== */
-  .wrapper {
-    width: 1026px;
-    /* 1140px - 10% for margins */
-    margin: 0 auto; } }
-
->>>>>>> initial commit
 /* ==========================================================================
    Helper classes
    ========================================================================== */
@@ -214,7 +83,6 @@ nav a:hover {
 .clearfix {
   *zoom: 1; }
 
-<<<<<<< 5cee8273a501ab7a0b371c10b6feb71a20fe51b8
 .pull-left {
   float: left; }
 
@@ -264,15 +132,13 @@ html {
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
   border: 1px solid transparent; }
   .btn-default:hover {
-    -webkit-transform: translate(0, -1px);
-        -ms-transform: translate(0, -1px);
-            transform: translate(0, -1px);
+    -ms-transform: translate(0, -1px);
+        transform: translate(0, -1px);
     transition: all 200ms ease-in-out;
     box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22); }
   .btn-default:active {
-    -webkit-transform: translate(0, 2px);
-        -ms-transform: translate(0, 2px);
-            transform: translate(0, 2px);
+    -ms-transform: translate(0, 2px);
+        transform: translate(0, 2px);
     transition: all 200ms ease-in-out;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23); }
   .btn-default:focus {
@@ -314,10 +180,8 @@ html {
   min-height: 50vh; }
   @media only screen and (min-width: 768px) {
     .main-container {
-      -webkit-perspective: 100px;
-              perspective: 100px;
-      -webkit-perspective-origin: 50% 25%;
-              perspective-origin: 50% 25%; } }
+      perspective: 100px;
+      perspective-origin: 50% 25%; } }
 
 .landing {
   position: relative;
@@ -336,15 +200,12 @@ html {
   .landing section.intro {
     position: relative; }
   .landing .intro-text {
-    display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
-    -webkit-justify-content: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    -webkit-flex-direction: column;
-        -ms-flex-direction: column;
-            flex-direction: column;
+    -ms-flex-pack: center;
+        justify-content: center;
+    -ms-flex-direction: column;
+        flex-direction: column;
     background-color: #e8e2e2;
     margin-left: 50px;
     padding: 30px 15px; }
@@ -378,9 +239,7 @@ html {
   min-height: 300px;
   padding-top: 50px;
   padding-bottom: 50px;
-  transition: -webkit-transform ease-out 250ms;
-  transition: transform ease-out 250ms;
-  transition: transform ease-out 250ms, -webkit-transform ease-out 250ms; }
+  transition: transform ease-out 250ms; }
   .movie-text p {
     text-align: center; }
   .movie-text blockquote {
@@ -397,8 +256,7 @@ html {
     line-height: 1.25em;
     transition: all 200ms ease-in-out;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-    -webkit-transform: translate3d(-50%, 0, 0) rotate(0deg);
-            transform: translate3d(-50%, 0, 0) rotate(0deg);
+    transform: translate3d(-50%, 0, 0) rotate(0deg);
     transition: 1s ease-out all; }
     .movie-text blockquote h2 {
       margin-top: 0;
@@ -417,23 +275,19 @@ html {
       left: 0;
       top: 0; }
     .movie-text blockquote .quotetext {
-      display: -webkit-flex;
       display: -ms-flexbox;
       display: flex;
-      -webkit-justify-content: center;
-          -ms-flex-pack: center;
-              justify-content: center;
-      -webkit-flex-direction: column;
-          -ms-flex-direction: column;
-              flex-direction: column;
+      -ms-flex-pack: center;
+          justify-content: center;
+      -ms-flex-direction: column;
+          flex-direction: column;
       background-color: #e8e2e2;
       margin-left: 50px;
       padding: 30px 20px;
       min-height: 170px; }
   @media only screen and (min-width: 768px) {
     .movie-text {
-      -webkit-perspective: 150px;
-              perspective: 150px; }
+      perspective: 150px; }
       .movie-text blockquote {
         font-size: 2em;
         letter-spacing: 0.1em;
@@ -506,47 +360,5 @@ footer {
         transition: margin 150ms ease-out; }
         footer .fc-credits p {
           display: inline-block; } }
-=======
-/* ==========================================================================
-   Print styles
-   ========================================================================== */
-@media print {
-  *,
-  *:before,
-  *:after {
-    background: transparent !important;
-    color: #000 !important;
-    box-shadow: none !important;
-    text-shadow: none !important; }
-  a,
-  a:visited {
-    text-decoration: underline; }
-  a[href]:after {
-    content: " (" attr(href) ")"; }
-  abbr[title]:after {
-    content: " (" attr(title) ")"; }
-  a[href^="#"]:after,
-  a[href^="javascript:"]:after {
-    content: ""; }
-  pre,
-  blockquote {
-    border: 1px solid #999;
-    page-break-inside: avoid; }
-  thead {
-    display: table-header-group; }
-  tr,
-  img {
-    page-break-inside: avoid; }
-  img {
-    max-width: 100% !important; }
-  p,
-  h2,
-  h3 {
-    orphans: 3;
-    widows: 3; }
-  h2,
-  h3 {
-    page-break-after: avoid; } }
->>>>>>> initial commit
 
 /*# sourceMappingURL=styles.css.map */

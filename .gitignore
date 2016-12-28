@@ -1,5 +1,4 @@
 .DS_Store
-<<<<<<< 5cee8273a501ab7a0b371c10b6feb71a20fe51b8
 node_modules
 design
 
@@ -8,6 +7,3 @@ img/dickbutt.jpg
 *.sublime-project
 
 *.sublime-workspace
-=======
-node_modules
->>>>>>> initial commit
