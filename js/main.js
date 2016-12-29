@@ -131,7 +131,7 @@
         noun: "P"
       }, {
         name: "a 30-something year old man",
-        noun: "P"
+        noun: "M"
       }, {
         name: "a woman down on her luck",
         noun: "F"
