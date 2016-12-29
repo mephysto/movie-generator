@@ -29,7 +29,7 @@ $brand-main: #e3c680;
 
 html{
   font-size: 10px;
-  font-family: 'Special Elite', cursive, monospace;
+  font-family: 'Special Elite', monospace;
   height: 100%;
   // background-image: url(../img/background.jpg);
   background-image: url(../img/desk@mob.jpg),  url(../img/desk@mob-pattern.jpg);
@@ -165,7 +165,7 @@ body{
       text-align: center;
       a {
         span{
-          display: inline-block;
+          display: inline;
         }
       }
     }
@@ -356,7 +356,7 @@ body{
     }
   }
   @media only screen and (min-width: 768px) {
-    opacity: 0.5;
+    opacity: 0.6;
     transition: opacity 100ms ease-out;
     &:hover{
       opacity: 1;
@@ -364,28 +364,29 @@ body{
         width: 50px;
       }
     }
-    .fb-like{
-      width: 0px;
-      margin-left: 1em;
-      transition: width 250ms ease-out;
-    }
   }
   @media only screen and (min-width: 1140px) {
   }
 }
 .footer-credits{
   overflow: hidden;
+  @media only screen and (min-width: 768px) {
+    display: flex;
+    justify-content: space-between;
+    & > div{
+      flex: 1 1 auto;
+    }
+  }
 }
 footer{
   text-align: center;
   font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
-  // color: #fff;
   color: #ffffff;
   padding-top: 20px;
   padding-bottom: 20px;
   p{
     margin: 0;
-    font-size: 1em;
+    font-size: 1.15em;
   }
   a{
     color: inherit;
@@ -394,17 +395,23 @@ footer{
   @media only screen and (min-width: 480px) {
   }
   @media only screen and (min-width: 768px) {
-    text-align: right;
-    .fc-legal{
-      float: left;
-    }
-    .fc-credits{
-      float: right;
-      transition: margin 150ms ease-out;
-      // margin-right: -50px;
+    .fc-legal {
       p{
+        text-align: left;
+      }
+    }
+    .fc-credits {
+      text-align: right;
+      transition: margin 150ms ease-out;
+      p {
         display: inline-block;
       }
+    }
+    .fb-like{
+      width: 0px;
+      float: right;
+      margin-left: 1em;
+      transition: width 250ms ease-out;
     }
   }
   @media only screen and (min-width: 1140px) {

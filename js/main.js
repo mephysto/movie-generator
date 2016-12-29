@@ -25,22 +25,33 @@
   
 
   // The main generizer
-  let generateNewMovie = () => {
-    let randomStartStyle = () => {
-      let quoteCount = document.querySelectorAll('.movie-text > blockquote').length,
+  const generateNewMovie = () => {
+    const randomStartStyle = () => {
+      const quoteCount = document.querySelectorAll('.movie-text > blockquote').length,
         a = Math.random()*20 - 10,
         b = quoteCount + 100 < 175 ? quoteCount + 100 : 175;
       return `translate3d(-50%,-50%,${b}px) rotate(${a.toFixed(3)}deg)`;
     }
-    let randomEndStyle = () => {
-      let quoteCount = document.querySelectorAll('.movie-text > blockquote').length,
+    const randomEndStyle = () => {
+      const quoteCount = document.querySelectorAll('.movie-text > blockquote').length,
         a = Math.random() * 5 - 2.5,
-        locX = -40 - (Math.random() * 20),
-        loc = -40 - (Math.random() * 20),
-        // stackheight = quoteCount < 75 ? quoteCount : 75;
+        locX = quoteCount <= 1 ? -50 : -40 - (Math.random() * 20),
+        loc = quoteCount <= 1 ? -50 : -40 - (Math.random() * 20),
         stackheight = 0;
-      // return 'translate3d(' + locX.toFixed(2) + '%,' + loc.toFixed(1) + '%,' + stackheight + 'px) rotate(' + a.toFixed(3) + 'deg);';
       return `translate3d(${locX.toFixed(2)}%, ${loc.toFixed(1)}%, ${stackheight}px) rotate(${a.toFixed(3)}deg)`;
+    }
+    const createHTML = (text) => {
+      let newBlockQuote = document.createElement('blockquote');
+      newBlockQuote.classList.add('new');
+      newBlockQuote.style.transform = randomStartStyle();
+      let perDiv = document.createElement('div');
+      perDiv.classList.add('perforation');
+      let quoteTextDiv = document.createElement('div');
+      quoteTextDiv.classList.add('quotetext');
+      quoteTextDiv.innerText = text;
+      newBlockQuote.appendChild(perDiv);
+      newBlockQuote.appendChild(quoteTextDiv);
+      return newBlockQuote;
     }
 
     currentMovieText = nextMovieText.plot;
@@ -69,14 +80,13 @@
     }
     // 
     if (document.querySelector('.new')) {
-      window.ns = randomEndStyle();
-      document.querySelector('.new').style.transform = randomEndStyle();
-      document.querySelector('.new').removeAttribute('class');
+      var x = document.querySelector('.new');
+      x.removeAttribute('class');
+      x.style.transform = randomEndStyle();
     }
-    document.querySelector('.movie-text').innerHTML += `<blockquote class="new" style="transform: ${randomStartStyle()}"><div class="perforation"></div><div class="quotetext">${nextMovieText.plot}"</div></blockquote>`;
+    document.querySelector('.movie-text').appendChild(createHTML(nextMovieText.plot));
     var count = document.querySelectorAll('.movie-text > blockquote').length;
     document.querySelector('.movie-text').style.transform = `transform: translateZ(-${count} px)`;
-    // console.info(nextMovieText.plot);
   }
 
   // the main movie text. 

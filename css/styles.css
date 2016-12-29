@@ -94,7 +94,7 @@ textarea {
 /* Main styles */
 html {
   font-size: 10px;
-  font-family: 'Special Elite', cursive, monospace;
+  font-family: 'Special Elite', monospace;
   height: 100%;
   background-image: url(../img/desk@mob.jpg), url(../img/desk@mob-pattern.jpg);
   background-repeat: no-repeat, repeat;
@@ -205,7 +205,7 @@ body {
       font-size: 4em;
       text-align: center; }
       .header-container h1 a span {
-        display: inline-block; } }
+        display: inline; } }
 
 .main-container {
   -ms-flex: 1 1 auto;
@@ -362,19 +362,24 @@ body {
       text-align: center; } }
   @media only screen and (min-width: 768px) {
     .footer-container {
-      opacity: 0.5;
+      opacity: 0.6;
       transition: opacity 100ms ease-out; }
       .footer-container:hover {
         opacity: 1; }
         .footer-container:hover .fb-like {
-          width: 50px; }
-      .footer-container .fb-like {
-        width: 0px;
-        margin-left: 1em;
-        transition: width 250ms ease-out; } }
+          width: 50px; } }
 
 .footer-credits {
   overflow: hidden; }
+  @media only screen and (min-width: 768px) {
+    .footer-credits {
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-pack: justify;
+          justify-content: space-between; }
+      .footer-credits > div {
+        -ms-flex: 1 1 auto;
+            flex: 1 1 auto; } }
 
 footer {
   text-align: center;
@@ -384,18 +389,21 @@ footer {
   padding-bottom: 20px; }
   footer p {
     margin: 0;
-    font-size: 1em; }
+    font-size: 1.15em; }
   footer a {
     color: inherit; }
   @media only screen and (min-width: 768px) {
-    footer {
-      text-align: right; }
-      footer .fc-legal {
-        float: left; }
-      footer .fc-credits {
-        float: right;
-        transition: margin 150ms ease-out; }
-        footer .fc-credits p {
-          display: inline-block; } }
+    footer .fc-legal p {
+      text-align: left; }
+    footer .fc-credits {
+      text-align: right;
+      transition: margin 150ms ease-out; }
+      footer .fc-credits p {
+        display: inline-block; }
+    footer .fb-like {
+      width: 0px;
+      float: right;
+      margin-left: 1em;
+      transition: width 250ms ease-out; } }
 
 /*# sourceMappingURL=styles.css.map */
