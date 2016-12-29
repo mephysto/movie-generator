@@ -98,7 +98,8 @@ html {
   height: 100%;
   background-image: url(../img/desk@mob.jpg), url(../img/desk@mob-pattern.jpg);
   background-repeat: no-repeat, repeat;
-  background-position: 50%; }
+  background-position: 50%;
+  background-attachment: fixed; }
   @media only screen and (min-width: 640px) {
     html {
       background-image: url(../img/desk@0,5x.jpg);
@@ -316,8 +317,6 @@ body {
   padding-top: 50px;
   padding-bottom: 50px;
   transition: transform ease-out 250ms; }
-  .movie-text p {
-    text-align: center; }
   .movie-text blockquote {
     position: absolute;
     top: 50%;

@@ -14,7 +14,8 @@
       title: "",
       plot: ""
     };
-  const audio = new Audio('../audio/paper.mp3');
+  // const audio = new Audio('../audio/paper.mp3');
+  const audio = new Audio(thisWebsiteURL + 'audio/paper.mp3');
   // Take a chance and Roll a dice (100 sided, with floating points)!
   // feed it a percentage chance you want it to return true
   const rollDice = (chance = 50) => chance > Math.random() * 100; // ES6 sure is sexy
@@ -46,12 +47,16 @@
       perDiv.classList.add('perforation');
       const quoteTextDiv = document.createElement('div');
       quoteTextDiv.classList.add('quotetext');
-      quoteTextDiv.innerText = text;
+      const quoteTextP = document.createElement('p');
+      quoteTextP.innerHTML = text;
+      quoteTextDiv.appendChild(quoteTextP);
       newBlockQuote.appendChild(perDiv);
       newBlockQuote.appendChild(quoteTextDiv);
       return newBlockQuote;
     }
-    currentMovieText = nextMovieText.plot;
+    const tempEl = document.createElement('p');
+    tempEl.innerHTML = nextMovieText.plot;
+    currentMovieText = tempEl.innerText; // some of my lines have HTML in there
     nextMovieText.plot = "";
     if (rollDice(15)) {
       nextMovieText = generateQuickie();
