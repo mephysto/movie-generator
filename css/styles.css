@@ -118,6 +118,12 @@ body {
       flex-direction: column;
   -ms-flex-pack: justify;
       justify-content: space-between; }
+  @media only screen and (min-width: 768px) {
+    body {
+      min-height: 850px; } }
+  @media only screen and (min-width: 1140px) {
+    body {
+      min-height: 950px; } }
 
 .wrapper {
   width: 90%;
@@ -129,7 +135,7 @@ body {
       margin: 0 auto; } }
 
 .btn-default {
-  margin-left: 1em;
+  margin: 1em 0em 2em;
   font-size: 1.5em;
   border: none;
   display: inline-block;
@@ -141,7 +147,6 @@ body {
   min-width: 200px;
   height: auto;
   line-height: 1.5em;
-  margin-left: 1em;
   padding: 10px 20px;
   position: relative;
   transition: 200ms ease-out transform;
@@ -166,6 +171,10 @@ body {
   .btn-default i {
     font-size: 1.75em;
     margin-left: 0.75em; }
+  @media only screen and (min-width: 768px) {
+    .btn-default {
+      margin-left: 1em;
+      margin-right: 1em; } }
 
 /* Template Styles */
 .header-container {
@@ -221,6 +230,20 @@ body {
       perspective: 100px;
       perspective-origin: 50% 25%; } }
 
+.main {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  -ms-flex-pack: center;
+      justify-content: center;
+  -ms-flex-align: center;
+      align-items: center;
+  -ms-flex: 1 1 auto;
+      flex: 1 1 auto;
+  -ms-flex-item-align: stretch;
+      align-self: stretch; }
+
 .landing {
   position: relative;
   letter-spacing: 0.1em;
@@ -267,12 +290,27 @@ body {
         margin-left: 75px;
         padding: 60px 25px; } }
 
-.movie-texts header h2 {
-  text-align: center;
-  text-transform: uppercase;
-  font-size: 4em; }
+.movie-texts {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  -ms-flex-item-align: stretch;
+      align-self: stretch;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -ms-flex-pack: justify;
+      justify-content: space-between;
+  -ms-flex: 1 1 auto;
+      flex: 1 1 auto; }
+  .movie-texts header h2 {
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 4em; }
 
 .movie-text {
+  -ms-flex: 1 1 auto;
+      flex: 1 1 auto;
   position: relative;
   min-height: 300px;
   padding-top: 50px;
@@ -340,16 +378,14 @@ body {
   min-height: 150px; }
 
 .buttons {
-  text-align: right; }
+  text-align: center; }
   @media only screen and (max-width: 767px) {
-    .buttons {
-      text-align: center; }
-      .buttons button {
-        display: block;
-        width: 100%;
-        margin: 0; }
-        .buttons button:not(:last-child) {
-          margin-bottom: 20px; } }
+    .buttons button {
+      display: block;
+      width: 100%;
+      margin: 0; }
+      .buttons button:not(:last-child) {
+        margin-bottom: 20px; } }
 
 /* Footer */
 .footer-container {
