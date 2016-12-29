@@ -14,7 +14,7 @@
       title: "",
       plot: ""
     };
-
+  const audio = new Audio('../audio/paper.mp3');
   // Take a chance and Roll a dice (100 sided, with floating points)!
   // feed it a percentage chance you want it to return true
   let rollDice = (chance=50) => chance > Math.random()*100; // ES6 sure is sexy
@@ -626,6 +626,7 @@
     e.preventDefault();
     ga('send', 'event', "Moviepitch", "click", "generate new movie pitch", currentMovieText);
     generateNewMovie();
+    audio.play();
   }
   document.querySelector('.btn-sharezvous').onclick = (e) => {
     e.preventDefault();
