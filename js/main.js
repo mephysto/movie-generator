@@ -17,12 +17,10 @@
   const audio = new Audio('../audio/paper.mp3');
   // Take a chance and Roll a dice (100 sided, with floating points)!
   // feed it a percentage chance you want it to return true
-  let rollDice = (chance = 50) => chance > Math.random() * 100; // ES6 sure is sexy
+  const rollDice = (chance = 50) => chance > Math.random() * 100; // ES6 sure is sexy
 
   // get random entry from fed array 
-  let getRandomFromArray = (inputArray) => inputArray[Math.floor(inputArray.length * Math.random())];
-
-
+  const getRandomFromArray = (inputArray) => inputArray[Math.floor(inputArray.length * Math.random())];
 
   // The main generizer
   const generateNewMovie = () => {
@@ -41,19 +39,18 @@
       return `translate3d(${locX.toFixed(2)}%, ${loc.toFixed(1)}%, ${stackheight}px) rotate(${a.toFixed(3)}deg)`;
     }
     const createHTML = (text) => {
-      let newBlockQuote = document.createElement('blockquote');
+      const newBlockQuote = document.createElement('blockquote');
       newBlockQuote.classList.add('new');
       newBlockQuote.style.transform = randomStartStyle();
-      let perDiv = document.createElement('div');
+      const perDiv = document.createElement('div');
       perDiv.classList.add('perforation');
-      let quoteTextDiv = document.createElement('div');
+      const quoteTextDiv = document.createElement('div');
       quoteTextDiv.classList.add('quotetext');
       quoteTextDiv.innerText = text;
       newBlockQuote.appendChild(perDiv);
       newBlockQuote.appendChild(quoteTextDiv);
       return newBlockQuote;
     }
-
     currentMovieText = nextMovieText.plot;
     nextMovieText.plot = "";
     if (rollDice(15)) {
@@ -68,7 +65,7 @@
         nextMovieText.plot += addThirdActProblem();
       }
     }
-    // some sexy extra flavour texts
+    // some sexy extra flavour text
     if (rollDice(10)) {
       nextMovieText.plot += addMusic();
     }
@@ -78,7 +75,6 @@
     if (rollDice(5)) {
       nextMovieText.plot += addTooSoon();
     }
-    // 
     if (document.querySelector('.new')) {
       var x = document.querySelector('.new');
       x.removeAttribute('class');
@@ -88,9 +84,8 @@
     var count = document.querySelectorAll('.movie-text > blockquote').length;
     document.querySelector('.movie-text').style.transform = `transform: translateZ(-${count} px)`;
   }
-
   // the main movie text. 
-  let generateNewMovieDefault = () => {
+  const generateNewMovieDefault = () => {
     // Ugh.. Grammar is dumbbbbb
     const getActorGenderText = (gender) => {
         if (gender.toUpperCase() === "P") {
@@ -552,8 +547,7 @@
     let newText = `${startText} ${adjective} ${randoActor.name}, who ${getRandomFromArray(situation)}. And ${getActorGenderText(randoActor.noun).they} ${getActorGenderText(randoActor.noun).has} to ${getRandomFromArray(actions)} to ${guffinAction.verb1} ${getRandomFromArray(mcguffin)} ${guffinAction.verb2} ${getRandomFromArray(badguy)}.`;
     return { title: newTitle, plot: newText };
   }
-
-  let generateQuickie = () => {
+  const generateQuickie = () => {
     const genre = [
       // "version where everyone are anthropomorphic animals",
       "Muppets remake",
@@ -620,8 +614,7 @@
     let newText = `Lets just do a ${getRandomFromArray(genre)} of ${getRandomFromArray(oldmovie)} and call it a wrap.`;
     return { title: newTitle, plot: newText };
   }
-
-  let generatePlotTwist = () => {
+  const generatePlotTwist = () => {
     const actor = [
       "Michael Caine"
     ];
@@ -645,7 +638,6 @@
     let newText = `${getRandomFromArray(actor)} is a ${getRandomFromArray(profession)}, but in a ${getRandomFromArray(adjective)} plot twist, ${getRandomFromArray(shyamalize)}.`;
     return { title: newTitle, plot: newText };
   }
-
   const addThirdActProblem = () => {
 
     const problem = [
@@ -679,7 +671,6 @@
     let newText = ` Though in the 3rd act, ${getRandomFromArray(problem)}. But ${getRandomFromArray(solution)}.`;
     return newText;
   }
-
   const addMusic = () => {
     const composer = [
       "Huey Lewis and the News",
@@ -723,8 +714,7 @@
     ];
     return ` And ${getRandomFromArray(celebrity)} has a cameo.`;
   }
-
-  let addTooSoon = () => {
+  const addTooSoon = () => {
     const deadCelebrity = [
       "Carl Sagan",
       "Christopher Lee",
@@ -742,10 +732,9 @@
     return rollDice(100 / deadCelebrity.length) ? ` And we tell everyone that it's based on a true story` : ` And we tell everyone that it's actually ${getRandomFromArray(deadCelebrity)}'s final movie.`;
   }
 
-
   generateNewMovie();
   generateNewMovie();
-  let shareCurrentMovie = () => {
+  const shareCurrentMovie = () => {
     // console.log('share:',currentMovieText);
     FB.ui({
       method: 'feed',
