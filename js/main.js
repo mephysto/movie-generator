@@ -311,6 +311,9 @@
       }, {
         name: "Whoopi Goldberg",
         noun: "F"
+      }, {
+        name: "An underdog figure",
+        noun: "M"
       }
       // {name: "The Count", noun: "M" }
     ];
@@ -352,7 +355,8 @@
       `${getActorGenderText(randoActor.noun).has} to babysit three toddlers`,
       `make${(randoActor.noun === "P" ? "" : "s")} a porno`,
       `sign${(randoActor.noun === "P" ? "" : "s")} up for cross fit`,
-      `spend${(randoActor.noun === "P" ? "" : "s")} a romantic weekend in a cabin in the woods`
+      `spend${(randoActor.noun === "P" ? "" : "s")} a romantic weekend in a cabin in the woods`,
+      `need${(randoActor.noun === "P" ? "" : "s")} to figure out a way to communicate with space aliens, while struggling with ${getActorGenderText(randoActor.noun).his} past`,
     ];
     // and has to...
     const actions = [
@@ -450,7 +454,7 @@
       "a shady man sitting in a chair",
       "a reincarnated Elvis Presley",
       "an army of the undead",
-      "going back in time to kill himself",
+      // "going back in time to kill himself",
       "velociraptors with machine guns",
       "Voldemort",
       "an army of ducks",
@@ -461,13 +465,14 @@
       "Skynet",
       "Jareth",
       "George Lucas",
+      "CGI Grand Moff Tarkin",
       // "my ex",
       // "his ex",
       "The Joker",
       "Kanye West",
       "Kylo Ren",
       "The Kardashians",
-      "Stereotyped Terrorists",
+      "overly Stereotyped Terrorists",
       "a Mexican Drug Cartel",
       // "a former MI:6 agent, gone rogue",
       "A six-fingered man",
@@ -524,6 +529,9 @@
         verb1: "transport", verb2: "to"
       },*/
       {
+        verb1: "save",
+        verb2: "from"
+      }, {
         verb1: "deliver",
         verb2: "to"
       }, {
@@ -538,7 +546,7 @@
       }
     ];
 
-    let guffinAction = rollDice(50) ? getRandomFromArray(guffinActions) : { verb1: "save", verb2: "from" };
+    let guffinAction = rollDice(50) ? getRandomFromArray(guffinActions) : { verb1: "obtain", verb2: "from" };
 
     // let badguymaybe = rollDice(10) ? "falling in the hands of " : ""; // play around with this one a bit more
     let lifetime = rollDice(1) ? "Lifetime movie" : "movie";
