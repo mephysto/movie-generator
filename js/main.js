@@ -78,6 +78,9 @@
       nextMovieText.plot += addCameo();
     }
     if (rollDice(5)) {
+      nextMovieText.plot += isMetaphor();
+    }
+    if (rollDice(5)) {
       nextMovieText.plot += addTooSoon();
     }
     if (document.querySelector('.new')) {
@@ -726,6 +729,21 @@
       "a CGI version of Paul Walker"
     ];
     return ` And ${getRandomFromArray(celebrity)} has a cameo.`;
+  }
+  const isMetaphor = () => {
+    const metaphores = [
+      "a metaphor for the war in the Middle East",
+      "a metaphor for the American presidential elections",
+      "a metaphor for puberty",
+      // "a metaphor for the holocaust",
+      // "a metaphor for divorce and child custody conflict",
+      "a metaphor for racism",
+      "a metaphor for NSA surveillance",
+      "a metaphor for government control and censorship",
+      // "1984",
+      "a social commentary on gay rights"
+    ];
+    return ` It's basically ${getRandomFromArray(metaphores)}.`;
   }
   const addTooSoon = () => {
     const deadCelebrity = [
