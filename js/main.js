@@ -4,9 +4,9 @@
  * So you want to see how we maded this huh?
  * Any questions, love letters, or donations. Shoot me an email: contact@mauricemelchers.nl
  * 
-*/
+ */
 
-(function () {
+(function() {
   'use strict';
   const thisWebsiteURL = "http://mephysto.github.io/movie-generator/";
   let currentMovieText = "",
@@ -17,18 +17,18 @@
   const audio = new Audio('../audio/paper.mp3');
   // Take a chance and Roll a dice (100 sided, with floating points)!
   // feed it a percentage chance you want it to return true
-  let rollDice = (chance=50) => chance > Math.random()*100; // ES6 sure is sexy
+  let rollDice = (chance = 50) => chance > Math.random() * 100; // ES6 sure is sexy
 
   // get random entry from fed array 
   let getRandomFromArray = (inputArray) => inputArray[Math.floor(inputArray.length * Math.random())];
 
-  
+
 
   // The main generizer
   const generateNewMovie = () => {
     const randomStartStyle = () => {
       const quoteCount = document.querySelectorAll('.movie-text > blockquote').length,
-        a = Math.random()*20 - 10,
+        a = Math.random() * 20 - 10,
         b = quoteCount + 100 < 175 ? quoteCount + 100 : 175;
       return `translate3d(-50%,-50%,${b}px) rotate(${a.toFixed(3)}deg)`;
     }
@@ -56,26 +56,26 @@
 
     currentMovieText = nextMovieText.plot;
     nextMovieText.plot = "";
-    if (rollDice(15)){
+    if (rollDice(15)) {
       nextMovieText = generateQuickie();
     } else {
-      if (rollDice(0.05)){
+      if (rollDice(0.05)) {
         nextMovieText = generatePlotTwist(); // we haven't quite worked these out yet. luck of the draw if you get this
-      } else{
+      } else {
         nextMovieText = generateNewMovieDefault();
       }
-      if (rollDice(10)){
+      if (rollDice(10)) {
         nextMovieText.plot += addThirdActProblem();
       }
     }
     // some sexy extra flavour texts
-    if (rollDice(10)){
+    if (rollDice(10)) {
       nextMovieText.plot += addMusic();
     }
-    if (rollDice(5)){
+    if (rollDice(5)) {
       nextMovieText.plot += addCameo();
     }
-    if (rollDice(5)){
+    if (rollDice(5)) {
       nextMovieText.plot += addTooSoon();
     }
     // 
@@ -93,104 +93,232 @@
   let generateNewMovieDefault = () => {
     // Ugh.. Grammar is dumbbbbb
     const getActorGenderText = (gender) => {
-      if (gender.toUpperCase() === "P"){
-        return {
-          they: "they",
-          his: "their",
-          has: "have"
-        };
-      } else if (gender.toUpperCase() === "F"){
-        return {
-          they: "she",
-          his: "her",
-          has: "has"
-        };
-      } else if (gender.toUpperCase() === "Y"){
-        return {
-          they: "you, the audience,",
-          his: "your",
-          has: "have"
-        };
-      } else {
-        return {
-          they: "he",
-          his: "his",
-          has: "has"
-        };
+        if (gender.toUpperCase() === "P") {
+          return {
+            they: "they",
+            his: "their",
+            has: "have"
+          };
+        } else if (gender.toUpperCase() === "F") {
+          return {
+            they: "she",
+            his: "her",
+            has: "has"
+          };
+        } else if (gender.toUpperCase() === "Y") {
+          return {
+            they: "you, the audience,",
+            his: "your",
+            has: "have"
+          };
+        } else {
+          return {
+            they: "he",
+            his: "his",
+            has: "has"
+          };
+        }
       }
-    }
-    // list of heroes
+      // list of heroes
     const actor = [{
-      name: "a group of teenage friends", noun: "P"},{
-      name: "two FBI agents", noun: "P"},{
-      name: "a somewhat awkward teenager", noun: "P"},{
-      name: "a 30-something year old man", noun: "P"},{
-      name: "a woman down on her luck", noun: "F"},{
+        name: "a group of teenage friends",
+        noun: "P"
+      }, {
+        name: "two FBI agents",
+        noun: "P"
+      }, {
+        name: "a somewhat awkward teenager",
+        noun: "P"
+      }, {
+        name: "a 30-something year old man",
+        noun: "P"
+      }, {
+        name: "a woman down on her luck",
+        noun: "F"
+      }, {
 
-      name: "a hard, grizzled, military man in the highest echelons of power", noun: "M"},{
-      name: "a British secret service agent", noun: "M"},{
+        name: "a hard, grizzled, military man in the highest echelons of power",
+        noun: "M"
+      }, {
+        name: "a British secret service agent",
+        noun: "M"
+      }, {
 
-      name: "a former army type", noun: "M"},{
-      name: "a clueless young woman who's new to the big city", noun: "M"},{
-      name: "a political mastermind", noun: "M"},{
-      name: "an idiot savant", noun: "M"},{
-      name: "a monkey that has learnt English", noun: "M"},{
-      name: "a poor black kid from the wrong side of the tracks", noun: "M"},{
-      name: "a company man", noun: "M"},{
-      name: "an enigmatic grandfather type", noun: "M"},{
-      name: "a 4th wall breaking action hero", noun: "M"},{
-      name: "a cop who's two days from retirement", noun: "M"},{
-      name: "a devoutly religious teenager", noun: "M"},{
-      name: "Abraham Lincoln", noun: "M"},{
-      name: "Adam Sandler", noun: "M"},{
-      name: "Neil Patrick Harris", noun: "M"},{
-      name: "Alec Baldwin", noun: "M"},{
-      name: "Andy Serkis in a Mo-cap suit", noun: "M"},{
-      name: "Ben Affleck", noun: "M"},{
-      name: "Benedict Cumberbatch", noun: "M"},{
-      name: "Bill Murray", noun: "M"},{
-      name: "Channing Tatum and Jonah Hill", noun: "P"},{
-      // name: "Chewbacca", noun: "M"},{
-      // name: "Christopher Lambert", noun: "M"},{
-      name: "Carrie Fisher", noun: "F"},{
-      name: "Christopher Walken", noun: "M"},{
-      name: "Danny Trejo", noun: "M"},{
-      name: "David Hasselhof", noun: "M"},{
-      name: "Dwayne 'The Rock' Johnson", noun: "M"},{
-      name: "Eddie Murphy playing 10 different characters", noun: "P"},{
-      name: "Ellen Page", noun: "F"},{
-      name: "everyone from the Expandables", noun: "P"},{
-      name: "the guys from The Flight of the Conchords", noun: "P"},{
-      name: "Gary Busey", noun: "M"},{
-      name: "GROOT!", noun: "M"},{
-      name: "Henry Rollins", noun: "M"},{
-      name: "Ice Cube", noun: "M"},{
-      name: "Kevin Spacey", noun: "M"},{
-      name: "Neil deGrasse Tyson", noun: "M"},{
-      // name: "Jan-Michael Vincent", noun: "M"},{
-      name: "Jessica Biel", noun: "F"},{
-      name: "Jennifer Lawrence", noun: "F"},{
-      name: "Johnny Knoxville", noun: "M"},{
-      name: "John Malkovich", noun: "M"},{
-      name: "Jon Snow", noun: "M"},{
-      name: "Kate Beckinsale", noun: "F"},{
-      name: "The Avengers", noun: "P"},{
-      name: "Kevin James", noun: "M"},{
-      name: "Kung Fury", noun: "M"},{
-      name: "Macaulay Culkin", noun: "M"},{
-      name: "Madonna", noun: "F"},{
-      name: "Mark Hamill", noun: "M"},{
-      // name: "Marie Curie", noun: "F"},{
-      name: "Megan Fox", noun: "F"},{
-      name: "Mel Gibson", noun: "M"},{
-      name: "Michael Caine", noun: "M"},{
-      name: "Michael J. Fox", noun: "M"},{
-      name: "Optimus Prime",noun: "M"},{
-      name: "Sean Connery", noun: "M"},{
-      name: "Shia LaBeouf", noun: "M"},{
-      name: "Tom Hardy", noun: "M"},{
-      name: "you, the audience", noun: "Y"},{
-      name: "Whoopi Goldberg", noun: "F"}
+        name: "a former army type",
+        noun: "M"
+      }, {
+        name: "a clueless young woman who's new to the big city",
+        noun: "M"
+      }, {
+        name: "a political mastermind",
+        noun: "M"
+      }, {
+        name: "an idiot savant",
+        noun: "M"
+      }, {
+        name: "a monkey that has learnt English",
+        noun: "M"
+      }, {
+        name: "a poor black kid from the wrong side of the tracks",
+        noun: "M"
+      }, {
+        name: "a company man",
+        noun: "M"
+      }, {
+        name: "an enigmatic grandfather type",
+        noun: "M"
+      }, {
+        name: "a 4th wall breaking action hero",
+        noun: "M"
+      }, {
+        name: "a cop who's two days from retirement",
+        noun: "M"
+      }, {
+        name: "a devoutly religious teenager",
+        noun: "M"
+      }, {
+        name: "Abraham Lincoln",
+        noun: "M"
+      }, {
+        name: "Adam Sandler",
+        noun: "M"
+      }, {
+        name: "Neil Patrick Harris",
+        noun: "M"
+      }, {
+        name: "Alec Baldwin",
+        noun: "M"
+      }, {
+        name: "Andy Serkis in a Mo-cap suit",
+        noun: "M"
+      }, {
+        name: "Ben Affleck",
+        noun: "M"
+      }, {
+        name: "Benedict Cumberbatch",
+        noun: "M"
+      }, {
+        name: "Bill Murray",
+        noun: "M"
+      }, {
+        name: "Channing Tatum and Jonah Hill",
+        noun: "P"
+      }, {
+        // name: "Chewbacca", noun: "M"},{
+        // name: "Christopher Lambert", noun: "M"},{
+        name: "Carrie Fisher",
+        noun: "F"
+      }, {
+        name: "Christopher Walken",
+        noun: "M"
+      }, {
+        name: "Danny Trejo",
+        noun: "M"
+      }, {
+        name: "David Hasselhof",
+        noun: "M"
+      }, {
+        name: "Dwayne 'The Rock' Johnson",
+        noun: "M"
+      }, {
+        name: "Eddie Murphy playing 10 different characters",
+        noun: "P"
+      }, {
+        name: "Ellen Page",
+        noun: "F"
+      }, {
+        name: "everyone from the Expandables",
+        noun: "P"
+      }, {
+        name: "the guys from The Flight of the Conchords",
+        noun: "P"
+      }, {
+        name: "Gary Busey",
+        noun: "M"
+      }, {
+        name: "GROOT!",
+        noun: "M"
+      }, {
+        name: "Henry Rollins",
+        noun: "M"
+      }, {
+        name: "Ice Cube",
+        noun: "M"
+      }, {
+        name: "Kevin Spacey",
+        noun: "M"
+      }, {
+        name: "Neil deGrasse Tyson",
+        noun: "M"
+      }, {
+        // name: "Jan-Michael Vincent", noun: "M"},{
+        name: "Jessica Biel",
+        noun: "F"
+      }, {
+        name: "Jennifer Lawrence",
+        noun: "F"
+      }, {
+        name: "Johnny Knoxville",
+        noun: "M"
+      }, {
+        name: "John Malkovich",
+        noun: "M"
+      }, {
+        name: "Jon Snow",
+        noun: "M"
+      }, {
+        name: "Kate Beckinsale",
+        noun: "F"
+      }, {
+        name: "The Avengers",
+        noun: "P"
+      }, {
+        name: "Kevin James",
+        noun: "M"
+      }, {
+        name: "Kung Fury",
+        noun: "M"
+      }, {
+        name: "Macaulay Culkin",
+        noun: "M"
+      }, {
+        name: "Madonna",
+        noun: "F"
+      }, {
+        name: "Mark Hamill",
+        noun: "M"
+      }, {
+        // name: "Marie Curie", noun: "F"},{
+        name: "Megan Fox",
+        noun: "F"
+      }, {
+        name: "Mel Gibson",
+        noun: "M"
+      }, {
+        name: "Michael Caine",
+        noun: "M"
+      }, {
+        name: "Michael J. Fox",
+        noun: "M"
+      }, {
+        name: "Optimus Prime",
+        noun: "M"
+      }, {
+        name: "Sean Connery",
+        noun: "M"
+      }, {
+        name: "Shia LaBeouf",
+        noun: "M"
+      }, {
+        name: "Tom Hardy",
+        noun: "M"
+      }, {
+        name: "you, the audience",
+        noun: "Y"
+      }, {
+        name: "Whoopi Goldberg",
+        noun: "F"
+      }
       // {name: "The Count", noun: "M" }
     ];
 
@@ -399,24 +527,30 @@
         verb1: "win", verb2: "for"
       }, {
         verb1: "transport", verb2: "to"
-      },*/{
-        verb1: "deliver", verb2: "to"
-      },{
-        verb1: "steal", verb2: "from"
-      },{
-        verb1: "defend", verb2: "from"
-      },{
-        verb1: "retrieve", verb2: "from"
-      }];
+      },*/
+      {
+        verb1: "deliver",
+        verb2: "to"
+      }, {
+        verb1: "steal",
+        verb2: "from"
+      }, {
+        verb1: "defend",
+        verb2: "from"
+      }, {
+        verb1: "retrieve",
+        verb2: "from"
+      }
+    ];
 
-    let guffinAction = rollDice(50) ? getRandomFromArray(guffinActions) : {verb1: "save", verb2: "from" };
+    let guffinAction = rollDice(50) ? getRandomFromArray(guffinActions) : { verb1: "save", verb2: "from" };
 
     // let badguymaybe = rollDice(10) ? "falling in the hands of " : ""; // play around with this one a bit more
     let lifetime = rollDice(1) ? "Lifetime movie" : "movie";
     let startText = rollDice(1) ? "It's a movie fully told in non sequitur, starring" : `It's a ${lifetime} starring`;
     let newTitle = "New Title";
     let newText = `${startText} ${adjective} ${randoActor.name}, who ${getRandomFromArray(situation)}. And ${getActorGenderText(randoActor.noun).they} ${getActorGenderText(randoActor.noun).has} to ${getRandomFromArray(actions)} to ${guffinAction.verb1} ${getRandomFromArray(mcguffin)} ${guffinAction.verb2} ${getRandomFromArray(badguy)}.`;
-    return {title: newTitle, plot: newText};
+    return { title: newTitle, plot: newText };
   }
 
   let generateQuickie = () => {
@@ -484,7 +618,7 @@
 
     let newTitle = "New Title";
     let newText = `Lets just do a ${getRandomFromArray(genre)} of ${getRandomFromArray(oldmovie)} and call it a wrap.`;
-    return {title: newTitle, plot: newText};
+    return { title: newTitle, plot: newText };
   }
 
   let generatePlotTwist = () => {
@@ -509,7 +643,7 @@
 
     let newTitle = "New Title";
     let newText = `${getRandomFromArray(actor)} is a ${getRandomFromArray(profession)}, but in a ${getRandomFromArray(adjective)} plot twist, ${getRandomFromArray(shyamalize)}.`;
-    return {title: newTitle, plot: newText};
+    return { title: newTitle, plot: newText };
   }
 
   const addThirdActProblem = () => {
@@ -618,7 +752,7 @@
       link: thisWebsiteURL,
       caption: currentMovieText,
       description: currentMovieText
-    }, function(response){});
+    }, function(response) {});
     // ga('send', 'event', "Moviepitch", "click", "share to Facebook", currentMovieText);
   }
 
@@ -630,6 +764,6 @@
   }
   document.querySelector('.btn-sharezvous').onclick = (e) => {
     e.preventDefault();
-    shareCurrentMovie();    
+    shareCurrentMovie();
   }
 }());
