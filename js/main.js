@@ -136,14 +136,12 @@
         name: "a woman down on her luck",
         noun: "F"
       }, {
-
         name: "a hard, grizzled, military man in the highest echelons of power",
         noun: "M"
       }, {
         name: "a British secret service agent",
         noun: "M"
       }, {
-
         name: "a former army type",
         noun: "M"
       }, {
@@ -326,18 +324,18 @@
     // who...
     const situation = [
       `is diagnosed with terminal lung cancer`,
-      "has a nasty break-up",
-      "whos parents get murdered",
+      `suffer${(randoActor.noun === "P" ? "" : "s")} a nasty break-up`,
+      `sees ${getActorGenderText(randoActor.noun).his} parents get murdered`,
       `gets beat up for ${getActorGenderText(randoActor.noun).his} lunch money`,
       // "gets beat up for " + getActorGenderText(randoActor.noun).his + " lunch money",
       "wakes up with no memory of what has happened in the last 24 hours",
       // "wins the Golden Ticket to that consumer product " + getActorGenderText(randoActor.noun).they + " everybody loves",
-      "wins the Golden Ticket to that consumer product everybody loves",
+      "wins the Golden Ticket to get a tour of the headquarters of that consumer product everybody loves",
       "becomes pregnant",
-      "has to go back to school",
+      `${getActorGenderText(randoActor.noun).has} to go back to school`,
       // "goes back to school",
       `encounters ${getActorGenderText(randoActor.noun).his} evil twin`,
-      "always complains nothing ever happens",
+      "always complains that nothing ever happens",
       `${getActorGenderText(randoActor.noun).has} to take the trip to Mars`,
       "gets a job",
       // "has a nightmare",
@@ -350,13 +348,14 @@
       "gets bitten by an irradiated toad",
       "gets caught in a series of unfortunate events",
       "wants to becomes a ballroom dancer",
+      "puts on Santa Claus' outfit, and therefor agrees to the responsibilities of that position", // only run on christmas??
       "plays a dangerous Game of Thrones",
       "investigates a psych ward",
       "returns from the dead",
       "takes a world-record breaking dump",
       "moves in next door",
       `${getActorGenderText(randoActor.noun).has} to babysit three toddlers`,
-      "make a porno",
+      `make${(randoActor.noun === "P" ? "" : "s")} a porno`,
       "signs up for cross fit",
       "spends a romantic weekend in a cabin in the woods"
     ];
@@ -383,6 +382,7 @@
       "travel to Mordor",
       // "give dem people air",
       "plan a heist",
+      "write the perfect BuzzFeed clickbait title",
       "prevent a bus from going below 60mph",
       "take a day off",
       "go deep undercover",
@@ -421,7 +421,7 @@
       "a crystal skull",
       "a really old vintage wine",
       "a Bigger Blacker Dick™",
-      "a carton of VB",
+      `a carton of <span title="For you non-Australians, it's a beer called Victoria Bitter">VB</span>`,
       "the Continuum Transfunctioner",
       "the City of London",
       "David Bowie's crotch",
@@ -453,7 +453,7 @@
       "a young Betty White",
       "Seal",
       "a shady man sitting in a chair",
-      "reincarnated Elvis Presley",
+      "a reincarnated Elvis Presley",
       "an army of the undead",
       "going back in time to kill himself",
       "velociraptors with machine guns",

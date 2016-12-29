@@ -391,6 +391,8 @@ body {
 .footer-container {
   -ms-flex: 0 1 auto;
       flex: 0 1 auto; }
+  .footer-container .fb-like {
+    filter: sepia(1); }
   @media only screen and (max-width: 767px) {
     .footer-container .fb-like {
       display: block;
