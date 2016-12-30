@@ -31,7 +31,7 @@ html{
   font-size: 10px;
   font-family: 'Special Elite', monospace;
   height: 100%;
-  // background-image: url(../img/background.jpg);
+  background-color: #562920;
   background-image: url(../img/desk@mob.jpg),  url(../img/desk@mob-pattern.jpg);
   background-repeat: no-repeat, repeat;
   background-position: 50%;
@@ -76,10 +76,11 @@ body{
 
 
 .btn-default{
+  display: inline-flex;
+  align-items: flex-end;
   margin: 1em 0em 2em;
   font-size: 1.5em;
   border: none;
-  display: inline-block;
   background: black;
   color: white;
   text-align: center;
@@ -115,7 +116,13 @@ body{
     margin-right: 1em;
   }
 }
-
+.btn-sharezvous{
+  display: flex;
+  align-items: flex-end;
+  margin: 0;
+  padding: 5px 15px;
+  font-size: 0.75em;
+}
 /* Template Styles */
 
 .header-container{
@@ -154,7 +161,7 @@ body{
   }
   @media only screen and (min-width: 768px) {
     .wrapper{
-      padding-top: 75px;
+      padding-top: 50px;
       max-width: 830px;
     }
     h1{
@@ -162,20 +169,21 @@ body{
       text-align: center;
       // text-align: left;
       margin: 0;
-    }
-  }
-  @media only screen and (min-width: 1140px) {
-    .wrapper{
-      max-width: 830px;
-    }
-    h1{
-      font-size: 4em;
-      text-align: center;
       a {
         span{
           display: inline;
         }
       }
+    }
+  }
+  @media only screen and (min-width: 1140px) {
+    .wrapper{
+      padding-top: 75px;
+      max-width: 830px;
+    }
+    h1{
+      font-size: 4em;
+      text-align: center;
     }
   }
 }
@@ -321,6 +329,17 @@ body{
       padding: 30px 20px;
       min-height: 170px;
     }
+    .btn-sharezvous{
+      pointer-events: none;
+      opacity: 0.1;
+      transition: opacity 250ms;
+    }
+    &:nth-last-of-type(-n+2){
+      .btn-sharezvous{
+        opacity: 1;
+        pointer-events: initial;
+      }
+    }
   }
   @media only screen and (min-width: 480px) {
   }
@@ -341,6 +360,11 @@ body{
   }
   @media only screen and (min-width: 1140px) {
   }
+}
+.share-container{
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
 }
 .movie-text--wrapper{
   min-height: 150px;

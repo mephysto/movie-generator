@@ -96,6 +96,7 @@ html {
   font-size: 10px;
   font-family: 'Special Elite', monospace;
   height: 100%;
+  background-color: #562920;
   background-image: url(../img/desk@mob.jpg), url(../img/desk@mob-pattern.jpg);
   background-repeat: no-repeat, repeat;
   background-position: 50%;
@@ -136,10 +137,13 @@ body {
       margin: 0 auto; } }
 
 .btn-default {
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -ms-flex-align: end;
+      align-items: flex-end;
   margin: 1em 0em 2em;
   font-size: 1.5em;
   border: none;
-  display: inline-block;
   background: black;
   color: white;
   text-align: center;
@@ -177,6 +181,15 @@ body {
       margin-left: 1em;
       margin-right: 1em; } }
 
+.btn-sharezvous {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: end;
+      align-items: flex-end;
+  margin: 0;
+  padding: 5px 15px;
+  font-size: 0.75em; }
+
 /* Template Styles */
 .header-container {
   -ms-flex: 0 1 auto;
@@ -202,20 +215,21 @@ body {
         text-decoration: underline; }
   @media only screen and (min-width: 768px) {
     .header-container .wrapper {
-      padding-top: 75px;
+      padding-top: 50px;
       max-width: 830px; }
     .header-container h1 {
       font-size: 3.75em;
       text-align: center;
-      margin: 0; } }
+      margin: 0; }
+      .header-container h1 a span {
+        display: inline; } }
   @media only screen and (min-width: 1140px) {
     .header-container .wrapper {
+      padding-top: 75px;
       max-width: 830px; }
     .header-container h1 {
       font-size: 4em;
-      text-align: center; }
-      .header-container h1 a span {
-        display: inline; } }
+      text-align: center; } }
 
 .main-container {
   -ms-flex: 1 1 auto;
@@ -360,6 +374,13 @@ body {
       margin-left: 50px;
       padding: 30px 20px;
       min-height: 170px; }
+    .movie-text blockquote .btn-sharezvous {
+      pointer-events: none;
+      opacity: 0.1;
+      transition: opacity 250ms; }
+    .movie-text blockquote:nth-last-of-type(-n+2) .btn-sharezvous {
+      opacity: 1;
+      pointer-events: initial; }
   @media only screen and (min-width: 768px) {
     .movie-text {
       perspective: 150px; }
@@ -372,6 +393,14 @@ body {
         .movie-text blockquote .quotetext {
           margin-left: 75px;
           padding: 60px 25px; } }
+
+.share-container {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: end;
+      justify-content: flex-end;
+  -ms-flex-align: end;
+      align-items: flex-end; }
 
 .movie-text--wrapper {
   min-height: 150px; }
