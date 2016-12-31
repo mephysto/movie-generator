@@ -52,6 +52,18 @@
       quoteTextDiv.appendChild(quoteTextP);
       newBlockQuote.appendChild(perDiv);
       newBlockQuote.appendChild(quoteTextDiv);
+      const shareContainer = document.createElement('div');
+      quoteTextDiv.appendChild(shareContainer);
+      shareContainer.classList.add('share-container');
+      const shareButton = document.createElement('button');
+      shareButton.type = "button";
+      shareButton.classList.add('btn-default', 'btn-sharezvous');
+      shareButton.innerHTML = `Share this film <i class="fa fa-facebook-official"></i>`
+      shareContainer.appendChild(shareButton);
+      shareButton.addEventListener('click', (e) => {
+        e.preventDefault();
+        shareCurrentMovie();
+      })
       return newBlockQuote;
     }
     const tempEl = document.createElement('p');
@@ -131,7 +143,7 @@
         noun: "P"
       }, {
         name: "a somewhat awkward teenager",
-        noun: "P"
+        noun: "F"
       }, {
         name: "a 30-something year old man",
         noun: "M"
@@ -403,7 +415,7 @@
       `get${(randoActor.noun === "P" ? "" : "s")} bitten by an irradiated toad`,
       `get${(randoActor.noun === "P" ? "" : "s")} caught in a series of unfortunate events`,
       `want${(randoActor.noun === "P" ? "" : "s")} to becomes ${(randoActor.noun === "P" ? "" : "a ")}ballroom dancer${(randoActor.noun === "P" ? "s" : "")}`,
-      `put${(randoActor.noun === "P" ? "" : "s")} on Santa Claus' outfit, and therefor agrees to the responsibilities of that position`, // only run on christmas??
+      `put${(randoActor.noun === "P" ? "" : "s")} on Santa Claus' outfit, and therefor agree${(randoActor.noun === "P" ? "" : "s")} to the responsibilities of that position`, // only run on christmas??
       `play${(randoActor.noun === "P" ? "" : "s")} a dangerous Game of Thrones`,
       `investigate${(randoActor.noun === "P" ? "" : "s")} a psych ward`,
       `return${(randoActor.noun === "P" ? "" : "s")} from the dead`,
@@ -427,8 +439,8 @@
       "gather a group of seven magnificent warriors",
       "fight the undead",
       // "get the band back together",
-      `switch places with ${getActorGenderText(randoActor.noun).his} best friend`,
-      "become a vampire",
+      `switch places with ${getActorGenderText(randoActor.noun).his} best friend${(randoActor.noun === "P" ? "s" : "")}`,
+      `${(randoActor.noun === "P" ? "all " : "")}become a vampire`,
       "go to jail",
       "survive long enough",
       "enter The Matrix",
@@ -450,12 +462,12 @@
       "go through a long, elaborate training montage",
       "make an unexpected friend",
       "use hollistic medicine",
-      "become a superhero",
+      `${(randoActor.noun === "P" ? "all " : "")}become a superhero`,
       "learn karate",
       "have brain surgery",
       // "comes to life",
-      "become a pre-cog",
-      "become the highest bidder on eBay",
+      `${(randoActor.noun === "P" ? "all " : "")}become a pre-cog`,
+      `${(randoActor.noun === "P" ? "all " : "")}become the highest bidder on eBay`,
       // "post a letter",
       "deliver a message to Obi-Wan",
       "rock out",
@@ -837,9 +849,5 @@
     ga('send', 'event', "Moviepitch", "click", "generate new movie pitch", currentMovieText);
     generateNewMovie();
     audio.play();
-  }
-  document.querySelector('.btn-sharezvous').onclick = (e) => {
-    e.preventDefault();
-    shareCurrentMovie();
   }
 }());
