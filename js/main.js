@@ -149,7 +149,7 @@
         noun: "M"
       }, {
         name: "a clueless young woman who's new to the big city",
-        noun: "M"
+        noun: "F"
       }, {
         name: "a political mastermind",
         noun: "M"
@@ -320,9 +320,58 @@
         name: "Whoopi Goldberg",
         noun: "F"
       }, {
-        name: "An underdog figure",
+        name: "an underdog figure",
         noun: "M"
+      }, {
+        name: "Four fun-loving friends",
+        noun: "P"
+      }, {
+        name: "a kung-fu master",
+        noun: "M"
+      }, {
+        name: "a kung-fu mistress",
+        noun: "F"
+      }, {
+        name: "a tough London cop",
+        noun: "M"
+      }, {
+        name: "a hopeless romantic",
+        noun: "M"
+      }, {
+        name: "a sexist pig",
+        noun: "M"
+      }, {
+        name: "a young average suburban couple",
+        noun: "P"
+      }, {
+        name: "an 80's Wall Street yuppie",
+        noun: "M"
+      }, {
+        name: "a middle-aged slacker",
+        noun: "M"
+      }, {
+        name: "three fed-up office slaves",
+        noun: "P"
+      }, {
+        name: "a Youtube celebrity",
+        noun: "M"
+      }, {
+        name: "a small town blue collar sheriff",
+        noun: "M"
+      }, {
+        name: "a team of scientists",
+        noun: "P"
+      }, {
+        name: "a gay couple",
+        noun: "P"
+      }, {
+        name: "an interracial couple",
+        noun: "P"
+      }, {
+        name: "a single mom",
+        noun: "F"
       }
+      
       // {name: "The Count", noun: "M" }
     ];
 
@@ -365,6 +414,10 @@
       `sign${(randoActor.noun === "P" ? "" : "s")} up for cross fit`,
       `spend${(randoActor.noun === "P" ? "" : "s")} a romantic weekend in a cabin in the woods`,
       `need${(randoActor.noun === "P" ? "" : "s")} to figure out a way to communicate with space aliens, while struggling with ${getActorGenderText(randoActor.noun).his} past`,
+      `find${(randoActor.noun === "P" ? "" : "s")} out that ${getActorGenderText(randoActor.noun).his} neighbours hide a terrible secret`,
+      `get${(randoActor.noun === "P" ? "" : "s")} challenged to trial by combat`,
+      `just want${(randoActor.noun === "P" ? "" : "s")} some goddamn piece and quiet`,
+      `${getActorGenderText(randoActor.noun).has} to spend the night in an abandoned hotel`
     ];
     // and has to...
     const actions = [
@@ -390,11 +443,11 @@
       // "give dem people air",
       "plan a heist",
       "write the perfect BuzzFeed clickbait title",
-      "prevent a bus from going below 60mph",
+      "prevent a motorized vehicle from going below 60mph",
       "take a day off",
       "go deep undercover",
       "sings a heart wrenching power ballad",
-      "go through a long training montage",
+      "go through a long, elaborate training montage",
       "make an unexpected friend",
       "use hollistic medicine",
       "become a superhero",
@@ -405,7 +458,9 @@
       "become the highest bidder on eBay",
       // "post a letter",
       "deliver a message to Obi-Wan",
-      "rock out"
+      "rock out",
+      "prevent another Brexit",
+      `find ${getActorGenderText(randoActor.noun).his} spirit animal`
     ];
     const mcguffin = [
       "The Pick of Truth",
@@ -673,14 +728,14 @@
       "then we realise the beginning of the movie was the ending and the ending is the beginning",
 
       "then again, we're not following a Joseph Campbell storycircle anyway",
-      "we set up the sequel with a vague ending",
+      "we set up for a sequel by having a vague ending",
       "it won’t matter if it flops because it’ll do well in China",
-      "it ends with a heavy metal cover of the song from Titanic",
+      "it ends with a heavy metal cover of that song from Titanic",
       "Dan Harmon comes in and does a sweet rap battle, and all is good",
       "we got the Mythbusters to help us explain that bit",
       "then we zoom out and see everything took place in a snow globe",
-      "it was in his head all along",
-      "at least we still have Donald Glover, so it's all good (or at least until next year)",
+      `it was in ${getActorGenderText(randoActor.noun).his} head all along`,
+      "at least we still have Donald Glover, so it's all good (for at least another next season)",
       "we'll have tons of lens flares",
       "at least we've retained merchandising rights"
     ];
@@ -741,7 +796,8 @@
       "a metaphor for NSA surveillance",
       "a metaphor for government control and censorship",
       // "1984",
-      "a social commentary on gay rights"
+      "a social commentary on gay rights",
+      "about drugs"
     ];
     return ` It's basically ${getRandomFromArray(metaphores)}.`;
   }
