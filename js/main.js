@@ -722,7 +722,6 @@
     return { title: newTitle, plot: newText, actor: actor };
   }
   const addThirdActProblem = (actor) => {
-
     const problem = [
       "we’ve already written ourselves into a corner and the movie is ruined",
       "we pray that everyone has left the cinema already",
@@ -746,7 +745,7 @@
       "Dan Harmon comes in and does a sweet rap battle, and all is good",
       "we got the Mythbusters to help us explain that bit",
       "then we zoom out and see everything took place in a snow globe",
-      `it was in ${getActorGenderText(actor).his} head all along`,
+      `it was in ${getActorGenderText(actor.noun).his} head all along`,
       "at least we still have Donald Glover, so it's all good (for at least another next season)",
       "we'll have tons of lens flares",
       "at least we've retained merchandising rights"
