@@ -23,6 +23,34 @@
   // get random entry from fed array 
   const getRandomFromArray = (inputArray) => inputArray[Math.floor(inputArray.length * Math.random())];
 
+  // Ugh.. Grammar is dumbbbbb
+  const getActorGenderText = (gender) => {
+    if (gender.toUpperCase() === "P") {
+      return {
+        they: "they",
+        his: "their",
+        has: "have"
+      };
+    } else if (gender.toUpperCase() === "F") {
+      return {
+        they: "she",
+        his: "her",
+        has: "has"
+      };
+    } else if (gender.toUpperCase() === "Y") {
+      return {
+        they: "you, the audience,",
+        his: "your",
+        has: "have"
+      };
+    } else {
+      return {
+        they: "he",
+        his: "his",
+        has: "has"
+      };
+    }
+}
   // The main generizer
   const generateNewMovie = () => {
     const randomStartStyle = () => {
@@ -66,34 +94,6 @@
       })
       return newBlockQuote;
     }
-    // Ugh.. Grammar is dumbbbbb
-    const getActorGenderText = (gender) => {
-      if (gender.toUpperCase() === "P") {
-        return {
-          they: "they",
-          his: "their",
-          has: "have"
-        };
-      } else if (gender.toUpperCase() === "F") {
-        return {
-          they: "she",
-          his: "her",
-          has: "has"
-        };
-      } else if (gender.toUpperCase() === "Y") {
-        return {
-          they: "you, the audience,",
-          his: "your",
-          has: "have"
-        };
-      } else {
-        return {
-          they: "he",
-          his: "his",
-          has: "has"
-        };
-      }
-    }
     const tempEl = document.createElement('p');
     tempEl.innerHTML = nextMovieText.plot;
     currentMovieText = tempEl.innerText; // some of my lines have HTML in there
@@ -107,7 +107,7 @@
         nextMovieText = generateNewMovieDefault();
       }
       if (rollDice(10)) {
-        nextMovieText.plot += addThirdActProblem();
+        nextMovieText.plot += addThirdActProblem(nextMovieText.actor);
       }
     }
     // some sexy extra flavour text
@@ -628,7 +628,7 @@
     let startText = rollDice(1) ? "It's a movie fully told in non sequitur, starring" : `It's a ${lifetime} starring`;
     let newTitle = "New Title";
     let newText = `${startText} ${adjective} ${randoActor.name}, who ${getRandomFromArray(situation)}. And ${getActorGenderText(randoActor.noun).they} ${getActorGenderText(randoActor.noun).has} to ${getRandomFromArray(actions)} to ${guffinAction.verb1} ${getRandomFromArray(mcguffin)} ${guffinAction.verb2} ${getRandomFromArray(badguy)}.`;
-    return { title: newTitle, plot: newText };
+    return { title: newTitle, plot: newText, actor: randoActor };
   }
   const generateQuickie = () => {
     const genre = [
@@ -719,9 +719,9 @@
 
     let newTitle = "New Title";
     let newText = `${getRandomFromArray(actor)} is a ${getRandomFromArray(profession)}, but in a ${getRandomFromArray(adjective)} plot twist, ${getRandomFromArray(shyamalize)}.`;
-    return { title: newTitle, plot: newText };
+    return { title: newTitle, plot: newText, actor: actor };
   }
-  const addThirdActProblem = () => {
+  const addThirdActProblem = (actor) => {
 
     const problem = [
       "we’ve already written ourselves into a corner and the movie is ruined",
@@ -746,7 +746,7 @@
       "Dan Harmon comes in and does a sweet rap battle, and all is good",
       "we got the Mythbusters to help us explain that bit",
       "then we zoom out and see everything took place in a snow globe",
-      `it was in ${getActorGenderText(randoActor.noun).his} head all along`,
+      `it was in ${getActorGenderText(actor).his} head all along`,
       "at least we still have Donald Glover, so it's all good (for at least another next season)",
       "we'll have tons of lens flares",
       "at least we've retained merchandising rights"
