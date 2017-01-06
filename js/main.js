@@ -66,6 +66,34 @@
       })
       return newBlockQuote;
     }
+    // Ugh.. Grammar is dumbbbbb
+    const getActorGenderText = (gender) => {
+      if (gender.toUpperCase() === "P") {
+        return {
+          they: "they",
+          his: "their",
+          has: "have"
+        };
+      } else if (gender.toUpperCase() === "F") {
+        return {
+          they: "she",
+          his: "her",
+          has: "has"
+        };
+      } else if (gender.toUpperCase() === "Y") {
+        return {
+          they: "you, the audience,",
+          his: "your",
+          has: "have"
+        };
+      } else {
+        return {
+          they: "he",
+          his: "his",
+          has: "has"
+        };
+      }
+    }
     const tempEl = document.createElement('p');
     tempEl.innerHTML = nextMovieText.plot;
     currentMovieText = tempEl.innerText; // some of my lines have HTML in there
@@ -106,35 +134,7 @@
   }
   // the main movie text. 
   const generateNewMovieDefault = () => {
-    // Ugh.. Grammar is dumbbbbb
-    const getActorGenderText = (gender) => {
-        if (gender.toUpperCase() === "P") {
-          return {
-            they: "they",
-            his: "their",
-            has: "have"
-          };
-        } else if (gender.toUpperCase() === "F") {
-          return {
-            they: "she",
-            his: "her",
-            has: "has"
-          };
-        } else if (gender.toUpperCase() === "Y") {
-          return {
-            they: "you, the audience,",
-            his: "your",
-            has: "have"
-          };
-        } else {
-          return {
-            they: "he",
-            his: "his",
-            has: "has"
-          };
-        }
-      }
-      // list of heroes
+    // list of heroes
     const actor = [{
         name: "a group of teenage friends",
         noun: "P"
