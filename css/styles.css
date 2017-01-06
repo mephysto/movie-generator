@@ -357,6 +357,7 @@ body {
       opacity: 0;
       pointer-events: none; }
       .movie-text blockquote.new button {
+        display: none;
         pointer-events: none; }
     .movie-text blockquote .perforation {
       height: 100%;
