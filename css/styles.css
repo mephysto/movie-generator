@@ -258,6 +258,9 @@ body {
       flex: 1 1 auto;
   -ms-flex-item-align: stretch;
       align-self: stretch; }
+  @media only screen and (min-width: 768px) {
+    .main {
+      max-height: 70vh; } }
 
 .landing {
   position: relative;
