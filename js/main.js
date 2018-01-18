@@ -216,11 +216,11 @@
       }, {
         name: "Channing Tatum and Jonah Hill",
         noun: "P"
-      }, {
+      // }, {
         // name: "Chewbacca", noun: "M"},{
         // name: "Christopher Lambert", noun: "M"},{
-        name: "Carrie Fisher",
-        noun: "F"
+      //   name: "Carrie Fisher", :(
+      //   noun: "F"
       }, {
         name: "Christopher Walken",
         noun: "M"
