@@ -74,7 +74,14 @@ body{
   }
 }
 
-
+@keyframes rotate{
+ 0%{
+   transform: rotate(0deg)
+ }
+ 100%{
+   transform: rotate(360deg)
+ }
+}
 .btn-default{
   display: inline-flex;
   align-items: flex-end;
@@ -94,6 +101,13 @@ body{
   transition: 200ms ease-out transform;
   @include depthShadow(3);
   border: 1px solid transparent;
+  &.loading{
+    pointer-events: none;
+    color: #666;
+    i{
+      animation: rotate 1s linear forwards infinite;
+    }
+  }
   &:hover{
     transform: translate(0,-1px);
     @include depthShadow(4);
