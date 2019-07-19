@@ -64,22 +64,6 @@ Z?MMMMMMMMMM....... MMM....7....MMMM+
     <link rel="stylesheet" href="../css/styles.css">
   </head>
   <body>
-    <script>
-      window.fbAsyncInit = function() {
-        FB.init({
-          appId      : '165861533797333',
-          xfbml      : true,
-          version    : 'v2.5'
-        });
-      };
-      (function(d, s, id){
-       var js, fjs = d.getElementsByTagName(s)[0];
-       if (d.getElementById(id)) {return;}
-       js = d.createElement(s); js.id = id;
-       js.src = "//connect.facebook.net/en_US/sdk.js";
-       fjs.parentNode.insertBefore(js, fjs);
-     }(document, 'script', 'facebook-jssdk'));
-   </script>
    <header class="header-container">
     <div class="header">
       <div class="wrapper">
@@ -93,10 +77,17 @@ Z?MMMMMMMMMM....... MMM....7....MMMM+
   <div class="main wrapper">
 
     <article class="movie-texts">
-      <section class="movie-text"></section>
+      <section class="movie-text">
+        <blockquote style="transform: translate3d(-50%, -50%, 0px) rotate(-1.134deg);">
+          <div class="perforation"></div>
+          <div class="quotetext">
+            <p>Click generate new movie, yo</p>
+          </div>
+        </blockquote>
+      </section>
 
       <section class="buttons">
-        <button type="button" class="btn btn-default btn-generate" autofocus>Give me another <i class="fa fa-refresh"></i></button>
+        <button type="button" class="btn btn-default btn-generate" autofocus>Generate new movie <i class="fa fa-refresh"></i></button>
       </section>
     </article>
 
@@ -111,7 +102,6 @@ Z?MMMMMMMMMM....... MMM....7....MMMM+
       </div>
       <div class="fc-credits">
         <p>💩 <a href="http://mephysto.github.io/movie-generator/">Movie Generator</a>. Brained up by <a href="http://twitter.com/mephysto/" target="_blank">Maurice</a> &amp; <a href="https://twitter.com/CAndrawes" target="_blank">Chris</a>. Hope you like it </p>
-        <div class="fb-like" data-href="http://mephysto.github.io/movie-generator" data-layout="button" data-action="like" data-show-faces="false" data-share="false"></div>
       </div>
   </footer>
 </div>
